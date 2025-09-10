@@ -58,3 +58,18 @@ body {
 .mobile-nav.active {
   display: flex;
 }
+
+/* Dropdown menu */
+.dropdown-menu {
+  transform: translateY(10px);
+}
+.group:hover .dropdown-menu {
+  transform: translateY(0);
+}
+.mobile-item i {
+  transition: transform 0.3s ease;
+}
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
