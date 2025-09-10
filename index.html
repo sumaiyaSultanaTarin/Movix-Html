@@ -4,19 +4,114 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movix - Html Template</title>
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Fonts styles -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
       rel="stylesheet"
     />
-    
   </head>
-  <body>
-    <script src="script.js"></script>
-    <h1>Welcome to Movix</h1>
+  <body class="bg-gray-50 font-sora">
+    <!-- ===== Top Bar (Desktop only) ===== -->
+    <header class="bg-movix text-white py-2 hidden md:block">
+      <div class="container mx-auto px-4 flex justify-between items-center text-sm">
+        <!-- Left Info -->
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer">
+            <i class="fas fa-phone"></i><span>123-456-32-23</span>
+          </div>
+          <div class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer">
+            <i class="fas fa-envelope"></i><span>movix@gmail.com</span>
+          </div>
+          <div class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer">
+            <i class="fas fa-map-marker-alt"></i><span>371 7th Ave, New York, NY 10001</span>
+          </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-3">
+          <a href="#" class="w-8 h-8 bg-[var(--color-orange)] rounded-full flex items-center justify-center hover:bg-orange-600">
+            <i class="fab fa-facebook-f text-sm"></i>
+          </a>
+          <a href="#" class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#1DA1F2] hover:border-[#1DA1F2]">
+            <i class="fab fa-twitter text-sm"></i>
+          </a>
+          <a href="#" class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#0A66C2] hover:border-[#0A66C2]">
+            <i class="fab fa-linkedin-in text-sm"></i>
+          </a>
+          <a href="#" class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#E4405F] hover:border-[#E4405F]">
+            <i class="fab fa-instagram text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Navbar ===== -->
+    <nav class="bg-white shadow sticky top-0 z-50">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2 cursor-pointer">
+            <div class="logo-hover">
+              <img src="assets/images/logo.png" alt="Movix Logo" class="w-8 h-8 object-contain"/>
+            </div>
+            <span class="text-2xl font-bold text-[#003B49]">Movix</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8 font-medium">
+            <a href="#home" class="nav-link flex items-center">Home <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#services" class="nav-link flex items-center">Pages <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#blog" class="nav-link flex items-center">Blog <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+            <a href="#contact" class="nav-link">Contact Us</a>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center space-x-4">
+            <!-- Search -->
+            <button class="hidden md:flex items-center justify-center w-9 h-9 border border-[#003B49] rounded-full text-[#003B49] hover:bg-orange-500 hover:text-white hover:border-orange-500">
+              <i class="fas fa-search text-sm"></i>
+            </button>
+
+            <!-- Tracking -->
+            <button class="bg-[var(--color-orange)] hover:bg-orange-600 text-white px-4 py-2 rounded-md flex items-center space-x-2 text-sm font-semibold hidden md:flex">
+              <span>Tracking Order</span><i class="fas fa-arrow-up-right-from-square"></i>
+            </button>
+
+            <!-- Hamburger -->
+            <button class="md:hidden text-gray-600">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-nav md:hidden font-medium">
+          <a href="#home" class="nav-link flex items-center">Home <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+          <a href="#about" class="nav-link">About Us</a>
+          <a href="#services" class="nav-link flex items-center">Pages <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#blog" class="nav-link flex items-center">Blog <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+          <a href="#contact" class="nav-link">Contact Us</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
