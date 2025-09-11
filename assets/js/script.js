@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  /** ========== HEADER ========== **/
   const menuBtn = document.querySelector(".fa-bars");
   const mobileNav = document.querySelector(".mobile-nav");
 
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Parent dropdown toggle
   const mobileItems = document.querySelectorAll(".mobile-item > a");
-  mobileItems.forEach(link => {
+  mobileItems.forEach((link) => {
     const dropdown = link.nextElementSibling;
     if (dropdown) {
       link.addEventListener("click", (e) => {
@@ -26,23 +28,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Child links (close nav after click)
-  document.querySelectorAll(".mobile-dropdown a, .mobile-nav > a").forEach(link => {
-    const isParent = link.nextElementSibling && link.nextElementSibling.classList.contains("mobile-dropdown");
-    if (!isParent) {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
-        if (href && href.startsWith("#")) {
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: "smooth" });
+  // Child links 
+  document
+    .querySelectorAll(".mobile-dropdown a, .mobile-nav > a")
+    .forEach((link) => {
+      const isParent =
+        link.nextElementSibling &&
+        link.nextElementSibling.classList.contains("mobile-dropdown");
+      if (!isParent) {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("#")) {
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: "smooth" });
+            }
           }
-        }
-        closeMobileNav();
-      });
-    }
-  });
+          closeMobileNav();
+        });
+      }
+    });
 
   // Sticky nav shadow
   const nav = document.querySelector("nav");
@@ -55,21 +61,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  // Reset mobile nav when resizing to desktop
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 768) {
       closeMobileNav();
-      closeMobileSearch(); // Also close mobile search
     }
   });
 
   function closeMobileNav() {
     if (mobileNav) mobileNav.classList.remove("active");
-    document.querySelectorAll(".mobile-dropdown").forEach(dd => {
+    document.querySelectorAll(".mobile-dropdown").forEach((dd) => {
       dd.style.maxHeight = "0px";
     });
-    document.querySelectorAll(".mobile-item i").forEach(icon => {
+    document.querySelectorAll(".mobile-item i").forEach((icon) => {
       icon.classList.remove("rotate-180");
     });
   }
@@ -97,100 +100,105 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Mobile search functionality - IMPROVED
-  const mobileSearchToggle = document.getElementById("mobileSearchToggle");
-  let mobileSearchBox = null;
-  let mobileSearchContainer = null;
+});
 
-  function createMobileSearch() {
-    // Remove any existing mobile search first
-    removeMobileSearch();
-    
-    // Create container
-    mobileSearchContainer = document.createElement("div");
-    mobileSearchContainer.id = "mobileSearchContainer";
-    mobileSearchContainer.className = "mobile-search-container mt-2 px-4";
-    
-    // Create input
-    mobileSearchBox = document.createElement("input");
-    mobileSearchBox.type = "text";
-    mobileSearchBox.id = "mobileSearchBox";
-    mobileSearchBox.placeholder = "Search...";
-    mobileSearchBox.className = "border border-gray-400 rounded-md px-3 py-2 text-sm w-full";
-    
-    // Add input to container
-    mobileSearchContainer.appendChild(mobileSearchBox);
-    
-    // Add container to nav
-    const navContainer = document.querySelector("nav .container");
-    if (navContainer) {
-      navContainer.appendChild(mobileSearchContainer);
-    }
-    
-    return mobileSearchBox;
-  }
+// Counter Animation
+function animateCounters() {
+  document.querySelectorAll(".counter").forEach((counter) => {
+    const target = parseInt(counter.getAttribute("data-target"));
+    let current = 0;
+    const duration = 1000;
+    const stepTime = 20;
+    const steps = duration / stepTime;
+    const increment = target / steps;
 
-  function removeMobileSearch() {
-    // Remove existing search container if it exists
-    const existing = document.getElementById("mobileSearchContainer");
-    if (existing) {
-      existing.remove();
-    }
-    mobileSearchBox = null;
-    mobileSearchContainer = null;
-  }
-
-  function closeMobileSearch() {
-    removeMobileSearch();
-  }
-
-  // Clean up any existing mobile search on page load
-  removeMobileSearch();
-
-  if (mobileSearchToggle) {
-    mobileSearchToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      if (mobileSearchBox && mobileSearchContainer) {
-        // Search is currently open, close it
-        closeMobileSearch();
+    const updateCounter = () => {
+      if (current < target) {
+        current += increment;
+        counter.textContent = formatNumber(Math.floor(current));
+        setTimeout(updateCounter, stepTime);
       } else {
-        // Search is closed, open it
-        mobileSearchBox = createMobileSearch();
-        if (mobileSearchBox) {
-          mobileSearchBox.focus();
-          
-          // Close search when pressing Enter or Escape
-          mobileSearchBox.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-              closeMobileSearch();
-            }
-            // You can add Enter key handling for search submission here
-          });
-        }
+        counter.textContent = formatNumber(target);
       }
-    });
+    };
+    updateCounter();
+  });
+}
 
-    // Close mobile search when clicking outside
-    document.addEventListener("click", (e) => {
-      if (mobileSearchBox && mobileSearchContainer && 
-          !mobileSearchToggle.contains(e.target) && 
-          !mobileSearchContainer.contains(e.target)) {
-        closeMobileSearch();
-      }
-    });
+function formatNumber(num) {
+  if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
   }
+  if (num >= 1000) {
+    return Math.floor(num / 1000) + "K";
+  }
+  return num;
+}
 
-  // Close searches when page visibility changes (helps with refresh issues)
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      closeMobileSearch();
-      if (searchInput) {
-        searchInput.classList.remove("open");
-        searchInput.value = "";
-      }
+// Intersection Observer for counter animation
+const observerOptions = {
+  threshold: 0.3,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      observer.disconnect(); 
+    }
+  });
+}, observerOptions);
+
+// Scroll Indicators Functionality
+document.querySelectorAll(".scroll-btn").forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    document
+      .querySelectorAll(".scroll-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    if (index === 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (index === 3) {
+      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
     }
   });
 });
 
+// Update active indicator on scroll
+window.addEventListener("scroll", () => {
+  const scrollPosition = window.scrollY;
+  const indicators = document.querySelectorAll(".scroll-btn");
+
+  indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+  if (scrollPosition < window.innerHeight / 4) {
+    indicators[0]?.classList.add("active");
+  } else if (scrollPosition < window.innerHeight / 2) {
+    indicators[1]?.classList.add("active");
+  } else if (scrollPosition < (window.innerHeight * 3) / 4) {
+    indicators[2]?.classList.add("active");
+  } else {
+    indicators[3]?.classList.add("active");
+  }
+});
+
+
+
+//  stats container //
+document.addEventListener("DOMContentLoaded", () => {
+  const statsSection = document.querySelector(".bottom-section");
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+});
+document.querySelectorAll('.review-meta').forEach(el=>{
+  const r = Math.max(0, Math.min(5, parseFloat(el.dataset.rating)||0));
+  const n = parseInt(el.dataset.feedbacks)||0;
+  const stars = el.querySelector('.stars');
+  const copy  = el.querySelector('.review-copy');
+  stars.style.setProperty('--rating', r);
+  stars.setAttribute('aria-label', `${r.toFixed(1)} out of 5 stars`);
+  copy.textContent = `${r.toFixed(1)} reviews based on ${Intl.NumberFormat('en',{notation:'compact'}).format(n)} Feedbacks`;
+});
