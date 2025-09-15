@@ -151,12 +151,13 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Scroll Indicators Functionality
-document.querySelectorAll(".scroll-btn").forEach((btn, index) => {
+document.querySelectorAll(".scroll-indicator").forEach((btn, index) => {
   btn.addEventListener("click", () => {
     document
-      .querySelectorAll(".scroll-btn")
-      .forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
+      .querySelectorAll(".scroll-indicator")
+      .forEach((b) => b.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]"));
+
+    btn.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
 
     if (index === 0) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -169,21 +170,22 @@ document.querySelectorAll(".scroll-btn").forEach((btn, index) => {
 // Update active indicator on scroll
 window.addEventListener("scroll", () => {
   const scrollPosition = window.scrollY;
-  const indicators = document.querySelectorAll(".scroll-btn");
+  const indicators = document.querySelectorAll(".scroll-indicator");
 
-  indicators.forEach((indicator) => indicator.classList.remove("active"));
+  indicators.forEach((indicator) =>
+    indicator.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]")
+  );
 
   if (scrollPosition < window.innerHeight / 4) {
-    indicators[0]?.classList.add("active");
+    indicators[0]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
   } else if (scrollPosition < window.innerHeight / 2) {
-    indicators[1]?.classList.add("active");
+    indicators[1]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
   } else if (scrollPosition < (window.innerHeight * 3) / 4) {
-    indicators[2]?.classList.add("active");
+    indicators[2]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
   } else {
-    indicators[3]?.classList.add("active");
+    indicators[3]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
   }
 });
-
 
 
 //  stats container //

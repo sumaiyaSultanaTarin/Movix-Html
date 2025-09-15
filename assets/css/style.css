@@ -213,7 +213,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-
+/* 
 .scroll-indicators {
   position: absolute;
   right: 3rem;
@@ -246,7 +246,7 @@ body {
 .scroll-btn.active {
   background-color: var(--color-orange);
   border-color: var(--color-orange);
-}
+} */
 
 .discover-btn {
   background: var(--color-orange);
@@ -331,17 +331,17 @@ body {
   }
 
   .bottom-section .container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 1.5rem;
     text-align: center;
-  }
+ }
 
   .bottom-section img {
     width: 2.2rem;
     height: 2.2rem;
   }
-
+ 
   .bottom-section .counter {
     font-size: 1.4rem;
   }
