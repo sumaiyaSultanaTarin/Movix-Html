@@ -100,6 +100,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /** ========== WHAT WE DO SWIPER (responsive) ========== **/
+  if (window.Swiper) {
+    new Swiper('.whatwedo-swiper', {
+      slidesPerView: 1.1,
+      spaceBetween: 16,
+      speed: 500,
+      loop: false,
+      breakpoints: {
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        1024: { slidesPerView: 3, spaceBetween: 24 },
+      },
+      navigation: {
+        nextEl: '.wwd-next',
+        prevEl: '.wwd-prev',
+      },
+      a11y: true,
+    });
+  }
+
 });
 
 // Counter Animation
@@ -205,3 +224,37 @@ document.querySelectorAll('.review-meta').forEach(el=>{
   copy.textContent = `${r.toFixed(1)} reviews based on ${Intl.NumberFormat('en',{notation:'compact'}).format(n)} Feedbacks`;
 });
 
+const slider = document.getElementById("cardSlider");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+function getScrollStep() {
+  if (!slider) return 0;
+  const firstCard = slider.querySelector('div[role="card"], .relative');
+  const card = firstCard || slider.firstElementChild;
+  if (!card) return 0;
+  const cardWidth = card.getBoundingClientRect().width;
+  // Read computed gap from CSS (fallbacks by breakpoint)
+  const style = window.getComputedStyle(slider);
+  const gap = parseFloat(style.columnGap || style.gap || 24) || 24;
+  return cardWidth + gap;
+}
+
+function scrollByStep(dir) {
+  const step = getScrollStep();
+  if (step > 0) slider.scrollBy({ left: dir * step, behavior: "smooth" });
+}
+
+if (nextBtn && prevBtn && slider) {
+  nextBtn.addEventListener("click", () => scrollByStep(1));
+  prevBtn.addEventListener("click", () => scrollByStep(-1));
+  // Keep snapping accurate on resize
+  window.addEventListener("resize", () => {
+    // optional: align to nearest snap after resize
+    const step = getScrollStep();
+    if (step > 0) {
+      const idx = Math.round(slider.scrollLeft / step);
+      slider.scrollTo({ left: idx * step, behavior: "auto" });
+    }
+  });
+}

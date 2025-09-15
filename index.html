@@ -28,6 +28,12 @@
       href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Sora:wght@100..800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+
   </head>
   <body class="bg-gray-50 font-sora">
     <!-- ==== HEADER ==== -->
@@ -250,7 +256,7 @@
     <main>
       <!-- ==== HERO SCETION ==== -->
       <section
-        class="relative min-h-screen bg-cover bg-center bg-no-repeat"
+        class="relative min-h-screen bg-[var(--color-white)] bg-cover bg-center bg-no-repeat"
         style="background-image: url('assets/images/header-bg.png')"
       >
         <!-- Gradient Overlay -->
@@ -328,7 +334,7 @@
         </div>
 
         <!-- Bottom Section -->
-        <div class="relative rounded-t-[60px] z-20">
+        <div class="relative rounded-t-[60px]  z-20">
           <!-- Rotating Badge -->
           <div
             class="badge absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-28 bg-white rounded-full shadow-xl flex items-center justify-center"
@@ -534,7 +540,7 @@
     <img src="assets/icons/travelLogo.png"    class="h-8 mx-6 sm:mx-8" />
     <img src="assets/icons/truckingLogo.png"  class="h-6 mx-6 sm:mx-8" />
 
-    <!-- Set B (duplicate for seamless scroll) -->
+    <!-- Set B -->
     <img src="assets/icons/logisticsLogo.png" class="h-7 mx-6 sm:mx-8" />
     <img src="assets/icons/duragasLogo.png"   class="h-7 mx-6 sm:mx-8" />
     <img src="assets/icons/mondiLogo.png"     class="h-8 mx-6 sm:mx-8" />
@@ -544,6 +550,117 @@
 </div>
 </section>
       <!-- ==== END ABOUT US SECTION ==== -->
+      
+<!-- ==== WHAT WE DO SECTION ==== -->
+<section class="relative py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-16">
+    <!-- Heading -->
+    <div class="flex flex-col lg:flex-row justify-between items-start mb-12 mt-4 gap-8">
+      <div>
+        <span class="text-[var(--color-orange)] uppercase font-semibold tracking-wide inline-flex items-center gap-2">
+          <i class="fas fa-truck-moving"></i> What We Do
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#003B49] leading-snug mt-2">
+          Smart Logistics Services That <br /> Fit Your Business
+        </h2>
+      </div>
+      <p class="text-gray-600 leading-relaxed max-w-[450px]">
+        We specialize in helping individuals and families regain control of their financial future 
+        repairing and improving their credit.
+      </p>
+    </div>
+
+    <!-- Content Wrapper -->
+    <div class="grid lg:grid-cols-4 gap-8 items-start">
+      <!-- Left Image -->
+      <div class="lg:col-span-1">
+        <img 
+          src="assets/images/WhatWeDo.png" 
+          alt="Logistics"
+          class="w-full max-w-[450px] h-[350px] object-cover rounded-xl shadow-lg mx-auto lg:mx-0" />
+      </div>
+
+      <!-- Cards / Slider Wrapper -->
+      <div class="lg:col-span-3 relative">
+        <!-- On mobile: grid / On lg+: flex slider -->
+        <div id="cardSlider" 
+             class="grid grid-cols-1 sm:grid-cols-2 gap-6 
+                    lg:flex lg:gap-6 lg:overflow-x-auto scrollbar-hide scroll-smooth">
+
+          <!-- Card -->
+          <div class="relative overflow-hidden flex-shrink-0 w-full lg:w-[300px] p-6 bg-[#F5F7FA] rounded-2xl border border-[#EEF1F4] shadow-sm hover:shadow-md transition">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white shadow flex items-center justify-center mb-4">
+                <i class="fas fa-plane text-[var(--color-orange)] text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-lg text-[#003B49]">Air Freight</h4>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                Communication and utilizes cutting edge logistic planning to get your shipment completed.
+              </p>
+            </div>
+            <a href="#" class="text-[var(--color-orange)] text-sm font-semibold mt-5 inline-flex items-center gap-2 hover:underline">
+              Read More <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+            <span class="pointer-events-none absolute -bottom-15 -right-12 w-28 h-28 bg-[var(--color-orange)]/30 rounded-full"></span>
+            <span class="pointer-events-none absolute -bottom-5 -right-5 w-12 h-12 border-4 border-white rounded-full"></span>
+          </div>
+
+          <!-- Card -->
+          <div class="relative overflow-hidden flex-shrink-0 w-full lg:w-[300px] p-6 bg-[#F5F7FA] rounded-2xl border border-[#EEF1F4] shadow-sm hover:shadow-md transition">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[var(--color-orange)] shadow flex items-center justify-center mb-4">
+                <i class="fas fa-truck text-white text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-lg text-[#003B49]">Road Freight</h4>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                Communication and utilizes cutting edge logistic planning to get your shipment completed.
+              </p>
+            </div>
+            <a href="#" class="text-[var(--color-orange)] text-sm font-semibold mt-5 inline-flex items-center gap-2 hover:underline">
+              Read More <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+            <span class="pointer-events-none absolute -bottom-15 -right-12 w-28 h-28 bg-[var(--color-orange)] rounded-full"></span>
+            <span class="pointer-events-none absolute -bottom-5 -right-5 w-12 h-12 border-4 border-white rounded-full"></span>
+          </div>
+
+          <!-- Card -->
+          <div class="relative overflow-hidden flex-shrink-0 w-full lg:w-[300px] p-6 bg-[#F5F7FA] rounded-2xl border border-[#EEF1F4] shadow-sm hover:shadow-md transition">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white shadow flex items-center justify-center mb-4">
+                <i class="fas fa-biking text-[var(--color-orange)] text-xl "></i>
+              </div>
+              <h4 class="font-semibold text-lg text-[#003B49]">Bike Freight</h4>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                Communication and utilizes cutting edge logistic planning to get your shipment completed.
+              </p>
+            </div>
+            <a href="#" class="text-[var(--color-orange)] text-sm font-semibold mt-5 inline-flex items-center gap-2 hover:underline">
+              Read More <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+            <span class="pointer-events-none absolute -bottom-15 -right-12 w-28 h-28 bg-[var(--color-orange)]/10 rounded-full"></span>
+            <span class="pointer-events-none absolute -bottom-5 -right-5 w-12 h-12 border-4 border-white rounded-full"></span>
+          </div>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="hidden lg:flex justify-between items-center mt-8">
+          <span class="text-sm font-medium text-gray-700">Get Started</span>
+          <div class="flex gap-3">
+            <button id="prevBtn" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button id="nextBtn" class="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--color-orange)] text-white hover:bg-orange-600 transition">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+       <!-- ==== END WHAT WE DO SECTION ==== -->
 
 
 
@@ -551,5 +668,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/script.js"></script>
+    <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   </body>
 </html>

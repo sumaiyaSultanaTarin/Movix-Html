@@ -457,17 +457,12 @@ body {
   }
 }
 
-/* ==== Marquee Animation for Logos ==== */
+/* ==== ABOUT US SECTION ==== */
+
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); } 
 }
-
-/* .marquee-wrap {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-} */
 
 .marquee-track {
   display: flex;
@@ -477,13 +472,11 @@ body {
   will-change: transform;
 }
 
-/* Smooth pause on hover */
 .marquee-wrap:hover .marquee-track {
   animation-play-state: paused;
   transition: transform 0.3s ease-out;
 }
 
-/* Responsive speed */
 @media (max-width: 768px) {
   .marquee-track { animation-duration: 18s; gap: 1.5rem; }
 }
@@ -492,3 +485,13 @@ body {
   .marquee-track { animation-duration: 35s; }
 }
 
+/* ==== END ABOUT US SECTION ==== */
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
