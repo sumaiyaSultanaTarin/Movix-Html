@@ -12,21 +12,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Parent dropdown toggle
   const mobileItems = document.querySelectorAll(".mobile-item > a");
-  mobileItems.forEach((link) => {
-    const dropdown = link.nextElementSibling;
+ mobileItems.forEach((link) => {
+                const dropdown = link.nextElementSibling;
     if (dropdown) {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
+                    link.addEventListener("click", (e) => {
+                        e.preventDefault();
         if (dropdown.style.maxHeight && dropdown.style.maxHeight !== "0px") {
           dropdown.style.maxHeight = "0px";
           link.querySelector("i").classList.remove("rotate-180");
-        } else {
+                        } else {
           dropdown.style.maxHeight = dropdown.scrollHeight + "px";
           link.querySelector("i").classList.add("rotate-180");
-        }
-      });
-    }
-  });
+                        }
+                    });
+                }
+            });
 
   // Child links 
   document
@@ -202,3 +202,4 @@ document.querySelectorAll('.review-meta').forEach(el=>{
   stars.setAttribute('aria-label', `${r.toFixed(1)} out of 5 stars`);
   copy.textContent = `${r.toFixed(1)} reviews based on ${Intl.NumberFormat('en',{notation:'compact'}).format(n)} Feedbacks`;
 });
+

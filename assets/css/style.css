@@ -63,7 +63,6 @@ body {
   right: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 999;
-  
 }
 .mobile-nav.active {
   display: flex;
@@ -118,7 +117,6 @@ body {
   opacity: 1;
   margin-left: 0.5rem;
 }
-
 
 /* ==== Responsiveness Adjustments ==== */
 
@@ -350,9 +348,10 @@ body {
 
   .bottom-section .review-copy {
     font-size: 0.8rem;
+    display: none;
   }
 
-    .bottom-section .badge {
+  .bottom-section .badge {
     width: 4rem;
     height: 4rem;
   }
@@ -405,7 +404,7 @@ body {
     font-size: 1.8rem;
   }
 
-    .bottom-section .badge {
+  .bottom-section .badge {
     width: 5rem;
     height: 5rem;
   }
@@ -433,7 +432,7 @@ body {
   .bottom-section .counter {
     font-size: 2rem;
   }
-    .bottom-section .badge {
+  .bottom-section .badge {
     width: 6rem;
     height: 6rem;
   }
@@ -456,5 +455,40 @@ body {
   .bottom-section .container {
     margin-top: 1.5rem;
   }
+}
+
+/* ==== Marquee Animation for Logos ==== */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+
+/* .marquee-wrap {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+} */
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+/* Smooth pause on hover */
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+  transition: transform 0.3s ease-out;
+}
+
+/* Responsive speed */
+@media (max-width: 768px) {
+  .marquee-track { animation-duration: 18s; gap: 1.5rem; }
+}
+
+@media (min-width: 1280px) {
+  .marquee-track { animation-duration: 35s; }
 }
 
