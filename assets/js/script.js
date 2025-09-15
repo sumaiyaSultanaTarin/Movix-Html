@@ -166,42 +166,44 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Scroll Indicators Functionality
-document.querySelectorAll(".scroll-indicator").forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    document
-      .querySelectorAll(".scroll-indicator")
-      .forEach((b) => b.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]"));
 
-    btn.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
 
-    if (index === 0) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (index === 3) {
-      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-    }
-  });
-});
+// // Scroll Indicators Functionality
+// document.querySelectorAll(".scroll-indicator").forEach((btn, index) => {
+//   btn.addEventListener("click", () => {
+//     document
+//       .querySelectorAll(".scroll-indicator")
+//       .forEach((b) => b.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]"));
 
-// Update active indicator on scroll
-window.addEventListener("scroll", () => {
-  const scrollPosition = window.scrollY;
-  const indicators = document.querySelectorAll(".scroll-indicator");
+//     btn.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
 
-  indicators.forEach((indicator) =>
-    indicator.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]")
-  );
+//     if (index === 0) {
+//       window.scrollTo({ top: 0, behavior: "smooth" });
+//     } else if (index === 3) {
+//       window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+//     }
+//   });
+// });
 
-  if (scrollPosition < window.innerHeight / 4) {
-    indicators[0]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  } else if (scrollPosition < window.innerHeight / 2) {
-    indicators[1]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  } else if (scrollPosition < (window.innerHeight * 3) / 4) {
-    indicators[2]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  } else {
-    indicators[3]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  }
-});
+// // Update active indicator on scroll
+// window.addEventListener("scroll", () => {
+//   const scrollPosition = window.scrollY;
+//   const indicators = document.querySelectorAll(".scroll-indicator");
+
+//   indicators.forEach((indicator) =>
+//     indicator.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]")
+//   );
+
+//   if (scrollPosition < window.innerHeight / 4) {
+//     indicators[0]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
+//   } else if (scrollPosition < window.innerHeight / 2) {
+//     indicators[1]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
+//   } else if (scrollPosition < (window.innerHeight * 3) / 4) {
+//     indicators[2]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
+//   } else {
+//     indicators[3]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
+//   }
+// });
 
 
 //  stats container //
