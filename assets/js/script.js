@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /** ========== HEADER ========== **/
-  const menuBtn = document.querySelector(".fa-bars");
+  const menuBtn = document.getElementById("menuToggle");
   const mobileNav = document.querySelector(".mobile-nav");
 
   if (menuBtn && mobileNav) {
@@ -10,45 +10,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
   // Parent dropdown toggle
   const mobileItems = document.querySelectorAll(".mobile-item > a");
- mobileItems.forEach((link) => {
-                const dropdown = link.nextElementSibling;
+  mobileItems.forEach((link) => {
+    const dropdown = link.nextElementSibling;
     if (dropdown) {
-                    link.addEventListener("click", (e) => {
-                        e.preventDefault();
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
         if (dropdown.style.maxHeight && dropdown.style.maxHeight !== "0px") {
           dropdown.style.maxHeight = "0px";
-          link.querySelector("i").classList.remove("rotate-180");
-                        } else {
+          link.querySelector("i")?.classList.remove("rotate-180");
+        } else {
           dropdown.style.maxHeight = dropdown.scrollHeight + "px";
-          link.querySelector("i").classList.add("rotate-180");
-                        }
-                    });
-                }
-            });
+          link.querySelector("i")?.classList.add("rotate-180");
+        }
+      });
+    }
+  });
 
   // Child links 
-  document
-    .querySelectorAll(".mobile-dropdown a, .mobile-nav > a")
-    .forEach((link) => {
-      const isParent =
-        link.nextElementSibling &&
-        link.nextElementSibling.classList.contains("mobile-dropdown");
-      if (!isParent) {
-        link.addEventListener("click", (e) => {
-          const href = link.getAttribute("href");
-          if (href && href.startsWith("#")) {
-            const target = document.querySelector(href);
-            if (target) {
-              e.preventDefault();
-              target.scrollIntoView({ behavior: "smooth" });
-            }
+  document.querySelectorAll(".mobile-dropdown a, .mobile-nav > a").forEach((link) => {
+    const isParent = link.nextElementSibling?.classList?.contains("mobile-dropdown");
+    if (!isParent) {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href?.startsWith("#")) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
           }
-          closeMobileNav();
-        });
-      }
-    });
+        }
+        closeMobileNav();
+      });
+    }
+  });
 
   // Sticky nav shadow
   const nav = document.querySelector("nav");
@@ -224,6 +221,8 @@ document.querySelectorAll('.review-meta').forEach(el=>{
   copy.textContent = `${r.toFixed(1)} reviews based on ${Intl.NumberFormat('en',{notation:'compact'}).format(n)} Feedbacks`;
 });
 
+// Card Slider with Next/Prev Buttons
+
 const slider = document.getElementById("cardSlider");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
@@ -234,7 +233,6 @@ function getScrollStep() {
   const card = firstCard || slider.firstElementChild;
   if (!card) return 0;
   const cardWidth = card.getBoundingClientRect().width;
-  // Read computed gap from CSS (fallbacks by breakpoint)
   const style = window.getComputedStyle(slider);
   const gap = parseFloat(style.columnGap || style.gap || 24) || 24;
   return cardWidth + gap;
@@ -250,7 +248,6 @@ if (nextBtn && prevBtn && slider) {
   prevBtn.addEventListener("click", () => scrollByStep(-1));
   // Keep snapping accurate on resize
   window.addEventListener("resize", () => {
-    // optional: align to nearest snap after resize
     const step = getScrollStep();
     if (step > 0) {
       const idx = Math.round(slider.scrollLeft / step);
@@ -258,3 +255,8 @@ if (nextBtn && prevBtn && slider) {
     }
   });
 }
+
+//Our Projects Stats
+document
+.querySelectorAll(".bottom-section, #projects-stats")
+.forEach((el) => observer.observe(el));

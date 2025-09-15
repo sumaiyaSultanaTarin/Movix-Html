@@ -63,6 +63,8 @@ body {
   right: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 999;
+  overflow: hidden;
+  max-width: 100vw;
 }
 .mobile-nav.active {
   display: flex;
@@ -92,10 +94,22 @@ body {
 /* Dropdown menu */
 .dropdown-menu {
   transform: translateY(10px);
+  transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+
+}
+
+.dropdown-menu a {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
 }
 .group:hover .dropdown-menu {
   transform: translateY(0);
 }
+.group:hover .dropdown-menu a:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .08s; }
+.group:hover .dropdown-menu a:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .14s; }
+.group:hover .dropdown-menu a:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .20s; }
+.group:hover .dropdown-menu a:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .26s; }
 
 /* Search wrapper */
 .search-wrapper {
@@ -105,7 +119,11 @@ body {
   max-width: 200px;
   overflow: hidden;
 }
-
+.search-wrapper:hover #searchInput {
+  width: 140px;
+  opacity: 1;
+  margin-left: 0.5rem;
+}
 /* Search input */
 #searchInput {
   width: 0;
@@ -168,6 +186,9 @@ body {
   nav input {
     font-size: 0.8rem;
     padding: 0.4rem 0.6rem;
+  }
+  #cardSlider {
+    overflow: visible;      
   }
 }
 
@@ -487,7 +508,7 @@ body {
 
 /* ==== END ABOUT US SECTION ==== */
 
-/* Hide scrollbar but keep scroll functionality */
+/* ==== OUR PROJECTS SECTION ==== */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -495,3 +516,5 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+/* ==== END OUR PROJECTS SECTION ==== */
+
