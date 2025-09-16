@@ -1,4 +1,58 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ==== Lenis Smooth Scroll ====
+  if (window.Lenis) {
+    // compute sticky navbar height for offset
+    const nav = document.querySelector("nav");
+    const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
+
+    const lenis = new Lenis({
+      smoothWheel: true,
+      smoothTouch: false,
+      duration: 1.9,
+      easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
+      lerp: 0.06,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Hook ALL in-page anchor links to use Lenis
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      const hash = a.getAttribute("href");
+      if (!hash || hash === "#") return;
+      a.addEventListener("click", (e) => {
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.6 });
+        }
+      });
+    });
+
+    // Expose for debugging if needed
+    window.__lenis = lenis;
+  }
+
+  // Ensure desktop navbar links are intercepted even without Lenis
+  document.querySelectorAll('.md\\:flex .nav-link[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      const target = href ? document.querySelector(href) : null;
+      if (target) {
+        e.preventDefault();
+        if (window.__lenis) {
+          const nav = document.querySelector('nav');
+          const offset = nav ? -nav.getBoundingClientRect().height : 0;
+          window.__lenis.scrollTo(target, { duration: 1.6, offset });
+        } else {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  });
   /** ========== HEADER ========== **/
   const menuBtn = document.getElementById("menuToggle");
   const mobileNav = document.querySelector(".mobile-nav");
@@ -13,9 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("mouseenter", openMenu);
     mobileNav.addEventListener("mouseenter", openMenu);
     // Close when cursor leaves the drawer area
-    mobileNav.addEventListener("mouseleave", () => {
-      closeMobileNav();
-    });
+    // mobileNav.addEventListener("mouseleave", () => {
+    //   closeMobileNav();
+    // });
 
     // Click outside to close
     document.addEventListener("click", (e) => {
@@ -76,7 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const target = document.querySelector(href);
             if (target) {
               e.preventDefault();
-              target.scrollIntoView({ behavior: "smooth" });
+              if (window.__lenis) {
+                const nav = document.querySelector('nav');
+                const offset = nav ? -nav.getBoundingClientRect().height : 0;
+                window.__lenis.scrollTo(target, { duration: 1.0, offset });
+              } else {
+                target.scrollIntoView({ behavior: "smooth" });
+              }
             }
           }
           closeMobileNav();

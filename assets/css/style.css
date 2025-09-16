@@ -242,58 +242,6 @@ body {
   }
 }
 
-/* Hero Section */
-.hero {
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-/* 
-.scroll-indicators {
-  position: absolute;
-  right: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 10;
-}
-
-.scroll-btn {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 9999px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.scroll-btn:hover {
-  border-color: var(--color-orange);
-  background-color: var(--color-orange);
-}
-
-.scroll-btn.active {
-  background-color: var(--color-orange);
-  border-color: var(--color-orange);
-} */
-
-.discover-btn {
-  background: var(--color-orange);
-  transition: all 0.3s ease;
-}
-
-.discover-btn:hover {
-  background: #e56a3a;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 125, 68, 0.3);
-}
 
 /* Counter animation */
 .counter {
@@ -541,3 +489,8 @@ body {
   scrollbar-width: none;
 }
 /* ==== END OUR PROJECTS SECTION ==== */
+/* ==== Lenis integration tweaks ==== */
+html { scroll-behavior: auto; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body { overscroll-behavior: none; }
