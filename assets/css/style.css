@@ -94,22 +94,37 @@ body {
 /* Dropdown menu */
 .dropdown-menu {
   transform: translateY(10px);
-  transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
-
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .dropdown-menu a {
   opacity: 0;
   transform: translateY(6px);
-  transition: opacity .25s ease, transform .25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .group:hover .dropdown-menu {
   transform: translateY(0);
 }
-.group:hover .dropdown-menu a:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .08s; }
-.group:hover .dropdown-menu a:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .14s; }
-.group:hover .dropdown-menu a:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .20s; }
-.group:hover .dropdown-menu a:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .26s; }
+.group:hover .dropdown-menu a:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
+}
+.group:hover .dropdown-menu a:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.14s;
+}
+.group:hover .dropdown-menu a:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+.group:hover .dropdown-menu a:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.26s;
+}
 
 /* Search wrapper */
 .search-wrapper {
@@ -188,7 +203,7 @@ body {
     padding: 0.4rem 0.6rem;
   }
   #cardSlider {
-    overflow: visible;      
+    overflow: visible;
   }
 }
 
@@ -356,13 +371,13 @@ body {
     align-items: center;
     gap: 1.5rem;
     text-align: center;
- }
+  }
 
   .bottom-section img {
     width: 2.2rem;
     height: 2.2rem;
   }
- 
+
   .bottom-section .counter {
     font-size: 1.4rem;
   }
@@ -481,8 +496,12 @@ body {
 /* ==== ABOUT US SECTION ==== */
 
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } 
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -499,11 +518,16 @@ body {
 }
 
 @media (max-width: 768px) {
-  .marquee-track { animation-duration: 18s; gap: 1.5rem; }
+  .marquee-track {
+    animation-duration: 18s;
+    gap: 1.5rem;
+  }
 }
 
 @media (min-width: 1280px) {
-  .marquee-track { animation-duration: 35s; }
+  .marquee-track {
+    animation-duration: 35s;
+  }
 }
 
 /* ==== END ABOUT US SECTION ==== */
@@ -513,8 +537,7 @@ body {
   display: none;
 }
 .scrollbar-hide {
-  -ms-overflow-style: none; 
-  scrollbar-width: none;    
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 /* ==== END OUR PROJECTS SECTION ==== */
-
