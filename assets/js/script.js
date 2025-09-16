@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   /** ========== HEADER ========== **/
   const menuBtn = document.getElementById("menuToggle");
   const mobileNav = document.querySelector(".mobile-nav");
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileNav.classList.toggle("active");
     });
   }
-
 
   // Parent dropdown toggle
   const mobileItems = document.querySelectorAll(".mobile-item > a");
@@ -29,23 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Child links 
-  document.querySelectorAll(".mobile-dropdown a, .mobile-nav > a").forEach((link) => {
-    const isParent = link.nextElementSibling?.classList?.contains("mobile-dropdown");
-    if (!isParent) {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
-        if (href?.startsWith("#")) {
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: "smooth" });
+  // Child links
+  document
+    .querySelectorAll(".mobile-dropdown a, .mobile-nav > a")
+    .forEach((link) => {
+      const isParent =
+        link.nextElementSibling?.classList?.contains("mobile-dropdown");
+      if (!isParent) {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+          if (href?.startsWith("#")) {
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: "smooth" });
+            }
           }
-        }
-        closeMobileNav();
-      });
-    }
-  });
+          closeMobileNav();
+        });
+      }
+    });
 
   // Sticky nav shadow
   const nav = document.querySelector("nav");
@@ -97,9 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /** ========== WHAT WE DO SWIPER (responsive) ========== **/
+  /**  WHAT WE DO SWIPER **/
   if (window.Swiper) {
-    new Swiper('.whatwedo-swiper', {
+    new Swiper(".whatwedo-swiper", {
       slidesPerView: 1.1,
       spaceBetween: 16,
       speed: 500,
@@ -109,21 +110,20 @@ document.addEventListener("DOMContentLoaded", () => {
         1024: { slidesPerView: 3, spaceBetween: 24 },
       },
       navigation: {
-        nextEl: '.wwd-next',
-        prevEl: '.wwd-prev',
+        nextEl: ".wwd-next",
+        prevEl: ".wwd-prev",
       },
       a11y: true,
     });
   }
-
 });
 
-// Counter Animation
-function animateCounters() {
-  document.querySelectorAll(".counter").forEach((counter) => {
-    const target = parseInt(counter.getAttribute("data-target"));
+// Counter Animation for a given container
+function animateCountersIn(container) {
+  container.querySelectorAll(".counter").forEach((counter) => {
+    const target = parseInt(counter.getAttribute("data-target")) || 0;
     let current = 0;
-    const duration = 1000;
+    const duration = 1200;
     const stepTime = 20;
     const steps = duration / stepTime;
     const increment = target / steps;
@@ -151,22 +151,25 @@ function formatNumber(num) {
   return num;
 }
 
-// Intersection Observer for counter animation
-const observerOptions = {
-  threshold: 0.3,
-  rootMargin: "0px 0px -50px 0px",
-};
+// Intersection Observer for counter sections
+const counterObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCountersIn(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+    rootMargin: "0px 0px -50px 0px",
+  }
+);
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      animateCounters();
-      observer.disconnect(); 
-    }
-  });
-}, observerOptions);
-
-
+document.querySelectorAll(".counter-section").forEach((section) => {
+  counterObserver.observe(section);
+});
 
 // // Scroll Indicators Functionality
 // document.querySelectorAll(".scroll-indicator").forEach((btn, index) => {
@@ -205,22 +208,18 @@ const observer = new IntersectionObserver((entries) => {
 //   }
 // });
 
-
-//  stats container //
-document.addEventListener("DOMContentLoaded", () => {
-  const statsSection = document.querySelector(".bottom-section");
-  if (statsSection) {
-    observer.observe(statsSection);
-  }
-});
-document.querySelectorAll('.review-meta').forEach(el=>{
-  const r = Math.max(0, Math.min(5, parseFloat(el.dataset.rating)||0));
-  const n = parseInt(el.dataset.feedbacks)||0;
-  const stars = el.querySelector('.stars');
-  const copy  = el.querySelector('.review-copy');
-  stars.style.setProperty('--rating', r);
-  stars.setAttribute('aria-label', `${r.toFixed(1)} out of 5 stars`);
-  copy.textContent = `${r.toFixed(1)} reviews based on ${Intl.NumberFormat('en',{notation:'compact'}).format(n)} Feedbacks`;
+//  stars //
+document.querySelectorAll(".review-meta").forEach((el) => {
+  const r = Math.max(0, Math.min(5, parseFloat(el.dataset.rating) || 0));
+  const n = parseInt(el.dataset.feedbacks) || 0;
+  const stars = el.querySelector(".stars");
+  const copy = el.querySelector(".review-copy");
+  stars.style.setProperty("--rating", r);
+  stars.setAttribute("aria-label", `${r.toFixed(1)} out of 5 stars`);
+  copy.textContent = `${r.toFixed(1)} reviews based on ${Intl.NumberFormat(
+    "en",
+    { notation: "compact" }
+  ).format(n)} Feedbacks`;
 });
 
 // Card Slider with Next/Prev Buttons
@@ -258,7 +257,101 @@ if (nextBtn && prevBtn && slider) {
   });
 }
 
-//Our Projects Stats
+// Our Projects Stats
 document
-.querySelectorAll(".bottom-section, #projects-stats")
-.forEach((el) => observer.observe(el));
+  .querySelectorAll(".bottom-section, #projects-stats")
+  .forEach((el) => counterObserver.observe(el));
+
+
+// ==== Get in Touch Form Logic ====
+const form = document.getElementById("quoteForm");
+const popup = document.getElementById("popup");
+const popupMsg = document.getElementById("popupMessage");
+const popupOk = document.getElementById("popupOk");
+const distanceRange = document.getElementById("distanceRange");
+const sliderValue = document.getElementById("sliderValue");
+
+// Update slider value dynamically
+if (distanceRange && sliderValue) {
+  distanceRange.addEventListener("input", (e) => {
+    const val = e.target.value;
+    sliderValue.textContent = `${val} km`;
+    const percent = (val / distanceRange.max) * 100;
+    sliderValue.style.left = `calc(${percent}% - 20px)`;
+  });
+}
+
+// Show popup
+function showPopup(message, success = true) {
+  popupMsg.textContent = message;
+  popupMsg.className = success ? "font-semibold text-lg text-green-600 mb-4" : "font-semibold text-lg text-red-600 mb-4";
+  popup.classList.remove("hidden");
+  setTimeout(() => {
+    popup.firstElementChild.classList.add("scale-100", "opacity-100");
+  }, 20);
+}
+
+// Hide popup
+function hidePopup() {
+  popup.firstElementChild.classList.remove("scale-100", "opacity-100");
+  setTimeout(() => popup.classList.add("hidden"), 300);
+}
+
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let valid = true;
+    form.querySelectorAll("input, select").forEach((field) => {
+      if (!field.value.trim() || field.value.includes("Select")) {
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+      showPopup("⚠️ Please fill in all the information correctly.", false);
+      return;
+    }
+
+    showPopup("✅ Your request was submitted successfully!", true);
+    form.reset();
+  });
+}
+
+// Close popup by OK button or clicking anywhere
+if (popupOk) popupOk.addEventListener("click", hidePopup);
+if (popup) popup.addEventListener("click", (e) => {
+  if (e.target === popup) hidePopup();
+});
+// ==== Video Modal Logic ====
+document.querySelectorAll('.open-video').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const src=(btn.dataset.video||'').replace('?autoplay=1','')+'?autoplay=1&rel=0';
+        const modal=document.getElementById('vcModal');
+        const frame=document.getElementById('vcFrame');
+        frame.src=src; modal.classList.remove('hidden'); modal.classList.add('flex');
+      });
+    });
+    // close
+    function closeVC(){
+      const m=document.getElementById('vcModal'); const f=document.getElementById('vcFrame');
+      f.src=''; m.classList.add('hidden'); m.classList.remove('flex');
+    }
+    document.getElementById('vcClose').addEventListener('click', closeVC);
+    document.getElementById('vcModal').addEventListener('click', e=>{ if(e.target.id==='vcModal') closeVC(); });
+
+    // ==== Tabs Logic ====
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const tab = btn.dataset.tab;
+
+    // Remove active from all
+    document.querySelectorAll(".tab-btn").forEach(b => {
+      b.classList.remove("text-[var(--color-orange)]", "border-b-2", "border-[var(--color-orange)]");
+    });
+    document.querySelectorAll(".tab-content").forEach(c => c.classList.add("hidden"));
+
+    // Activate current
+    btn.classList.add("text-[var(--color-orange)]", "border-b-2", "border-[var(--color-orange)]");
+    document.getElementById(`tab-${tab}`).classList.remove("hidden");
+  });
+});
