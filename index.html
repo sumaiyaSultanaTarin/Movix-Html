@@ -32,7 +32,7 @@
   <body class="bg-gray-50 font-sora">
     <!-- ==== HEADER ==== -->
     <!-- Top Bar -->
-    <header class="bg-movix text-white py-2 hidden md:block">
+    <header class="bg-[var(--color-dark-blue)] text-white py-2 hidden md:block">
       <div
         class="container mx-auto px-4 flex justify-between items-center text-sm"
       >
@@ -115,12 +115,12 @@
               >
                 <a
                   href="#home-1"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded-md"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
                   >Home 1</a
                 >
                 <a
                   href="#home-2"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded-md"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
                   >Home 2</a
                 >
               </div>
@@ -137,12 +137,12 @@
               >
                 <a
                   href="#services-1"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded-md"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
                   >Service 1</a
                 >
                 <a
                   href="#services-2"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded-md"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
                   >Service 2</a
                 >
               </div>
@@ -159,12 +159,12 @@
               >
                 <a
                   href="#blog-1"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded-md"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
                   >Blog 1</a
                 >
                 <a
                   href="#blog-2"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded-md"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
                   >Blog 2</a
                 >
               </div>
@@ -176,14 +176,14 @@
           <!-- Mobile Menu -->
           <div class="mobile-nav md:hidden font-medium">
             <div class="mobile-item">
-              <a href="#home" class="nav-link flex items-center">
+              <a href="#home" class="nav-link flex items-center hover:text-[var(--color-orange)]">
                 Home <i class="fas fa-caret-down ml-1 text-sm"></i>
               </a>
               <div
                 class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
               >
-                <a href="#home-1">Home 1</a>
-                <a href="#home-2">Home 2</a>
+                <a href="#home-1" class="hover:text-[var(--color-orange)]">Home 1</a>
+                <a href="#home-2" class="hover:text-[var(--color-orange)]">Home 2</a>
               </div>
             </div>
 
@@ -196,8 +196,8 @@
               <div
                 class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
               >
-                <a href="#services-1">Service 1</a>
-                <a href="#services-2">Service 2</a>
+                <a href="#services-1" class="hover:text-[var(--color-orange)]">Service 1</a>
+                <a href="#services-2" class="hover:text-[var(--color-orange)]">Service 2</a>
               </div>
             </div>
 
@@ -210,12 +210,25 @@
               <div
                 class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
               >
-                <a href="#blog-1">Blog 1</a>
-                <a href="#blog-2">Blog 2</a>
+                <a href="#blog-1" class="hover:text-[var(--color-orange)]">Blog 1</a>
+                <a href="#blog-2" class="hover:text-[var(--color-orange)]">Blog 2</a>
               </div>
             </div>
 
             <a href="#contact" class="nav-link">Contact Us</a>
+
+            <!-- Mobile Tracking Button at bottom -->
+            <div class="mt-2 sticky bottom-0 bg-white/95 backdrop-blur p-4 border-t">
+              <button
+                class="w-full bg-[var(--color-orange)] hover:bg-orange-600 text-white px-4 py-3 rounded-md flex items-center justify-center gap-2 text-sm font-semibold relative overflow-hidden group"
+              >
+                <span class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out">
+                  <span class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"></span>
+                </span>
+                <span>Tracking Order</span>
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </button>
+            </div>
           </div>
 
           <!-- Actions -->
@@ -238,8 +251,11 @@
 
             <!-- Tracking -->
             <button
-              class="tracking-btn bg-[var(--color-orange)] hover:bg-orange-600 text-white px-4 py-2 rounded-md flex items-center space-x-2 text-sm font-semibold hidden md:flex"
+              class="tracking-btn bg-[var(--color-orange)] hover:bg-orange-600 text-white px-4 py-2 rounded-md flex items-center space-x-2 text-sm font-semibold hidden md:flex relative overflow-hidden group"
             >
+              <span class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out">
+                <span class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"></span>
+              </span>
               <span>Tracking Order</span>
               <i class="fas fa-arrow-up-right-from-square"></i>
             </button>
@@ -261,17 +277,18 @@
     <main>
       <!-- ==== HERO SCETION ==== -->
       <section
+        id="hero"
         class="relative min-h-screen bg-[var(--color-white)] bg-cover bg-center bg-no-repeat"
         style="background-image: url('assets/images/header-bg.png')"
       >
         <!-- Gradient Overlay -->
         <div
-          class="absolute top-0 left-0 right-0 h-[78.5%] bg-gradient-to-r from-[#003B49]/100 to-transparent"
+          class="absolute top-0 left-0 right-0 h-[78.5%] bg-gradient-to-r from-[#003B49]/100 to-transparent z-10 pointer-events-none" 
         ></div>
 
         <!-- Scroll Indicators -->
         <div
-          class="hidden lg:flex flex-col gap-4 fixed right-12 top-1/2 -translate-y-1/2 z-50"
+          class="hidden lg:flex flex-col gap-4 absolute right-12 top-1/2 -translate-y-1/2 z-50"
         >
           <button
             class="scroll-indicator w-12 h-12 rounded-full border-2 border-white/30 text-white flex items-center justify-center transition duration-300 hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)]"
@@ -281,12 +298,12 @@
           <button
             class="scroll-indicator w-12 h-12 rounded-full border-2 border-white/30 text-white flex items-center justify-center transition duration-300 hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)]"
           >
-            <i class="fas fa-minus"></i>
+            <i class="fas fa-chevron-down"></i>
           </button>
           <button
             class="scroll-indicator w-12 h-12 rounded-full border-2 border-white/30 text-white flex items-center justify-center transition duration-300 hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)]"
           >
-            <i class="fas fa-minus"></i>
+            <i class="fas fa-chevron-down"></i>
           </button>
           <button
             class="scroll-indicator w-12 h-12 rounded-full border-2 border-white/30 text-white flex items-center justify-center transition duration-300 hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)]"
@@ -949,9 +966,9 @@
       <!-- ==== GET IN TOUCH SECTION ==== -->
 
       <!-- ==== GET IN TOUCH SECTION ==== -->
-      <section id="get-in-touch" class="py-20 bg-white">
+      <section id="get-in-touch" class="py-16 sm:py-20 bg-white">
         <div
-          class="container mx-auto px-6 lg:px-16 2xl:px-20 2xl:max-w-[1320px] grid lg:grid-cols-2 gap-12 items-start"
+          class="container mx-auto px-4 sm:px-6 lg:px-16 2xl:px-20 2xl:max-w-[1320px] grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start"
         >
           <!-- LEFT CONTENT -->
           <div>
@@ -961,16 +978,16 @@
               <i class="fas fa-truck-moving"></i> Get In Touch
             </span>
             <h2
-              class="text-3xl md:text-4xl font-bold text-[#003B49] leading-snug mb-4"
+              class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#003B49] leading-snug mb-3 sm:mb-4"
             >
               Smart Logistics Services <br />
               That Fit Your Business
             </h2>
-            <p class="text-[#666666] leading-relaxed mb-6 max-w-md">
+            <p class="text-[#666666] leading-relaxed mb-6 max-w-md text-sm sm:text-base">
               Mauris ut enim sit amet lacus ornare ullamcorper. Praesent
               placerat neque eu purus rhoncus.
             </p>
-            <ul class="space-y-3 text-[var(--color-dark-blue)] mb-8">
+            <ul class="space-y-2 sm:space-y-3 text-[var(--color-dark-blue)] mb-6 sm:mb-8 text-sm sm:text-base">
               <li class="flex items-center gap-3">
                 <i class="fas fa-circle text-[var(--color-orange)] text-xs"></i>
                 Career Advancement
@@ -990,11 +1007,11 @@
             </ul>
 
             <!-- Dynamic Percentages -->
-            <div class="grid grid-cols-2 gap-2 max-w-md counter-section">
+            <div class="grid grid-cols-2 gap-2 sm:gap-3 max-w-md counter-section">
               <div
-                class="bg-[var(--color-dark-blue)] transition p-6 rounded-xl text-center shadow-md hover:shadow-lg"
+                class="bg-[var(--color-dark-blue)] transition p-4 sm:p-6 rounded-xl text-center shadow-md hover:shadow-lg"
               >
-                <div class="text-3xl font-semibold text-white">
+                <div class="text-2xl sm:text-3xl font-semibold text-white">
                   <span class="counter" data-target="36">0</span>%
                 </div>
                 <p class="text-sm text-[var(--color-white)] mt-1">
@@ -1002,9 +1019,9 @@
                 </p>
               </div>
               <div
-                class="bg-[var(--color-white)] hover:bg-gray-200 transition p-6 rounded-xl text-center shadow-md hover:shadow-lg"
+                class="bg-[var(--color-white)] hover:bg-gray-200 transition p-4 sm:p-6 rounded-xl text-center shadow-md hover:shadow-lg"
               >
-                <div class="text-3xl font-semibold text-[#003B49]">
+                <div class="text-2xl sm:text-3xl font-semibold text-[#003B49]">
                   <span class="counter" data-target="86">0</span>%
                 </div>
                 <p class="text-sm text-[#666666] mt-1">
@@ -1016,36 +1033,48 @@
 
           <!-- RIGHT CONTENT (FORM) -->
           <div
-            class="max-w-md mx-auto lg:mx-0 mt-5 p-8 rounded-2xl bg-[var(--color-orange)] shadow-2xl hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] transition duration-300 transform hover:-translate-y-1 backdrop-blur-lg"
+            class="w-full sm:max-w-md mx-auto lg:mx-0 mt-5 p-5 sm:p-8 rounded-2xl bg-[var(--color-orange)] shadow-2xl hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] transition duration-300 transform backdrop-blur-lg"
           >
             <h3 class="text-white text-xl font-semibold mb-5">
               Request Quote Form
             </h3>
-            <form id="quoteForm" class="space-y-5">
+            <form id="quoteForm" class="space-y-4 sm:space-y-5">
               <!-- Personal Info -->
               <div>
                 <label class="block text-white font-sora mb-2"
                   >Personal Information</label
                 >
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    class="p-3 rounded-lg w-full bg-white shadow-sm focus:ring-2 focus:ring-orange-400 hover:shadow-md transition"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    class="p-3 rounded-lg w-full bg-white shadow-sm focus:ring-2 focus:ring-orange-400 hover:shadow-md transition"
-                  />
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Phone"
-                    class="p-3 rounded-lg w-full md:col-span-2 bg-white shadow-sm focus:ring-2 focus:ring-orange-400 hover:shadow-md transition"
-                  />
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div class="relative group">
+                    <i class="fas fa-user absolute left-3 top-1/2 -translate-y-1/2 text-[#003B49]/70 pointer-events-none"></i>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your Name"
+                      class="pl-9 pr-3 py-3 rounded-lg w-full bg-white/95 border border-white/30 shadow-sm focus:ring-2 focus:ring-orange-300 focus:border-orange-300 hover:shadow-md transition"
+                      aria-label="Your Name"
+                    />
+                  </div>
+                  <div class="relative group">
+                    <i class="fas fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-[#003B49]/70 pointer-events-none"></i>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      class="pl-9 pr-3 py-3 rounded-lg w-full bg-white/95 border border-white/30 shadow-sm focus:ring-2 focus:ring-orange-300 focus:border-orange-300 hover:shadow-md transition"
+                      aria-label="Email"
+                    />
+                  </div>
+                  <div class="relative group sm:col-span-2">
+                    <i class="fas fa-phone absolute left-3 top-1/2 -translate-y-1/2 text-[#003B49]/70 pointer-events-none"></i>
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Phone"
+                      class="pl-9 pr-3 py-3 rounded-lg w-full bg-white/95 border border-white/30 shadow-sm focus:ring-2 focus:ring-orange-300 focus:border-orange-300 hover:shadow-md transition"
+                      aria-label="Phone"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -1065,7 +1094,7 @@
                   />
                   <div
                     id="sliderValue"
-                    class="absolute -top-9 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-md bg-[#003B49] text-white text-xs font-semibold shadow"
+                    class="absolute -top-8 sm:-top-9 left-1/2 transform -translate-x-1/2 px-2 sm:px-3 py-1 rounded-md bg-[#003B49] text-white text-[10px] sm:text-xs font-semibold shadow"
                   >
                     500 km
                   </div>
@@ -1073,7 +1102,7 @@
               </div>
 
               <!-- Select Fields -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label class="block text-white font-sora mb-1"
                     >Freight Type</label
@@ -1102,8 +1131,11 @@
               <!-- Submit -->
               <button
                 type="submit"
-                class="w-full py-3 px-6 bg-[#003B49] text-white font-semibold rounded-lg shadow hover:bg-[#002a35] hover:shadow-lg transition flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+                class="relative overflow-hidden group w-full py-3 px-6 bg-[#003B49] text-white font-semibold rounded-lg shadow hover:bg-[#002a35] hover:shadow-lg transition flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
               >
+                <span class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out">
+                  <span class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"></span>
+                </span>
                 Submit Your Request
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </button>
@@ -1118,13 +1150,19 @@
         class="fixed inset-0 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm z-[999]"
       >
         <div
-          class="bg-white w-[340px] rounded-xl shadow-2xl px-6 py-6 text-center transform scale-90 opacity-0 transition-all duration-300"
+          class="relative w-[90%] max-w-sm rounded-2xl bg-gradient-to-br from-white/90 to-white/80 backdrop-blur-xl ring-1 ring-black/10 shadow-2xl px-6 py-6 text-center transform scale-90 opacity-0 transition-all duration-300"
         >
-          <h4 id="popupMessage" class="font-semibold text-base mb-4"></h4>
+          <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[var(--color-orange)] text-white grid place-items-center shadow-lg">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h4 id="popupMessage" class="mt-4 font-semibold text-base text-[#003B49] mb-4"></h4>
           <button
             id="popupOk"
-            class="px-5 py-2 bg-[var(--color-orange)] text-white rounded-md shadow hover:bg-orange-600 transition"
+            class="relative overflow-hidden group px-5 py-2 bg-[#003B49] text-white rounded-md shadow hover:bg-[#002a35] transition"
           >
+            <span class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out">
+              <span class="absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"></span>
+            </span>
             OK
           </button>
         </div>

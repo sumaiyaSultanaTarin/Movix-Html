@@ -7,6 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("click", () => {
       mobileNav.classList.toggle("active");
     });
+
+    // Open on hover over hamburger or drawer
+    const openMenu = () => mobileNav.classList.add("active");
+    menuBtn.addEventListener("mouseenter", openMenu);
+    mobileNav.addEventListener("mouseenter", openMenu);
+    // Close when cursor leaves the drawer area
+    mobileNav.addEventListener("mouseleave", () => {
+      closeMobileNav();
+    });
+
+    // Click outside to close
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      const clickedInsideMenu = mobileNav.contains(target);
+      const clickedHamburger = menuBtn.contains(target);
+      if (!clickedInsideMenu && !clickedHamburger) {
+        closeMobileNav();
+      }
+    });
   }
 
   // Parent dropdown toggle
@@ -14,6 +33,23 @@ document.addEventListener("DOMContentLoaded", () => {
   mobileItems.forEach((link) => {
     const dropdown = link.nextElementSibling;
     if (dropdown) {
+      // Hover open/close
+      const parent = link.parentElement;
+      let hoverCloseTimeout;
+      if (parent) {
+        parent.addEventListener("mouseenter", () => {
+          clearTimeout(hoverCloseTimeout);
+          dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+          link.querySelector("i")?.classList.add("rotate-180");
+        });
+        parent.addEventListener("mouseleave", () => {
+          hoverCloseTimeout = setTimeout(() => {
+            dropdown.style.maxHeight = "0px";
+            link.querySelector("i")?.classList.remove("rotate-180");
+          }, 80);
+        });
+      }
+
       link.addEventListener("click", (e) => {
         e.preventDefault();
         if (dropdown.style.maxHeight && dropdown.style.maxHeight !== "0px") {
@@ -212,43 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
     counterObserver.observe(section);
   });
 
-  // // Scroll Indicators Functionality
-  // document.querySelectorAll(".scroll-indicator").forEach((btn, index) => {
-  //   btn.addEventListener("click", () => {
-  //     document
-  //       .querySelectorAll(".scroll-indicator")
-  //       .forEach((b) => b.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]"));
-
-  //     btn.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-
-  //     if (index === 0) {
-  //       window.scrollTo({ top: 0, behavior: "smooth" });
-  //     } else if (index === 3) {
-  //       window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  //     }
-  //   });
-  // });
-
-  // // Update active indicator on scroll
-  // window.addEventListener("scroll", () => {
-  //   const scrollPosition = window.scrollY;
-  //   const indicators = document.querySelectorAll(".scroll-indicator");
-
-  //   indicators.forEach((indicator) =>
-  //     indicator.classList.remove("bg-[var(--color-orange)]", "border-[var(--color-orange)]")
-  //   );
-
-  //   if (scrollPosition < window.innerHeight / 4) {
-  //     indicators[0]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  //   } else if (scrollPosition < window.innerHeight / 2) {
-  //     indicators[1]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  //   } else if (scrollPosition < (window.innerHeight * 3) / 4) {
-  //     indicators[2]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  //   } else {
-  //     indicators[3]?.classList.add("bg-[var(--color-orange)]", "border-[var(--color-orange)]");
-  //   }
-  // });
-
   //  stars //
   document.querySelectorAll(".review-meta").forEach((el) => {
     const r = Math.max(0, Math.min(5, parseFloat(el.dataset.rating) || 0));
@@ -262,6 +261,55 @@ document.addEventListener("DOMContentLoaded", () => {
       { notation: "compact" }
     ).format(n)} Feedbacks`;
   });
+
+  // ==== Hero background slider via indicators ====
+  const heroEl = document.getElementById("hero");
+  const indicators = document.querySelectorAll(".scroll-indicator");
+  const heroImages = [
+    "assets/images/header-bg.png",
+    "assets/images/header-bg.png",
+    "assets/images/header-bg.png",
+    "assets/images/header-bg.png",
+  ];
+  let heroIdx = 0;
+
+  function setHeroBackground(idx) {
+    if (!heroEl) return;
+    const overlay = document.createElement("div");
+    overlay.className = "absolute inset-0 opacity-0 transition-opacity duration-100 z-0";
+    overlay.style.backgroundImage = `url('${heroImages[idx]}')`;
+    overlay.style.backgroundSize = "cover";
+    overlay.style.backgroundPosition = "center";
+    overlay.style.backgroundRepeat = "no-repeat";
+    heroEl.appendChild(overlay);
+
+    requestAnimationFrame(() => overlay.classList.add("opacity-100"));
+
+    setTimeout(() => {
+      heroEl.style.backgroundImage = `url('${heroImages[idx]}')`;
+      overlay.remove();
+    }, 500);
+  }
+
+  function goPrev() {
+    heroIdx = (heroIdx - 1 + heroImages.length) % heroImages.length;
+    setHeroBackground(heroIdx);
+  }
+  function goNext() {
+    heroIdx = (heroIdx + 1) % heroImages.length;
+    setHeroBackground(heroIdx);
+  }
+
+  if (heroEl && indicators.length === 4) {
+    // 0: up arrow => prev
+    indicators[0].addEventListener("click", goPrev);
+    // 1: chevron up => prev
+    indicators[1].addEventListener("click", goPrev);
+    // 2: chevron down => next
+    indicators[2].addEventListener("click", goNext);
+    // 3: down arrow => next
+    indicators[3].addEventListener("click", goNext);
+  }
 
   // Card Slider with Next/Prev Buttons
 
@@ -354,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      showPopup("✅ Your request was submitted successfully!", true);
+      showPopup(" Your request was submitted successfully!", true);
       form.reset();
     });
   }
