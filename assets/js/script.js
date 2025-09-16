@@ -98,25 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /**  WHAT WE DO SWIPER **/
-  if (window.Swiper) {
-    new Swiper(".whatwedo-swiper", {
-      slidesPerView: 1.1,
-      spaceBetween: 16,
-      speed: 500,
-      loop: false,
-      breakpoints: {
-        640: { slidesPerView: 2, spaceBetween: 20 },
-        1024: { slidesPerView: 3, spaceBetween: 24 },
-      },
-      navigation: {
-        nextEl: ".wwd-next",
-        prevEl: ".wwd-prev",
-      },
-      a11y: true,
-    });
-  }
-});
 
 // Counter Animation for a given container
 function animateCountersIn(container) {
@@ -262,7 +243,6 @@ document
   .querySelectorAll(".bottom-section, #projects-stats")
   .forEach((el) => counterObserver.observe(el));
 
-
 // ==== Get in Touch Form Logic ====
 const form = document.getElementById("quoteForm");
 const popup = document.getElementById("popup");
@@ -284,7 +264,9 @@ if (distanceRange && sliderValue) {
 // Show popup
 function showPopup(message, success = true) {
   popupMsg.textContent = message;
-  popupMsg.className = success ? "font-semibold text-lg text-green-600 mb-4" : "font-semibold text-lg text-red-600 mb-4";
+  popupMsg.className = success
+    ? "font-semibold text-lg text-green-600 mb-4"
+    : "font-semibold text-lg text-red-600 mb-4";
   popup.classList.remove("hidden");
   setTimeout(() => {
     popup.firstElementChild.classList.add("scale-100", "opacity-100");
@@ -319,39 +301,63 @@ if (form) {
 
 // Close popup by OK button or clicking anywhere
 if (popupOk) popupOk.addEventListener("click", hidePopup);
-if (popup) popup.addEventListener("click", (e) => {
-  if (e.target === popup) hidePopup();
-});
+if (popup)
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) hidePopup();
+  });
 // ==== Video Modal Logic ====
-document.querySelectorAll('.open-video').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const src=(btn.dataset.video||'').replace('?autoplay=1','')+'?autoplay=1&rel=0';
-        const modal=document.getElementById('vcModal');
-        const frame=document.getElementById('vcFrame');
-        frame.src=src; modal.classList.remove('hidden'); modal.classList.add('flex');
-      });
-    });
-    // close
-    function closeVC(){
-      const m=document.getElementById('vcModal'); const f=document.getElementById('vcFrame');
-      f.src=''; m.classList.add('hidden'); m.classList.remove('flex');
-    }
-    document.getElementById('vcClose').addEventListener('click', closeVC);
-    document.getElementById('vcModal').addEventListener('click', e=>{ if(e.target.id==='vcModal') closeVC(); });
+document.querySelectorAll(".open-video").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const src =
+      (btn.dataset.video || "").replace("?autoplay=1", "") +
+      "?autoplay=1&rel=0";
+    const modal = document.getElementById("vcModal");
+    const frame = document.getElementById("vcFrame");
+    frame.src = src;
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  });
+});
+// close
+function closeVC() {
+  const m = document.getElementById("vcModal");
+  const f = document.getElementById("vcFrame");
+  f.src = "";
+  m.classList.add("hidden");
+  m.classList.remove("flex");
+}
+document.getElementById("vcClose").addEventListener("click", closeVC);
+document.getElementById("vcModal").addEventListener("click", (e) => {
+  if (e.target.id === "vcModal") closeVC();
+});
 
-    // ==== Tabs Logic ====
-document.querySelectorAll(".tab-btn").forEach(btn => {
+// ==== Tabs Logic ====
+document.querySelectorAll(".tab-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const tab = btn.dataset.tab;
 
     // Remove active from all
-    document.querySelectorAll(".tab-btn").forEach(b => {
-      b.classList.remove("text-[var(--color-orange)]", "border-b-2", "border-[var(--color-orange)]");
+    document.querySelectorAll(".tab-btn").forEach((b) => {
+      b.classList.remove(
+        "text-[var(--color-orange)]",
+        "border-b-2",
+        "border-[var(--color-orange)]"
+      );
     });
-    document.querySelectorAll(".tab-content").forEach(c => c.classList.add("hidden"));
+    document
+      .querySelectorAll(".tab-content")
+      .forEach((c) => c.classList.add("hidden"));
 
     // Activate current
-    btn.classList.add("text-[var(--color-orange)]", "border-b-2", "border-[var(--color-orange)]");
+    btn.classList.add(
+      "text-[var(--color-orange)]",
+      "border-b-2",
+      "border-[var(--color-orange)]"
+    );
     document.getElementById(`tab-${tab}`).classList.remove("hidden");
   });
+});
+
+
+
 });
