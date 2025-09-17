@@ -1,5 +1,212 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // ==== Lenis Smooth Scroll ====
+// ==== Team Modal Functions (Global) ====
+function openTeamModal(name, position, imageSrc) {
+  const modal = document.getElementById("teamModal");
+  const modalContent = modal.querySelector("div");
+  const modalImage = document.getElementById("teamModalImage");
+  const modalName = document.getElementById("teamModalName");
+  const modalPosition = document.getElementById("teamModalPosition");
+  
+  // Prevent body scroll and pause Lenis
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = '0px';
+  if (window.__pauseLenis) window.__pauseLenis();
+  
+  // Set modal content
+  modalImage.src = imageSrc;
+  modalImage.alt = name;
+  modalName.textContent = name;
+  modalPosition.textContent = position;
+  
+  // Set social media links based on name
+  const nameSlug = name.toLowerCase().replace(/\s+/g, '.');
+  const nameUnderscore = name.toLowerCase().replace(/\s+/g, '_');
+  
+  document.getElementById("teamModalFacebook").href = `https://facebook.com/${nameSlug}`;
+  document.getElementById("teamModalTwitter").href = `https://twitter.com/${nameUnderscore}`;
+  document.getElementById("teamModalLinkedin").href = `https://linkedin.com/in/${nameSlug}`;
+  document.getElementById("teamModalInstagram").href = `https://instagram.com/${nameUnderscore}`;
+  
+  // Show modal
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  
+  // Animate modal in
+  setTimeout(() => {
+    modalContent.classList.remove("scale-95", "opacity-0");
+    modalContent.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+function closeTeamModal() {
+  const modal = document.getElementById("teamModal");
+  const modalContent = modal.querySelector("div");
+  
+  // Animate modal out
+  modalContent.classList.remove("scale-100", "opacity-100");
+  modalContent.classList.add("scale-95", "opacity-0");
+  
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    
+    // Restore body scroll and resume Lenis
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+    if (window.__resumeLenis) window.__resumeLenis();
+  }, 300);
+}
+
+// ==== Author Modal Functions (Global) ====
+function openAuthorModal(name, position, imageSrc, bio) {
+  const modal = document.getElementById("authorModal");
+  const modalContent = modal.querySelector("div");
+  const modalImage = document.getElementById("authorModalImage");
+  const modalName = document.getElementById("authorModalName");
+  const modalPosition = document.getElementById("authorModalPosition");
+  const modalBio = document.getElementById("authorModalBio");
+  
+  // Prevent body scroll and pause Lenis
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = '0px';
+  if (window.__pauseLenis) window.__pauseLenis();
+  
+  // Set modal content
+  modalImage.src = imageSrc;
+  modalImage.alt = name;
+  modalName.textContent = name;
+  modalPosition.textContent = position;
+  modalBio.textContent = bio;
+  
+  // Set social media links based on name
+  const nameSlug = name.toLowerCase().replace(/\s+/g, '.');
+  const nameUnderscore = name.toLowerCase().replace(/\s+/g, '_');
+  
+  // Update social media links
+  const socialLinks = modal.querySelectorAll('a[href="#"]');
+  if (socialLinks.length >= 3) {
+    socialLinks[0].href = `https://linkedin.com/in/${nameSlug}`;
+    socialLinks[1].href = `https://twitter.com/${nameUnderscore}`;
+    socialLinks[2].href = `https://instagram.com/${nameUnderscore}`;
+  }
+  
+  // Show modal
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  
+  // Animate modal in
+  setTimeout(() => {
+    modalContent.classList.remove("scale-95", "opacity-0");
+    modalContent.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+function closeAuthorModal() {
+  const modal = document.getElementById("authorModal");
+  const modalContent = modal.querySelector("div");
+  
+  // Animate modal out
+  modalContent.classList.remove("scale-100", "opacity-100");
+  modalContent.classList.add("scale-95", "opacity-0");
+  
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    
+    // Restore body scroll and resume Lenis
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+    if (window.__resumeLenis) window.__resumeLenis();
+  }, 300);
+}
+
+// ==== Blog Modal Functions (Global) ====
+function openBlogModal(title, author, date, imageSrc, content) {
+  const modal = document.getElementById("blogModal");
+  const modalContent = modal.querySelector("div");
+  const modalImage = document.getElementById("blogModalImage");
+  const modalTitle = document.getElementById("blogModalTitle");
+  const modalAuthor = document.getElementById("blogModalAuthor");
+  const modalDate = document.getElementById("blogModalDate");
+  const modalContentDiv = document.getElementById("blogModalContent");
+  const modalReadTime = document.getElementById("blogModalReadTime");
+  
+  // Prevent body scroll and pause Lenis
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = '0px';
+  if (window.__pauseLenis) window.__pauseLenis();
+  
+  // Set modal content
+  modalImage.src = imageSrc;
+  modalImage.alt = title;
+  modalTitle.textContent = title;
+  modalAuthor.textContent = author;
+  modalDate.textContent = date;
+  modalReadTime.textContent = Math.ceil(content.length / 500) + " min read";
+  
+  // Generate full blog content
+  const fullContent = `
+    <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">${content}</p>
+    
+    <h2 class="text-lg sm:text-xl font-bold text-[#003B49] mb-3 sm:mb-4 mt-6 sm:mt-8">Key Benefits</h2>
+    <ul class="list-disc list-inside space-y-2 mb-4 sm:mb-6 text-gray-700 text-sm sm:text-base">
+      <li>Improved efficiency and cost reduction</li>
+      <li>Enhanced customer satisfaction</li>
+      <li>Real-time tracking and transparency</li>
+      <li>Professional service delivery</li>
+    </ul>
+    
+    <h2 class="text-lg sm:text-xl font-bold text-[#003B49] mb-3 sm:mb-4">Conclusion</h2>
+    <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+      Our commitment to excellence ensures that every shipment is handled with the utmost care and professionalism. 
+      We continuously strive to improve our services and maintain the highest standards in the logistics industry.
+    </p>
+    
+    <div class="bg-gradient-to-r from-[var(--color-orange)]/10 to-[var(--color-dark-blue)]/10 p-4 sm:p-6 rounded-lg mt-6 sm:mt-8">
+      <h3 class="text-base sm:text-lg font-semibold text-[#003B49] mb-2">Ready to Get Started?</h3>
+      <p class="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">Contact us today to learn more about our logistics services and how we can help your business grow.</p>
+      <button class="px-4 py-2 sm:px-6 sm:py-2 bg-[var(--color-orange)] text-white rounded-lg hover:bg-orange-600 transition-colors duration-300 text-sm sm:text-base">
+        Get Quote
+      </button>
+    </div>
+  `;
+  
+  modalContentDiv.innerHTML = fullContent;
+  
+  // Show modal
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  
+  // Animate modal in
+  setTimeout(() => {
+    modalContent.classList.remove("scale-95", "opacity-0");
+    modalContent.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+function closeBlogModal() {
+  const modal = document.getElementById("blogModal");
+  const modalContent = modal.querySelector("div");
+  
+  // Animate modal out
+  modalContent.classList.remove("scale-100", "opacity-100");
+  modalContent.classList.add("scale-95", "opacity-0");
+  
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    
+    // Restore body scroll and resume Lenis
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+    if (window.__resumeLenis) window.__resumeLenis();
+  }, 300);
+}
+
+// ==== Lenis Smooth Scroll ====
+function initLenis() {
+  console.log("Initializing Lenis...");
+  console.log("Lenis available:", !!window.Lenis);
+  
   if (window.Lenis) {
     // compute sticky navbar height for offset
     const nav = document.querySelector("nav");
@@ -7,17 +214,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const lenis = new Lenis({
       smoothWheel: true,
-      smoothTouch: false,
-      duration: 1.9,
-      easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
-      lerp: 0.06,
+      smoothTouch: true,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.1,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
     });
+
+    console.log("Lenis initialized:", lenis);
 
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // Pause Lenis when modals are open
+    const pauseLenis = () => {
+      if (lenis) {
+        lenis.stop();
+        console.log("Lenis paused");
+      }
+    };
+    
+    const resumeLenis = () => {
+      if (lenis) {
+        lenis.start();
+        console.log("Lenis resumed");
+      }
+    };
 
     // Hook ALL in-page anchor links to use Lenis
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
@@ -27,13 +254,124 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = document.querySelector(hash);
         if (target) {
           e.preventDefault();
-          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.6 });
+          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.2 });
         }
       });
     });
 
-    // Expose for debugging if needed
+    // Expose for debugging and modal control
     window.__lenis = lenis;
+    window.__pauseLenis = pauseLenis;
+    window.__resumeLenis = resumeLenis;
+    
+    console.log("Lenis setup complete");
+    return true;
+  } else {
+    console.error("Lenis not loaded!");
+    return false;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Try to initialize Lenis immediately
+  if (!initLenis()) {
+    // If Lenis is not available, try again after a short delay
+    setTimeout(() => {
+      console.log("Retrying Lenis initialization...");
+      if (!initLenis()) {
+        console.error("Lenis failed to load after retry");
+      }
+    }, 1000);
+  }
+
+  // Enhanced fallback smooth scroll if Lenis is not available
+  if (!window.__lenis) {
+    console.log("Using enhanced fallback smooth scroll");
+    
+    // Custom smooth scroll implementation
+    function smoothScrollTo(target, duration = 1200) {
+      const nav = document.querySelector('nav');
+      const offset = nav ? nav.getBoundingClientRect().height : 0;
+      const targetPosition = target.offsetTop - offset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      function easeInOutCubic(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t * t + b;
+        t -= 2;
+        return c / 2 * (t * t * t + 2) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+    
+    // Add smooth scroll behavior to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        const target = href ? document.querySelector(href) : null;
+        if (target) {
+          e.preventDefault();
+          smoothScrollTo(target);
+        }
+      });
+    });
+
+    // Add smooth scroll to entire page
+    let isScrolling = false;
+    let scrollTimeout;
+
+    function addSmoothScroll() {
+      let currentScroll = window.pageYOffset;
+      let targetScroll = currentScroll;
+      let scrollVelocity = 0;
+      let scrollAcceleration = 0;
+
+      function updateScroll() {
+        if (Math.abs(targetScroll - currentScroll) > 0.1) {
+          scrollVelocity += (targetScroll - currentScroll) * 0.1;
+          scrollVelocity *= 0.8; // Friction
+          currentScroll += scrollVelocity;
+          window.scrollTo(0, currentScroll);
+          requestAnimationFrame(updateScroll);
+        }
+      }
+
+      // Listen for wheel events
+      document.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        targetScroll += e.deltaY * 0.5;
+        targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+        
+        if (!isScrolling) {
+          isScrolling = true;
+          updateScroll();
+        }
+        
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isScrolling = false;
+        }, 150);
+      }, { passive: false });
+    }
+
+    // Only add custom scroll if Lenis completely fails
+    setTimeout(() => {
+      if (!window.__lenis) {
+        addSmoothScroll();
+        console.log("Custom smooth scroll activated");
+      }
+    }, 2000);
   }
 
   // Ensure desktop navbar links are intercepted even without Lenis
@@ -48,7 +386,14 @@ document.addEventListener("DOMContentLoaded", () => {
           const offset = nav ? -nav.getBoundingClientRect().height : 0;
           window.__lenis.scrollTo(target, { duration: 1.6, offset });
         } else {
-          target.scrollIntoView({ behavior: "smooth" });
+          const nav = document.querySelector('nav');
+          const offset = nav ? nav.getBoundingClientRect().height : 0;
+          const targetPosition = target.offsetTop - offset;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
         }
       }
     });
@@ -144,6 +489,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    
+
   // Sticky nav shadow
   const nav = document.querySelector("nav");
   if (nav) {
@@ -227,10 +574,34 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderTestimonial(i) {
     if (!tText || !tRating || !tName || !tRole) return;
     const t = testimonials[i];
-    tText.textContent = `“${t.text}”`;
-    tRating.textContent = t.rating;
-    tName.textContent = t.name;
-    tRole.textContent = t.role;
+    
+    // Add fade out and slide up effect
+    tText.style.opacity = '0';
+    tText.style.transform = 'translateY(10px)';
+    tRating.style.opacity = '0';
+    tRating.style.transform = 'translateY(10px)';
+    tName.style.opacity = '0';
+    tName.style.transform = 'translateY(10px)';
+    tRole.style.opacity = '0';
+    tRole.style.transform = 'translateY(10px)';
+    
+    // Update content after fade out
+    setTimeout(() => {
+      tText.textContent = `"${t.text}"`;
+      tRating.textContent = t.rating;
+      tName.textContent = t.name;
+      tRole.textContent = t.role;
+      
+      // Fade in and slide down with new content
+      tText.style.opacity = '1';
+      tText.style.transform = 'translateY(0)';
+      tRating.style.opacity = '1';
+      tRating.style.transform = 'translateY(0)';
+      tName.style.opacity = '1';
+      tName.style.transform = 'translateY(0)';
+      tRole.style.opacity = '1';
+      tRole.style.transform = 'translateY(0)';
+    }, 250);
   }
 
   if (tPrev && tNext) {
@@ -481,18 +852,35 @@ document.addEventListener("DOMContentLoaded", () => {
         "?autoplay=1&rel=0";
       const modal = document.getElementById("vcModal");
       const frame = document.getElementById("vcFrame");
+      const modalContent = modal.querySelector("div");
+      
       frame.src = src;
       modal.classList.remove("hidden");
       modal.classList.add("flex");
+      
+      // Animate modal in
+      setTimeout(() => {
+        modalContent.classList.remove("scale-95", "opacity-0");
+        modalContent.classList.add("scale-100", "opacity-100");
+      }, 10);
     });
   });
+  
   // close
   function closeVC() {
     const m = document.getElementById("vcModal");
     const f = document.getElementById("vcFrame");
-    f.src = "";
-    m.classList.add("hidden");
-    m.classList.remove("flex");
+    const modalContent = m.querySelector("div");
+    
+    // Animate modal out
+    modalContent.classList.remove("scale-100", "opacity-100");
+    modalContent.classList.add("scale-95", "opacity-0");
+    
+    setTimeout(() => {
+      f.src = "";
+      m.classList.add("hidden");
+      m.classList.remove("flex");
+    }, 300);
   }
   document.getElementById("vcClose").addEventListener("click", closeVC);
   document.getElementById("vcModal").addEventListener("click", (e) => {
@@ -503,8 +891,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const tab = btn.dataset.tab;
+      const targetContent = document.getElementById(`tab-${tab}`);
 
-      // Remove active from all
+      // Remove active from all buttons
       document.querySelectorAll(".tab-btn").forEach((b) => {
         b.classList.remove(
           "text-[var(--color-orange)]",
@@ -512,18 +901,51 @@ document.addEventListener("DOMContentLoaded", () => {
           "border-[var(--color-orange)]"
         );
       });
-      document
-        .querySelectorAll(".tab-content")
-        .forEach((c) => c.classList.add("hidden"));
 
-      // Activate current
+      // Hide all content with smooth transition
+      document.querySelectorAll(".tab-content").forEach((content) => {
+        if (!content.classList.contains("hidden")) {
+          content.classList.add("opacity-0", "translate-y-4");
+          setTimeout(() => {
+            content.classList.add("hidden");
+          }, 250);
+        }
+      });
+
+      // Activate current button
       btn.classList.add(
         "text-[var(--color-orange)]",
         "border-b-2",
         "border-[var(--color-orange)]"
       );
-      document.getElementById(`tab-${tab}`).classList.remove("hidden");
+
+      // Show target content with smooth transition
+      setTimeout(() => {
+        targetContent.classList.remove("hidden");
+        setTimeout(() => {
+          targetContent.classList.remove("opacity-0", "translate-y-4");
+          targetContent.classList.add("opacity-100", "translate-y-0");
+        }, 10);
+      }, 250);
     });
+  });
+
+  // Close team modal by close button or clicking outside
+  document.getElementById("teamModalClose").addEventListener("click", closeTeamModal);
+  document.getElementById("teamModal").addEventListener("click", (e) => {
+    if (e.target.id === "teamModal") closeTeamModal();
+  });
+
+  // Close author modal by close button or clicking outside
+  document.getElementById("authorModalClose").addEventListener("click", closeAuthorModal);
+  document.getElementById("authorModal").addEventListener("click", (e) => {
+    if (e.target.id === "authorModal") closeAuthorModal();
+  });
+
+  // Close blog modal by close button or clicking outside
+  document.getElementById("blogModalClose").addEventListener("click", closeBlogModal);
+  document.getElementById("blogModal").addEventListener("click", (e) => {
+    if (e.target.id === "blogModal") closeBlogModal();
   });
 
   // ==== Newsletter Form Logic ====
