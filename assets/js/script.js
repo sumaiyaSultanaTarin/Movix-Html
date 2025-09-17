@@ -207,7 +207,7 @@ function initLenis() {
   console.log("Initializing Lenis...");
   console.log("Lenis available:", !!window.Lenis);
   
-  if (window.Lenis) {
+  if (window.Lenis && !window.__lenis) {
     // compute sticky navbar height for offset
     const nav = document.querySelector("nav");
     const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
@@ -215,11 +215,13 @@ function initLenis() {
     const lenis = new Lenis({
       smoothWheel: true,
       smoothTouch: true,
-      duration: 1.2,
+      duration: 1.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       lerp: 0.1,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      wheelMultiplier: 0.8,
+      touchMultiplier: 1.2,
+      normalizeWheel: true,
+      syncTouch: true,
       infinite: false,
     });
 
@@ -254,7 +256,7 @@ function initLenis() {
         const target = document.querySelector(hash);
         if (target) {
           e.preventDefault();
-          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.2 });
+          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.6 });
         }
       });
     });

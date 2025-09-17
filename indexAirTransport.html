@@ -140,14 +140,14 @@
                       h-[120px] sm:h-[150px] md:h-[160px] xl:h-[175px]">
 
             <button id="thumbPrev"
-              class="absolute left-2 top-1/2 -translate-y-1/2 z-10
+              class="absolute -left-3 xl:-left-5 top-1/2 -translate-y-1/2 z-10
                      w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#003B49] shadow
                      hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center">
               <i class="fas fa-chevron-left text-sm"></i>
             </button>
 
             <button id="thumbNext"
-              class="absolute right-2 top-1/2 -translate-y-1/2 z-10
+              class="absolute -right-2 xl:right-5 top-1/2 -translate-y-1/2 z-10
                      w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#003B49] shadow
                      hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center">
               <i class="fas fa-chevron-right text-sm"></i>
@@ -155,7 +155,7 @@
 
             <!-- Thumbnails -->
             <div id="thumbStrip"
-                 class="grid grid-cols-3 gap-4 h-full">
+                 class="grid grid-cols-3 gap-4 h-full xl:mr-10">
               <img src="assets/images/airHome5.png" data-large="assets/images/airHome5.png"
                    class="hero-thumb w-full h-full object-cover rounded-[18px]
                           hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
@@ -180,6 +180,7 @@
 
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="assets/js/scriptAir.js"></script> 
     
 </body>
