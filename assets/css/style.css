@@ -59,8 +59,10 @@ body {
   background: white;
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 100vw;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 999;
   overflow: hidden;
@@ -494,3 +496,17 @@ html { scroll-behavior: auto; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 body { overscroll-behavior: none; }
+
+
+
+/* ==== Plane animation ==== */
+@keyframes planeFloat {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(calc(-50% - 8px)) translateX(0); }
+}
+@keyframes planeDrift {
+  0% { filter: drop-shadow(0 6px 10px rgba(0,0,0,.25)); }
+  50% { filter: drop-shadow(0 10px 16px rgba(0,0,0,.30)); }
+  100% { filter: drop-shadow(0 6px 10px rgba(0,0,0,.25)); }
+}
+/* Combine with translate from utility by applying on a wrapper */

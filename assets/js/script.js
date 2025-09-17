@@ -489,8 +489,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    
-
   // Sticky nav shadow
   const nav = document.querySelector("nav");
   if (nav) {

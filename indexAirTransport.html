@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movix Air Transport</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" />
+
+</head>
+  <body class="bg-gray-50 font-sora">
+    <!-- Navbar only (no topbar) -->
+    <nav class="bg-white shadow sticky top-0 z-50">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center py-5 md:py-6">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2 cursor-pointer">
+            <div class="logo-hover">
+              <img src="assets/images/logo.png" alt="Movix Logo" class="w-8 h-8 object-contain" />
+            </div>
+            <span class="text-2xl font-bold text-[#003B49]">Movix</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8 font-medium">
+            <a href="#hero" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#services" class="nav-link">Pages</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#blogs" class="nav-link">Blog</a>
+            <a href="#contact" class="nav-link">Contact Us</a>
+          </div>
+
+          <!-- Actions: Tracking + Hamburger (no search) -->
+          <div class="flex items-center space-x-3">
+            <button class="tracking-btn bg-[var(--color-orange)] hover:bg-orange-600 text-white px-4 py-2 rounded-md hidden md:flex items-center gap-2 text-sm font-semibold relative overflow-hidden group">
+              <span class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out">
+                <span class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"></span>
+              </span>
+              <span>Tracking Order</span>
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </button>
+
+            <button id="airHamburger" class="flex items-center justify-center w-10 h-10 border border-[#003B49] rounded-full text-[#003B49] hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300">
+              <i class="fas fa-bars text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Right Sidebar Drawer -->
+    <div id="airDrawer" class="fixed inset-0 z-[60] hidden">
+      <div id="airBackdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity"></div>
+      <aside id="airPanel" class="absolute right-0 top-0 h-full w-[320px] max-w-[88vw] bg-white shadow-xl translate-x-full transition-transform">
+        <div class="p-4 flex items-center justify-between border-b">
+          <span class="text-lg font-semibold text-[#003B49]">Menu</span>
+          <button id="airClose" class="w-9 h-9 rounded-full border border-gray-300 hover:bg-gray-100 flex items-center justify-center">
+            <i class="fas fa-xmark"></i>
+          </button>
+        </div>
+        <nav class="p-4 space-y-2 font-medium">
+          <a href="#hero" class="block px-3 py-2 rounded hover:bg-gray-100">Home</a>
+          <a href="#about" class="block px-3 py-2 rounded hover:bg-gray-100">About Us</a>
+          <a href="#services" class="block px-3 py-2 rounded hover:bg-gray-100">Pages</a>
+          <a href="#projects" class="block px-3 py-2 rounded hover:bg-gray-100">Projects</a>
+          <a href="#blogs" class="block px-3 py-2 rounded hover:bg-gray-100">Blog</a>
+          <a href="#contact" class="block px-3 py-2 rounded hover:bg-gray-100">Contact Us</a>
+        </nav>
+        <div class="mt-auto p-4 border-t">
+          <button class="w-full bg-[var(--color-orange)] hover:bg-orange-600 text-white px-5 py-3 rounded-md text-sm font-semibold">Tracking Order</button>
+        </div>
+      </aside>
+    </div>
+
+<!-- ==== HERO SECTION ==== -->
+<section id="hero" class="relative text-white overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0" style="background-image:url('assets/images/airBg.png'); background-size:cover; background-position:center;"></div>
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-tr from-[#003b49]/100 via-[#003b49]/100 to-[#003b49]/60"></div>
+
+  <!-- Decorative airplane vector -->
+  <div class="absolute right-1 sm:right-4 md:right-6 lg:right-8 xl:right-1 2xl:right-12 top-1/2 -translate-y-1/2 select-none pointer-events-none"
+       style="animation: planeFloat 3.2s ease-in-out infinite, planeDrift 3.2s ease-in-out infinite;">
+    <img src="assets/images/airHome1.png"
+         class="w-[160px] sm:w-[190px] md:w-[210px] lg:w-[240px] xl:w-[280px] 2xl:w-[320px] opacity-90"
+         alt="decorative plane" />
+  </div>
+
+  <div class="relative container mx-auto px-4 sm:px-6 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 2xl:gap-16 items-center">
+      <!-- Left: Main Image -->
+      <div class="flex justify-center lg:justify-start order-1">
+        <div class="rounded-xl hover:scale-[1.03]  transition-transform duration-300 overflow-hidden shadow-lg bg-white/5 backdrop-blur p-1
+                    w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[500px] md:h-[500px] xl:w-[550px] xl:h-[580px] 2xl:w-[620px] 2xl:h-[636px]">
+          <img id="heroMainImage" src="assets/images/airHome2.png" alt="Air Freight"
+               class="w-full h-full object-cover rounded-lg" />
+        </div>
+      </div>
+
+      <!-- Right: Text & Thumbnails -->
+      <div class="order-2 w-full max-w-[690px]">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+          Fly Freight from<br class="hidden sm:block" />Any Location
+        </h1>
+        <p class="mt-4 text-base sm:text-lg md:text-xl text-white/85">
+          Transform your business with expert consultancy services; our team of seasoned consultants unparalleled.
+        </p>
+
+        <div class="mt-6">
+          <button
+            class="bg-[var(--color-orange)] hover:bg-orange-600 text-white px-5 py-3 rounded-md text-sm sm:text-base font-semibold flex items-center gap-2 group relative overflow-hidden">
+            <span
+              class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out">
+              <span
+                class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"></span>
+            </span>
+            Explore More
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+
+        <!-- Thumbnail strip with overlaid chevrons -->
+        <div class="mt-20">
+          <div class="relative w-full sm:w-[600px] md:w-[700px] xl:w-[600px] 2xl:w-[808px]
+                      h-[120px] sm:h-[150px] md:h-[160px] xl:h-[175px]">
+
+            <button id="thumbPrev"
+              class="absolute left-2 top-1/2 -translate-y-1/2 z-10
+                     w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#003B49] shadow
+                     hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center">
+              <i class="fas fa-chevron-left text-sm"></i>
+            </button>
+
+            <button id="thumbNext"
+              class="absolute right-2 top-1/2 -translate-y-1/2 z-10
+                     w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#003B49] shadow
+                     hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center">
+              <i class="fas fa-chevron-right text-sm"></i>
+            </button>
+
+            <!-- Thumbnails -->
+            <div id="thumbStrip"
+                 class="grid grid-cols-3 gap-4 h-full">
+              <img src="assets/images/airHome5.png" data-large="assets/images/airHome5.png"
+                   class="hero-thumb w-full h-full object-cover rounded-[18px]
+                          hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
+                   alt="thumb1" />
+              <img src="assets/images/airHome4.png" data-large="assets/images/airHome4.png"
+                   class="hero-thumb w-full h-full object-cover rounded-[18px]
+                          hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
+                   alt="thumb2" />
+              <img src="assets/images/airHome3.png" data-large="assets/images/airHome3.png"
+                   class="hero-thumb w-full h-full object-cover rounded-[18px]
+                          hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
+                   alt="thumb3" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Scripts -->
+    <script src="assets/js/scriptAir.js"></script> 
+    
+</body>
+</html>
