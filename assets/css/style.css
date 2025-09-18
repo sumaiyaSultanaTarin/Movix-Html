@@ -499,8 +499,10 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 body { overscroll-behavior: none; }
 
+/* ==== END Lenis integration tweaks ==== */
 
 
+/* ==== Air Transport ==== */
 /* ==== Plane animation ==== */
 @keyframes planeFloat {
   0%, 100% { transform: translateY(-50%) translateX(0); }
@@ -511,4 +513,71 @@ body { overscroll-behavior: none; }
   50% { filter: drop-shadow(0 10px 16px rgba(0,0,0,.30)); }
   100% { filter: drop-shadow(0 6px 10px rgba(0,0,0,.25)); }
 }
-/* Combine with translate from utility by applying on a wrapper */
+/* ==== END Plane animation ==== */
+/* ==== Drawer styles ==== */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Drawer styles */
+#airDrawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+
+#airDrawer:not(.hidden) {
+  pointer-events: auto;
+}
+
+#airPanel {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateX(100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 340px;
+  max-width: 90vw;
+  background: white;
+  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+#airPanel.translate-x-full {
+  transform: translateX(100%);
+}
+
+#airPanel:not(.translate-x-full) {
+  transform: translateX(0);
+}
+
+#airBackdrop {
+  will-change: opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+#airBackdrop.opacity-100 {
+  opacity: 1;
+}
+
+/* Prevent body scroll without affecting layout */
+body.drawer-open {
+  overflow: hidden;
+  padding-right: 0 !important;
+}
