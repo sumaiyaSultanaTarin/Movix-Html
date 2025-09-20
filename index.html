@@ -34,8 +34,8 @@
     <!-- Top Bar -->
     <header
       id="topbar"
-      class="bg-[var(--color-dark-blue)] text-white py-2 md:block hidden"
-    >
+      class="bg-[var(--color-dark-blue)] text-white py-2 md:block hidden transition-all duration-300">
+      
       <div
         class="container mx-auto px-4 flex justify-between items-center text-sm"
       >
@@ -90,7 +90,7 @@
     </header>
 
     <!-- Navbar -->
-    <nav class="bg-white shadow sticky top-0 z-50">
+    <nav id="mainNav" class="bg-white shadow left-0 right-0 z-50">
       <div class="container mx-auto px-6">
         <div class="flex justify-between items-center py-4">
           <!-- Logo -->
@@ -305,7 +305,7 @@
       <!-- ==== HERO SCETION ==== -->
       <section
         id="hero"
-        class="relative min-h-screen bg-[var(--color-white)] bg-cover bg-center bg-no-repeat"
+        class="relative min-h-screen bg-[var(--color-white)] bg-cover bg-center bg-no-repeat 2xl:min-h-[763px]"
         style="background-image: url('assets/images/header-bg.png')"
       >
         <!-- Gradient Overlay -->
@@ -394,7 +394,7 @@
                   />
                 </defs>
                 <text
-                  class="font-instrument font-semibold text-[7px] tracking-widest"
+                  class="font-semibold text-[6px] tracking-widest"
                   fill="var(--color-dark-blue)"
                 >
                   <textPath href="#circle">
@@ -417,7 +417,7 @@
             >
               <!-- Reviews -->
               <div
-                class="bg-transparent flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-6 text-center sm:text-left review-meta"
+                class="bg-transparent pt-20 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-6 text-center sm:text-left review-meta"
                 data-rating="4.5"
                 data-feedbacks="150000"
               >
@@ -443,7 +443,7 @@
 
               <!-- Stats -->
               <div
-                class="grid grid-cols-2 sm:grid-cols-3 gap-2 md:flex md:items-center md:gap-1 text-center counter-section"
+                class="grid grid-cols-2 sm:grid-cols-3 gap-2 md:flex md:items-center md:gap-1 pt-20 text-center counter-section"
               >
                 <div
                   class="group transition-all duration-300 rounded-xl p-4 hover:-translate-y-1"
@@ -929,17 +929,17 @@
                 <div
                   class="backdrop-blur-md bg-white/90 text-[#003B49] rounded-xl p-4 flex items-center justify-between"
                 >
-                  <div>
+                  <div >
                     <p class="text-[11px] text-gray-500 leading-tight">
                       Logistics
                     </p>
-                    <h5 class="font-semibold leading-tight">Air Transport</h5>
+                    <h5 class="font-semibold leading-tight hover:text-[var(--color-orange)]">Air Transport</h5>
                   </div>
-                  <button
+                  <a href="/indexAirTransport.html"
                     class="w-10 h-10 rounded-full border border-[#003B49] flex items-center justify-center hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)] hover:text-white transition"
                   >
                     <i class="fas fa-arrow-up-right-from-square"></i>
-                  </button>
+                </a>
                 </div>
               </figcaption>
             </figure>
@@ -1392,7 +1392,7 @@
             <img
               src="assets/images/truck.png"
               alt="Truck"
-              class="hidden xl:block absolute right-0 2xl:right-8 top-0 w-[280px] xl:w-[320px] 2xl:w-[360px] select-none pointer-events-none z-10"
+              class="hidden xl:block absolute -right-1 2xl:-right-12 top-0 w-[250px] xl:w-[280px] 2xl:w-[300px] select-none pointer-events-none z-10"
             />
           </div>
 

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Error Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body class="bg-white text-gray-700">
+
+      <!-- ==== HEADER ==== -->
+    <!-- Top Bar -->
+    <header
+      id="topbar"
+      class="bg-[var(--color-dark-blue)] text-white py-2 md:block hidden"
+    >
+      <div
+        class="container mx-auto px-4 flex justify-between items-center text-sm"
+      >
+        <!-- Left Info -->
+        <div class="flex items-center space-x-6">
+          <div
+            class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer"
+          >
+            <i class="fas fa-phone"></i><span>123-456-32-23</span>
+          </div>
+          <div
+            class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer"
+          >
+            <i class="fas fa-envelope"></i><span>movix@gmail.com</span>
+          </div>
+          <div
+            class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer"
+          >
+            <i class="fas fa-map-marker-alt"></i
+            ><span>371 7th Ave, New York, NY 10001</span>
+          </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-3">
+          <a
+            href="#"
+            class="w-8 h-8 bg-[var(--color-orange)] rounded-full flex items-center justify-center hover:bg-orange-600"
+          >
+            <i class="fab fa-facebook-f text-sm"></i>
+          </a>
+          <a
+            href="#"
+            class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#1DA1F2] hover:border-[#1DA1F2]"
+          >
+            <i class="fab fa-twitter text-sm"></i>
+          </a>
+          <a
+            href="#"
+            class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#0A66C2] hover:border-[#0A66C2]"
+          >
+            <i class="fab fa-linkedin-in text-sm"></i>
+          </a>
+          <a
+            href="#"
+            class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#E4405F] hover:border-[#E4405F]"
+          >
+            <i class="fab fa-instagram text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow fixed top-0 left-0 right-0 z-50">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2 cursor-pointer">
+            <div class="logo-hover">
+              <img
+                src="assets/images/logo.png"
+                alt="Movix Logo"
+                class="w-8 h-8 object-contain"
+              />
+            </div>
+            <span class="text-2xl font-bold text-[var(--color-dark-blue)]">Movix</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div
+            class="hidden md:flex items-center space-x-8 font-medium relative"
+          >
+            <div class="group relative">
+              <a href="#hero" class="nav-link flex items-center">
+                Home <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="dropdown-menu absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
+              >
+                <a
+                  href="#home-1"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Home 1</a
+                >
+                <a
+                  href="#home-2"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Home 2</a
+                >
+              </div>
+            </div>
+
+            <a href="#about" class="nav-link">About Us</a>
+
+            <div class="group relative">
+              <a href="#services" class="nav-link flex items-center">
+                Pages <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="dropdown-menu absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
+              >
+                <a
+                  href="#services-1"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Service 1</a
+                >
+                <a
+                  href="#services-2"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Service 2</a
+                >
+              </div>
+            </div>
+
+            <a href="#projects" class="nav-link">Projects</a>
+
+            <div class="group relative">
+              <a href="#blogs" class="nav-link flex items-center">
+                Blog <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="dropdown-menu absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
+              >
+                <a
+                  href="#blog-1"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Blog 1</a
+                >
+                <a
+                  href="#blog-2"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Blog 2</a
+                >
+              </div>
+            </div>
+
+            <a href="#contact" class="nav-link">Contact Us</a>
+          </div>
+
+          <!-- Mobile Menu -->
+          <div class="mobile-nav md:hidden font-medium">
+            <div class="mobile-item">
+              <a
+                href="#hero"
+                class="nav-link flex items-center hover:text-[var(--color-orange)]"
+              >
+                Home <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
+              >
+                <a href="#home-1" class="hover:text-[var(--color-orange)]"
+                  >Home 1</a
+                >
+                <a href="#home-2" class="hover:text-[var(--color-orange)]"
+                  >Home 2</a
+                >
+              </div>
+            </div>
+
+            <a href="#about" class="nav-link">About Us</a>
+
+            <div class="mobile-item">
+              <a href="#services" class="nav-link flex items-center">
+                Pages <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
+              >
+                <a href="#services-1" class="hover:text-[var(--color-orange)]"
+                  >Service 1</a
+                >
+                <a href="#services-2" class="hover:text-[var(--color-orange)]"
+                  >Service 2</a
+                >
+              </div>
+            </div>
+
+            <a href="#projects" class="nav-link">Projects</a>
+
+            <div class="mobile-item">
+              <a href="#blogs" class="nav-link flex items-center">
+                Blog <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
+              >
+                <a href="#blog-1" class="hover:text-[var(--color-orange)]"
+                  >Blog 1</a
+                >
+                <a href="#blog-2" class="hover:text-[var(--color-orange)]"
+                  >Blog 2</a
+                >
+              </div>
+            </div>
+
+            <a href="#contact" class="nav-link">Contact Us</a>
+
+            <!-- Mobile Tracking Button at bottom -->
+            <div
+              class="mt-2 sticky bottom-0 bg-white/95 backdrop-blur p-4 border-t"
+            >
+              <button
+                class="w-full bg-[var(--color-orange)] hover:bg-orange-600 text-white px-4 py-3 rounded-md flex items-center justify-center gap-2 text-sm font-semibold relative overflow-hidden group"
+              >
+                <span
+                  class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+                >
+                  <span
+                    class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"
+                  ></span>
+                </span>
+                <span>Tracking Order</span>
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center space-x-4">
+            <!-- Search -->
+            <div class="flex items-center search-wrapper relative">
+              <button
+                id="searchToggle"
+                class="flex items-center justify-center w-9 h-9 border border-[#003B49] rounded-full text-[#003B49] hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300"
+              >
+                <i class="fas fa-search text-sm"></i>
+              </button>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search..."
+                class="h-9 w-0 opacity-0 px-3 border border-[#003B49] rounded-full text-sm text-gray-700 focus:outline-none transition-all duration-300"
+              />
+            </div>
+
+            <!-- Tracking -->
+            <button
+              class="tracking-btn bg-[var(--color-orange)] hover:bg-orange-600 text-white px-5 py-3 rounded-md flex items-center space-x-2 text-sm font-semibold hidden md:flex relative overflow-hidden group"
+            >
+              <span
+                class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+              >
+                <span
+                  class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"
+                ></span>
+              </span>
+              <span>Tracking Order</span>
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </button>
+
+            <!--  hamburger -->
+            <button
+              id="menuToggle"
+              class="flex items-center justify-center w-9 h-9 border border-[#003B49] rounded-full text-[#003B49] hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 md:hidden"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ==== END HEADER ==== -->
+
+  <!-- ==== HERO SECTION ==== -->
+  <section class="relative h-[220px] md:h-[260px] flex items-center justify-center text-center overflow-hidden">
+    <img src="assets/images/page_bg.png" alt="Error Hero"
+         class="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-700">
+    <div class="absolute inset-0 bg-[#003B49]/70"></div>
+    <div class="relative z-10">
+      <h1 class="text-2xl md:text-4xl font-bold text-white tracking-wide">Error Page</h1>
+      <p class="mt-2 text-sm md:text-base text-white/80"> <span class="text-[var(--color-orange)]"> Home </span> / Error Page</p>
+    </div>
+  </section>
+
+  <!-- ==== ERROR BLOCK ==== -->
+  <section class="py-16 md:py-20 text-center">
+    <h1 class="text-[120px] sm:text-[160px] md:text-[200px] font-extrabold text-[var(--color-dark-blue)] leading-none transition-transform duration-500 hover:scale-105">
+      40<span class="rotate-90">4</span>
+    </h1>
+    <p class="mt-4 text-[var(--color-black-forest)] max-w-lg mx-auto">Sorry, the page you’re looking for doesn’t exist. If you think something is broken, report a problem.</p>
+    <a href="index.html" 
+       class="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-orange)] text-white font-semibold rounded-md shadow-lg hover:bg-orange-600 transition-all duration-300 hover:gap-3">
+      Back to Home <i class="fas fa-arrow-up-right-from-square"></i>
+    </a>
+  </section>
+
+<!-- ==== FOOTER SECTION ==== -->
+<footer class="relative bg-[var(--color-dark-blue)] text-white">
+    <!-- Background pattern (subtle watermark) -->
+    <!-- <div class="absolute inset-0 opacity-10">
+      <img src="assets/icons/" alt="Pattern" class="w-full h-full object-cover">
+    </div> -->
+  
+    <div class="relative z-10 py-16">
+      <!-- Newsletter -->
+      <div class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px]">
+        <div class="bg-[var(--color-orange)] rounded-md p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 shadow-lg">
+          <h3 class="text-lg md:text-2xl font-semibold text-white">
+            Get the Edge with Weekly <br class="hidden md:block" />
+            Insight & Innovation
+          </h3>
+          <form class="w-full md:w-auto flex items-center bg-white rounded-md overflow-hidden shadow">
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="w-full md:w-72 p-3 text-sm text-gray-700 focus:outline-none"
+              required
+            />
+            <button
+              type="submit"
+              class="bg-[var(--color-orange)] mr-0.5 px-3 py-2 text-white rounded-md hover:bg-orange-500 transition"
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Main Footer 4 Columns -->
+      <div class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px] py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="assets/images/logo.png" alt="Movix Logo" class="w-8 h-8 object-contain" />
+            <span class="text-2xl font-bold">Movix</span>
+          </div>
+          <p class="text-sm text-gray-300 mb-6 leading-relaxed">
+            There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered in some.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/30 rounded-full hover:bg-white hover:text-[var(--color-dark-blue)] transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/30 rounded-full hover:bg-white hover:text-[var(--color-dark-blue)] transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/30 rounded-full hover:bg-white hover:text-[var(--color-dark-blue)] transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/30 rounded-full hover:bg-white hover:text-[var(--color-dark-blue)] transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+  
+        <!-- Company -->
+        <div>
+          <h4 class="font-semibold text-lg mb-4 border-b-2 border-[var(--color-orange)] pb-1 inline-block">Company</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">About Us</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Our Expertise</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Transporters</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Terms & Condition</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Case Studies</a></li>
+          </ul>
+        </div>
+  
+        <!-- Our Services -->
+        <div>
+          <h4 class="font-semibold text-lg mb-4 border-b-2 border-[var(--color-orange)] pb-1 inline-block">Our Services</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Ship Freight Shipping</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Less Than Truckload</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Container Freight</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Rail Freight Shipping</a></li>
+            <li><a href="#" class="hover:text-[var(--color-orange)] transition">Air Freight Trucking</a></li>
+          </ul>
+        </div>
+  
+        <!-- Office Address -->
+        <div>
+          <h4 class="font-semibold text-lg mb-4 border-b-2 border-[var(--color-orange)] pb-1 inline-block">Office Address</h4>
+          <p class="text-sm text-gray-300">3891 Ranchview Dr. Richardson, California 62639</p>
+          <p class="text-sm text-gray-300 mt-2">Mon–Fri : 09.00 am – 05.00 pm</p>
+          <p class="text-sm text-gray-300 mt-2">+1 (456) 568 68</p>
+          <p class="text-sm text-gray-300 mt-2">info.support@gmail.com</p>
+        </div>
+      </div>
+  
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/20 py-6">
+        <div class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px] flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-gray-400">© 2025 <span class="font-semibold text-white">Nano_theme</span>. All rights reserved.</p>
+          <div class="flex gap-6 text-sm text-gray-300">
+            <a href="#" class="hover:text-white transition">Privacy & Terms</a>
+            <a href="#" class="hover:text-white transition">FAQ</a>
+            <a href="#" class="hover:text-white transition">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ==== END FOOTER SECTION ==== -->
+  
+  <!-- FontAwesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  
+</body>
+</html>

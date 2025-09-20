@@ -1,4 +1,4 @@
-// Sidebar drawer (reuse pattern from main script but scoped)
+// Sidebar drawer
 (function(){
   const root = document.getElementById('airDrawer');
   const panel = document.getElementById('airPanel');
@@ -220,31 +220,31 @@
 })();
 
 // Lenis smooth scrolling for this page
-(function(){
-  if (!window.Lenis) return;
-  const lenis = new Lenis({
-    duration: 3.5,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-    smoothTouch: true,
-  });
-  function raf(time){
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-  // Anchor links within page
-  document.querySelectorAll('a[href^="#"]').forEach((a)=>{
-    const hash = a.getAttribute('href');
-    if (!hash || hash === '#') return;
-    a.addEventListener('click', (e)=>{
-      const t = document.querySelector(hash);
-      if (!t) return;
-      e.preventDefault();
-      lenis.scrollTo(t, { duration: 3.5 });
-    });
-  });
-})();
+// (function(){
+//   if (!window.Lenis) return;
+//   const lenis = new Lenis({
+//     duration:4.5,
+//     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+//     smoothWheel: true,
+//     smoothTouch: true,
+//   });
+//   function raf(time){
+//     lenis.raf(time);
+//     requestAnimationFrame(raf);
+//   }
+//   requestAnimationFrame(raf);
+//   // Anchor links within page
+//   document.querySelectorAll('a[href^="#"]').forEach((a)=>{
+//     const hash = a.getAttribute('href');
+//     if (!hash || hash === '#') return;
+//     a.addEventListener('click', (e)=>{
+//       const t = document.querySelector(hash);
+//       if (!t) return;
+//       e.preventDefault();
+//       lenis.scrollTo(t, { duration: 4.5 });
+//     });
+//   });
+// })();
 
   // ==== Video Modal Logic ====
   document.querySelectorAll(".open-video").forEach((btn) => {
@@ -338,4 +338,4 @@
     });
   });
 })();
-
+ 

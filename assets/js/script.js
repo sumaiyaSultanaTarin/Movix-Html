@@ -19,75 +19,89 @@
         }
       });
 
+// ==== Lenis Smooth Scroll ====
 function initLenis() {
-  console.log("Initializing Lenis...");
-  console.log("Lenis available:", !!window.Lenis);
+  if (!window.Lenis) return false;
   
-  if (window.Lenis && !window.__lenis) {
-    // compute sticky navbar height for offset
-    const nav = document.querySelector("nav");
-    const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
+  // Prevent FOUC and blinking
+  document.documentElement.style.scrollBehavior = 'auto';
+  
+  // compute sticky navbar height for offset
+  const nav = document.querySelector("nav");
+  const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
 
-    const lenis = new Lenis({
-      smoothWheel: true,
-      smoothTouch: true,
-      duration: 3.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.1,
-      wheelMultiplier: 0.8,
-      touchMultiplier: 1.2,
-      normalizeWheel: true,
-      syncTouch: true,
-      infinite: false,
-    });
-
-    console.log("Lenis initialized:", lenis);
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Pause Lenis when modals are open
-    const pauseLenis = () => {
-      if (lenis) {
-        lenis.stop();
-        console.log("Lenis paused");
-      }
-    };
-    
-    const resumeLenis = () => {
-      if (lenis) {
-        lenis.start();
-        console.log("Lenis resumed");
-      }
-    };
-
-    // Hook ALL in-page anchor links to use Lenis
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      const hash = a.getAttribute("href");
-      if (!hash || hash === "#") return;
-      a.addEventListener("click", (e) => {
-        const target = document.querySelector(hash);
-        if (target) {
-          e.preventDefault();
-          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.6 });
-        }
-      });
-    });
-
-    // Expose for debugging and modal control
-    window.__lenis = lenis;
-    window.__pauseLenis = pauseLenis;
-    window.__resumeLenis = resumeLenis;
-    
-    console.log("Lenis setup complete");
-    return true;
-  } else {
-    console.error("Lenis not loaded!");
-    return false;
+  const lenis = new Lenis({
+    duration: 4.5,
+    easing: (t) => 1 - Math.pow(1 - t, 3), // cubic-out easing
+    smoothWheel: true,
+    smoothTouch: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.5,
+    infinite: false,
+    normalizeWheel: true,
+    lerp: 0.1,
+  });
+  
+  // Optimized RAF loop
+  let rafId;
+  function raf(time){
+    lenis.raf(time);
+    rafId = requestAnimationFrame(raf);
   }
+  
+  // Start RAF only after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(raf);
+    });
+  } else {
+    requestAnimationFrame(raf);
+  }
+  
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', () => {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+    }
+    lenis.destroy();
+  });
+
+  // Pause Lenis when modals are open
+  const pauseLenis = () => {
+    if (lenis) {
+      lenis.stop();
+    }
+  };
+  
+  const resumeLenis = () => {
+    if (lenis) {
+      lenis.start();
+    }
+  };
+
+  // Hook ALL in-page anchor links to use Lenis
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const hash = a.getAttribute("href");
+    if (!hash || hash === "#") return;
+    a.addEventListener("click", (e) => {
+      const target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        lenis.scrollTo(target, { 
+          offset: -getNavOffset(), 
+          duration: 4.5,
+          easing: (t) => 1 - Math.pow(1 - t, 3)
+        });
+      }
+    });
+  });
+
+  // Expose for debugging and modal control
+  window.__lenis = lenis;
+  window.__pauseLenis = pauseLenis;
+  window.__resumeLenis = resumeLenis;
+  
+  return true;
 }
 // ==== Team Modal Functions (Global) ====
 function openTeamModal(name, position, imageSrc) {
@@ -295,103 +309,9 @@ function closeBlogModal() {
 // ==== END Modal Functions (Global) ====
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (!initLenis()) {
-    setTimeout(() => {
-      console.log("Retrying Lenis initialization...");
-      if (!initLenis()) {
-        console.error("Lenis failed to load after retry");
-      }
-    }, 1000);
-  }
+  // Initialize Lenis immediately
+  initLenis();
 
-  if (!window.__lenis) {
-    console.log("Using enhanced fallback smooth scroll");
-    
-    // Custom smooth scroll implementation
-    function smoothScrollTo(target, duration = 1200) {
-      const nav = document.querySelector('nav');
-      const offset = nav ? nav.getBoundingClientRect().height : 0;
-      const targetPosition = target.offsetTop - offset;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      let startTime = null;
-
-      function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
-
-      function easeInOutCubic(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t * t + b;
-        t -= 2;
-        return c / 2 * (t * t * t + 2) + b;
-      }
-
-      requestAnimationFrame(animation);
-    }
-    
-    // Add smooth scroll behavior to all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
-        const target = href ? document.querySelector(href) : null;
-        if (target) {
-          e.preventDefault();
-          smoothScrollTo(target);
-        }
-      });
-    });
-
-    // Add smooth scroll to entire page
-    let isScrolling = false;
-    let scrollTimeout;
-
-    function addSmoothScroll() {
-      let currentScroll = window.pageYOffset;
-      let targetScroll = currentScroll;
-      let scrollVelocity = 0;
-      let scrollAcceleration = 0;
-
-      function updateScroll() {
-        if (Math.abs(targetScroll - currentScroll) > 0.1) {
-          scrollVelocity += (targetScroll - currentScroll) * 0.1;
-          scrollVelocity *= 0.8; // Friction
-          currentScroll += scrollVelocity;
-          window.scrollTo(0, currentScroll);
-          requestAnimationFrame(updateScroll);
-        }
-      }
-
-      // Listen for wheel events
-      document.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        targetScroll += e.deltaY * 0.5;
-        targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
-        
-        if (!isScrolling) {
-          isScrolling = true;
-          updateScroll();
-        }
-        
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          isScrolling = false;
-        }, 150);
-      }, { passive: false });
-    }
-
-    // Only add custom scroll if Lenis completely fails
-    setTimeout(() => {
-      if (!window.__lenis) {
-        addSmoothScroll();
-        console.log("Custom smooth scroll activated");
-      }
-    }, 2000);
-  }
 
   // Ensure desktop navbar links are intercepted even without Lenis
   document.querySelectorAll('.md\\:flex .nav-link[href^="#"]').forEach((link) => {
@@ -417,7 +337,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
   /** ========== HEADER ========== **/
   const menuBtn = document.getElementById("menuToggle");
   const mobileNav = document.querySelector(".mobile-nav");
@@ -984,3 +903,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+(function(){
+  const topbar = document.getElementById("topbar");
+  const mainNav = document.getElementById("mainNav");
+
+  if (!topbar) return;
+
+  let lastY = window.scrollY;
+
+  function onScroll() {
+    const y = window.scrollY;
+
+    if (y > lastY && y > 48) {
+      // scrolling down → hide topbar
+      topbar.classList.add("-translate-y-full", "opacity-0", "pointer-events-none");
+      mainNav.classList.remove("relative");
+      mainNav.classList.add("top-0", 'fixed');
+    } else {
+      // scrolling up or near top → show
+      topbar.classList.remove("-translate-y-full", "opacity-0", "pointer-events-none");
+      mainNav.classList.remove("top-0", 'fixed');
+      mainNav.classList.add("relative");
+    }
+
+    lastY = y;
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
