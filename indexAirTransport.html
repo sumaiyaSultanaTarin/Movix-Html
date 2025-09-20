@@ -163,12 +163,13 @@
           gap: 2rem;
         }
       }
+
     </style>
   </head>
   <body class="bg-gray-50 font-sora">
     <!-- Navbar-->
     <nav class="bg-white shadow sticky top-0 z-50">
-      <div class="container mx-auto px-6">
+      <div class="container mx-auto px-6 lg:px-12">
         <div class="flex justify-between items-center py-5 md:py-6">
           <!-- Logo -->
           <div class="flex items-center space-x-2 cursor-pointer">
@@ -397,7 +398,7 @@
 
       <!-- Decorative airplane vector -->
       <div
-        class="absolute right-1 sm:right-4 md:right-6 lg:right-8 xl:right-1 2xl:right-12 top-1/2 -translate-y-1/2 select-none pointer-events-none"
+        class="absolute right-1 sm:right-4 md:right-6 lg:right-8 xl:-right-1 2xl:-right-1 top-1/2 -translate-y-1/2 select-none pointer-events-none"
         style="
           animation: planeFloat 3.2s ease-in-out infinite,
             planeDrift 3.2s ease-in-out infinite;
@@ -411,15 +412,15 @@
       </div>
 
       <div
-        class="relative container mx-auto px-4 sm:px-6 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-24"
+        class="relative container mx-auto px-6 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-24"
       >
         <div
-          class="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 2xl:gap-16 items-center"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-8 2xl:gap-0 lg:gap-0 items-center"
         >
           <!-- Left: Main Image -->
-          <div class="flex justify-center lg:justify-start order-1">
+          <div class="flex justify-center order-1">
             <div
-              class="rounded-xl hover:scale-[1.03] transition-transform duration-300 overflow-hidden shadow-lg bg-white/5 backdrop-blur p-1 w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[500px] md:h-[500px] xl:w-[550px] xl:h-[580px] 2xl:w-[620px] 2xl:h-[636px]"
+              class="rounded-xl hover:scale-[1.03] transition-transform duration-300 overflow-hidden shadow-lg bg-white/5 backdrop-blur p-1 w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[500px] md:h-[500px] xl:w-[550px] xl:h-[580px] 2xl:w-[550px] 2xl:h-[580px]"
             >
               <img
                 id="heroMainImage"
@@ -459,20 +460,20 @@
             </div>
 
             <!-- Thumbnail strip with overlaid chevrons -->
-            <div class="mt-20">
+            <div class="mt-20 sm:mt-15">
               <div
-                class="relative w-full sm:w-[600px] md:w-[700px] xl:w-[600px] 2xl:w-[808px] h-[120px] sm:h-[150px] md:h-[160px] xl:h-[175px]"
+                class="relative w-full sm:w-[600px] md:w-[700px] xl:w-[600px] h-[120px] sm:h-[150px] md:h-[160px] "
               >
                 <button
                   id="thumbPrev"
-                  class="absolute -left-3 xl:-left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#003B49] shadow hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center"
+                  class="absolute -left-3 xl:-left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[var(--color-dark-blue)] shadow hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center"
                 >
                   <i class="fas fa-chevron-left text-sm"></i>
                 </button>
 
                 <button
                   id="thumbNext"
-                  class="absolute -right-2 xl:right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#003B49] shadow hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center"
+                  class="absolute -right-3 xl:-right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10  rounded-full bg-white text-[var(--color-dark-blue)] shadow hover:bg-[var(--color-orange)] hover:text-white transition grid place-items-center"
                 >
                   <i class="fas fa-chevron-right text-sm"></i>
                 </button>
@@ -480,24 +481,24 @@
                 <!-- Thumbnails -->
                 <div
                   id="thumbStrip"
-                  class="grid grid-cols-3 gap-4 h-full xl:mr-10"
+                  class="grid grid-cols-3 gap-3 sm:gap-4 h-full  "
                 >
                   <img
                     src="assets/images/airHome5.png"
                     data-large="assets/images/airHome5.png"
-                    class="hero-thumb w-full h-full object-cover rounded-[18px] hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
+                    class="hero-thumb w-full h-full  object-cover rounded-[18px] hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
                     alt="thumb1"
                   />
                   <img
                     src="assets/images/airHome4.png"
                     data-large="assets/images/airHome4.png"
-                    class="hero-thumb w-full h-full object-cover rounded-[18px] hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
+                    class="hero-thumb w-full h-full  object-cover rounded-[18px] hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
                     alt="thumb2"
                   />
                   <img
                     src="assets/images/airHome3.png"
                     data-large="assets/images/airHome3.png"
-                    class="hero-thumb w-full h-full object-cover rounded-[18px] hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
+                    class="hero-thumb w-full h-full  object-cover rounded-[18px] hover:scale-[1.03] hover:border-2 hover:border-[var(--color-orange)] transition-transform duration-300"
                     alt="thumb3"
                   />
                 </div>
@@ -512,9 +513,9 @@
 <section class="relative py-20 bg-[#f9f9f9] overflow-hidden">
 
   <!-- Background art (hide on small so it never crowds) -->
-  <img src="assets/images/airVector.png"    class="hidden lg:block absolute left-0 top-10 w-[300px] opacity-70 pointer-events-none" alt="">
+  <img src="assets/images/airVector.png"    class="hidden lg:block absolute left-0 top-0 w-[300px] opacity-70 pointer-events-none" alt="">
   <img src="assets/images/airPlane.png"     class="hidden lg:block absolute left-10 bottom-5 w-[150px] opacity-80 pointer-events-none" alt="">
-  <img src="assets/images/airAbstract.png"  class="hidden lg:block absolute right-0 bottom-20 w-[80px] opacity-40 pointer-events-none" alt="">
+  <img src="assets/images/airAbstract.png"  class="hidden lg:block absolute right-0 2xl:right-20 bottom-20 w-[80px] opacity-40 pointer-events-none" alt="">
   <img src="assets/images/airService1.png"  class="hidden lg:block absolute right-12 top-0 w-[150px] pointer-events-none" alt="">
 
   <div class="relative container mx-auto px-6 lg:px-12 text-center">
@@ -530,7 +531,7 @@
     </div>
 
     <!-- Cards: enhanced responsive carousel -->
-    <div class="services-carousel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 justify-items-center max-w-7xl mx-auto">
+    <div class="services-carousel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-4 lg:gap-1 justify-items-center max-w-7xl mx-auto">
       
       <!-- Card 1 -->
       <article class="service-card w-full max-w-[400px] lg:max-w-[350px] h-[420px] bg-white rounded-[14px] border border-[#E7EDF1] shadow-[0_8px_24px_rgba(0,0,0,0.06)] p-5 text-left transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-2">
@@ -811,119 +812,284 @@
 
 
 <!-- ==== PRICING SECTION ==== -->
-<section id="pricing" class="relative py-20 bg-[#f9f9f9]">
-  <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row gap-12">
+<section id="pricing" class="relative py-20 bg-[#f9f9f9] overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-[var(--color-orange)]/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-dark-blue)]/5 rounded-full blur-3xl"></div>
+  </div>
 
-    <!-- LEFT: Heading & Toggle -->
-    <div class="flex-1">
+  <div class="relative container mx-auto px-6 lg:px-12">
+    <!-- Header Section -->
+    <div class="text-center mb-16">
       <span class="text-[var(--color-orange)] uppercase font-medium tracking-wide inline-flex items-center gap-2 text-sm">
         <i class="fas fa-tags"></i> Pricing Plan
       </span>
       <h2 class="mt-3 text-3xl md:text-4xl font-semibold text-[var(--color-dark-blue)] leading-snug">
         Offer A Flexible Pricing <br class="hidden md:block" /> for All Customer
       </h2>
-      <p class="mt-4 text-[var(--color-black-forest)] text-sm leading-relaxed max-w-md">
+      <p class="mt-4 text-[var(--color-black-forest)] text-sm leading-relaxed max-w-2xl mx-auto">
         In today's dynamic business environment, the key success strategics today's dynamic business.
       </p>
 
-      <!-- Toggle -->
-      <div class="mt-6 flex gap-3 ">
-        <button id="monthlyBtn" class="px-5 py-2 rounded-md bg-[var(--color-orange)] text-white font-semibold hover:bg-orange-500 text-sm shadow transition">
+      <!-- Enhanced Toggle -->
+      <div class="mt-8 inline-flex items-center bg-white rounded-full p-1 shadow-lg border border-gray-200">
+        <button id="monthlyBtn" class="px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 bg-[var(--color-orange)] text-white">
           Monthly
         </button>
-        <button id="yearlyBtn" class="px-5 py-2 rounded-md bg-white text-[var(--color-dark-blue)] font-semibold text-sm border border-gray-200 hover:bg-gray-100 transition">
+        <button id="yearlyBtn" class="px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 text-[var(--color-dark-blue)] hover:bg-gray-50">
           Yearly
         </button>
       </div>
     </div>
 
-    <!-- RIGHT: Pricing Cards -->
-    <div class="flex-1 flex flex-col gap-6">
-
-      <!-- Card 1 -->
-      <div class="relative bg-white rounded-xl shadow-lg p-6 lg:p-8 flex justify-between items-start">
-        <!-- Left Info -->
-        <div>
-          <h3 class="text-xl font-bold text-[var(--color-dark-blue)]">Basic</h3>
-          <p class="price text-4xl font-bold text-[var(--color-dark-blue)] mt-2" data-monthly="29" data-yearly="290">
-            $29 <span class="text-sm font-normal text-gray-500">/month</span>
-          </p>
-          <p class="text-gray-500 text-sm mt-1">20% off for 93K+ logistics <br/> clients package today.</p>
-          <button class="mt-4 inline-flex items-center gap-2 bg-[#003B49] hover:bg-[#012c33] text-white px-5 py-2 rounded-lg text-sm font-semibold transition">
-            Read More <i class="fas fa-arrow-up-right-from-square"></i>
-          </button>
+    <!-- Pricing Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      
+      <!-- Basic Plan -->
+      <div class="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:border-[var(--color-orange)]/30 overflow-hidden">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <!-- Plan Badge -->
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+          <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-semibold shadow-md">Starter</span>
         </div>
-
-        <!-- Right Features -->
-        <div class="text-left relative">
-          <span class="absolute -left-12 top-1/2 -translate-y-1/2 -rotate-90 text-[var(--color-black-forest)] font-semibold tracking-widest text-lg">
-            Includes
-          </span>
-          <ul class="space-y-2 text-sm text-gray-600">
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>00 Freight Shipman</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Customizable Pricing Options</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>No Hidden Fees</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Custom Packaging</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Real Time Tracking</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Community Support</li>
+        
+        <div class="relative z-10 text-center">
+          <!-- Plan Icon -->
+          <div class="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:from-[var(--color-orange)]/10 group-hover:to-[var(--color-orange)]/20 transition-all duration-500 group-hover:scale-110">
+            <i class="fas fa-truck text-3xl text-gray-600 group-hover:text-[var(--color-orange)] transition-colors duration-500"></i>
+          </div>
+          
+          <!-- Plan Name -->
+          <h3 class="text-2xl font-bold text-[var(--color-dark-blue)] mb-4">Basic</h3>
+          
+          <!-- Price -->
+          <div class="mb-8">
+            <div class="flex items-baseline justify-center mb-2">
+              <span class="text-6xl font-bold text-[var(--color-dark-blue)]">
+                $<span class="price-value">29</span>
+              </span>
+              <span class="text-gray-500 ml-2 text-lg">
+                /<span class="price-period">month</span>
+              </span>
+            </div>
+            <p class="text-sm text-gray-500">20% off for 93K+ logistics clients package today.</p>
+          </div>
+          
+          <!-- Features -->
+          <ul class="space-y-4 mb-8 text-left">
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Up to 10 shipments</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-75">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Basic tracking</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-100">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Email support</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-150">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Standard packaging</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-200">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Basic analytics</span>
+            </li>
           </ul>
+          
+          <!-- CTA Button -->
+          <button class="w-full bg-gradient-to-r from-[#003B49] to-[#012c33] hover:from-[#012c33] hover:to-[#003B49] text-white py-4 px-6 rounded-2xl font-semibold transition-all duration-300 hover:shadow-xl group-hover:scale-105 relative overflow-hidden">
+            <span class="relative z-10">Read More <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          </button>
         </div>
       </div>
 
-      <!-- Card 2 (Highlighted button) -->
-      <div class="relative bg-white rounded-xl shadow-lg p-6 lg:p-8 flex justify-between items-start">
-        <div>
-          <h3 class="text-xl font-bold text-[var(--color-dark-blue)]">Business</h3>
-          <p class="price text-4xl font-bold text-[var(--color-dark-blue)] mt-2" data-monthly="39" data-yearly="390">
-            $39 <span class="text-sm font-normal text-gray-500">/month</span>
-          </p>
-          <p class="text-gray-500 text-sm mt-1">20% off for 93K+ logistics<br/> clients package today.</p>
-          <button class="mt-4 inline-flex items-center gap-2 bg-[var(--color-orange)] hover:bg-orange-600 text-white px-5 py-2 rounded-lg text-sm font-semibold transition">
-            Read More <i class="fas fa-arrow-up-right-from-square"></i>
-          </button>
-        </div>
-        <div class="text-left relative">
-          <span class="absolute -left-12 top-1/2 -translate-y-1/2 -rotate-90 text-gray-300 font-bold tracking-widest text-lg">
-            Includes
+      <!-- Business Plan (Most Popular) -->
+      <div class="group relative bg-gradient-to-br from-[var(--color-orange)] via-orange-500 to-orange-600 rounded-3xl shadow-2xl p-8 transition-all duration-500 hover:shadow-3xl hover:-translate-y-4 hover:scale-105 overflow-hidden">
+        <!-- Popular Badge -->
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+          <span class="bg-white text-[var(--color-orange)] px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+            Most Popular
           </span>
-          <ul class="space-y-2 text-sm text-gray-600">
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>00 Freight Shipman</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Customizable Pricing Options</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>No Hidden Fees</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Custom Packaging</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Real Time Tracking</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Community Support</li>
+        </div>
+        
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full translate-y-12 -translate-x-12"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white">
+          <!-- Plan Icon -->
+          <div class="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all duration-500 group-hover:scale-110 backdrop-blur-sm">
+            <i class="fas fa-plane text-3xl text-white"></i>
+          </div>
+          
+          <!-- Plan Name -->
+          <h3 class="text-2xl font-bold mb-4">Business</h3>
+          
+          <!-- Price -->
+          <div class="mb-8">
+            <div class="flex items-baseline justify-center mb-2">
+              <span class="text-6xl font-bold">
+                $<span class="price-value">79</span>
+              </span>
+              <span class="text-white/80 ml-2 text-lg">
+                /<span class="price-period">month</span>
+              </span>
+            </div>
+            <p class="text-sm text-white/80">20% off for 93K+ logistics clients package today.</p>
+          </div>
+          
+          <!-- Features -->
+          <ul class="space-y-4 mb-8 text-left">
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300">
+              <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                <i class="fas fa-check text-white text-sm"></i>
+              </div>
+              <span class="font-medium">Up to 100 shipments</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-75">
+              <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                <i class="fas fa-check text-white text-sm"></i>
+              </div>
+              <span class="font-medium">Advanced tracking</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-100">
+              <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                <i class="fas fa-check text-white text-sm"></i>
+              </div>
+              <span class="font-medium">Priority support</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-150">
+              <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                <i class="fas fa-check text-white text-sm"></i>
+              </div>
+              <span class="font-medium">Custom packaging</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-200">
+              <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                <i class="fas fa-check text-white text-sm"></i>
+              </div>
+              <span class="font-medium">Advanced analytics</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-250">
+              <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                <i class="fas fa-check text-white text-sm"></i>
+              </div>
+              <span class="font-medium">API access</span>
+            </li>
           </ul>
+          
+          <!-- CTA Button -->
+          <button class="w-full bg-white text-[var(--color-orange)] py-4 px-6 rounded-2xl font-bold transition-all duration-300 hover:shadow-xl group-hover:scale-105 relative overflow-hidden">
+            <span class="relative z-10">Read More <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-orange-100 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          </button>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="relative bg-white rounded-xl shadow-lg p-6 lg:p-8 flex justify-between items-start">
-        <div>
-          <h3 class="text-xl font-bold text-[var(--color-dark-blue)]">Enterprise</h3>
-          <p class="price text-4xl font-bold text-[var(--color-dark-blue)] mt-2" data-monthly="49" data-yearly="490">
-            $49 <span class="text-sm font-normal text-gray-500">/month</span>
-          </p>
-          <p class="text-gray-500 text-sm mt-1">20% off for 93K+ logistics<br/> clients package today.</p>
-          <button class="mt-4 inline-flex items-center gap-2 bg-[#003B49] hover:bg-[#012c33] text-white px-5 py-2 rounded-lg text-sm font-semibold transition">
-            Read More <i class="fas fa-arrow-up-right-from-square"></i>
+      <!-- Enterprise Plan -->
+      <div class="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:border-[var(--color-dark-blue)]/30 overflow-hidden">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <!-- Plan Badge -->
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+          <span class="bg-gradient-to-r from-[var(--color-dark-blue)] to-blue-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">Enterprise</span>
+        </div>
+        
+        <div class="relative z-10 text-center">
+          <!-- Plan Icon -->
+          <div class="w-20 h-20 bg-gradient-to-br from-[var(--color-dark-blue)]/10 to-blue-100 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:from-[var(--color-dark-blue)]/20 group-hover:to-blue-200 transition-all duration-500 group-hover:scale-110">
+            <i class="fas fa-crown text-3xl text-[var(--color-dark-blue)] group-hover:text-blue-700 transition-colors duration-500"></i>
+          </div>
+          
+          <!-- Plan Name -->
+          <h3 class="text-2xl font-bold text-[var(--color-dark-blue)] mb-4">Enterprise</h3>
+          
+          <!-- Price -->
+          <div class="mb-8">
+            <div class="flex items-baseline justify-center mb-2">
+              <span class="text-6xl font-bold text-[var(--color-dark-blue)]">
+                $<span class="price-value">199</span>
+              </span>
+              <span class="text-gray-500 ml-2 text-lg">
+                /<span class="price-period">month</span>
+              </span>
+            </div>
+            <p class="text-sm text-gray-500">20% off for 93K+ logistics clients package today.</p>
+          </div>
+          
+          <!-- Features -->
+          <ul class="space-y-4 mb-8 text-left">
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Unlimited shipments</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-75">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Real-time tracking</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-100">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">24/7 dedicated support</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-150">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Premium packaging</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-200">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Custom analytics</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-250">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">White-label solution</span>
+            </li>
+            <li class="flex items-center group-hover:translate-x-3 transition-all duration-300 delay-300">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Custom integrations</span>
+            </li>
+          </ul>
+          
+          <!-- CTA Button -->
+          <button class="w-full bg-gradient-to-r from-[var(--color-dark-blue)] to-blue-700 hover:from-blue-700 hover:to-[var(--color-dark-blue)] text-white py-4 px-6 rounded-2xl font-semibold transition-all duration-300 hover:shadow-xl group-hover:scale-105 relative overflow-hidden">
+            <span class="relative z-10">Read More <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           </button>
         </div>
-        <div class="text-left relative">
-          <span class="absolute -left-12 top-1/2 -translate-y-1/2 -rotate-90 text-gray-300 font-bold tracking-widest text-lg">
-            Includes
-          </span>
-          <ul class="space-y-2 text-sm text-gray-600">
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>00 Freight Shipman</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Customizable Pricing Options</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>No Hidden Fees</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Custom Packaging</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Real Time Tracking</li>
-            <li><i class="fas fa-check text-[var(--color-black-forest)] mr-2"></i>Community Support</li>
-          </ul>
-        </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -939,3 +1105,4 @@
     <script src="assets/js/scriptAir.js"></script>
   </body>
 </html>
+

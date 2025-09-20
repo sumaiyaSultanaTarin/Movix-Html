@@ -26,6 +26,136 @@
   }
 })();
 
+// ==== PRICING SECTION FUNCTIONALITY ====
+(function(){
+  const monthlyBtn = document.getElementById('monthlyBtn');
+  const yearlyBtn = document.getElementById('yearlyBtn');
+  const priceValues = document.querySelectorAll('.price-value');
+  const pricePeriods = document.querySelectorAll('.price-period');
+  
+  let isYearly = false;
+  
+  // Pricing data
+  const pricingData = {
+    basic: { monthly: 29, yearly: 232 },
+    business: { monthly: 79, yearly: 632 },
+    enterprise: { monthly: 199, yearly: 1592 }
+  };
+  
+  // Counter animation function
+  function animateCounter(element, start, end, duration = 800) {
+    const startTime = performance.now();
+    const difference = end - start;
+    
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(start + (difference * easeOutCubic));
+      
+      element.textContent = current;
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      }
+    }
+    
+    requestAnimationFrame(updateCounter);
+  }
+  
+  // Update pricing display with counter animation
+  function updatePricing() {
+    priceValues.forEach((element, index) => {
+      const plan = ['basic', 'business', 'enterprise'][index];
+      const newPrice = isYearly ? pricingData[plan].yearly : pricingData[plan].monthly;
+      const currentPrice = parseInt(element.textContent);
+      
+      // Animate counter if price is different
+      if (currentPrice !== newPrice) {
+        animateCounter(element, currentPrice, newPrice);
+      }
+    });
+    
+    // Update period text
+    pricePeriods.forEach(period => {
+      period.textContent = isYearly ? 'year' : 'month';
+    });
+  }
+  
+  // Toggle button functionality
+  function togglePricing(button, isYearlyMode) {
+    // Remove active class from both buttons
+    monthlyBtn.classList.remove('bg-[var(--color-orange)]', 'text-white');
+    yearlyBtn.classList.remove('bg-[var(--color-orange)]', 'text-white');
+    
+    // Add active class to clicked button
+    button.classList.add('bg-[var(--color-orange)]', 'text-white');
+    
+    // Update state
+    isYearly = isYearlyMode;
+    
+    // Update pricing display with animation
+    updatePricing();
+  }
+  
+  // Event listeners
+  if (monthlyBtn && yearlyBtn) {
+    monthlyBtn.addEventListener('click', () => togglePricing(monthlyBtn, false));
+    yearlyBtn.addEventListener('click', () => togglePricing(yearlyBtn, true));
+  }
+  
+  // Add hover effects for pricing cards
+  const pricingCards = document.querySelectorAll('.group');
+  
+  pricingCards.forEach(card => {
+    // Add ripple effect on click
+    card.addEventListener('click', (e) => {
+      const ripple = document.createElement('span');
+      const rect = card.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+        z-index: 1;
+      `;
+      
+      card.style.position = 'relative';
+      card.style.overflow = 'hidden';
+      card.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+  
+  // Add ripple animation CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+  
+})();
+
 // Hero thumbnails logic
 (function(){
   const mainImg = document.getElementById('heroMainImage');

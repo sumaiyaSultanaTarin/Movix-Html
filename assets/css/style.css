@@ -252,9 +252,13 @@ body {
 
 .animate-spin-slow {
   animation: spin-slow 12s linear infinite;
+  transform-origin: center;
 }
 
 @keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
   100% {
     transform: rotate(360deg);
   }
@@ -317,6 +321,7 @@ body {
   }
 
   .bottom-section .container {
+    
     flex-direction: row;
     align-items: center;
     gap: 1.5rem;
@@ -494,10 +499,40 @@ body {
 }
 /* ==== END OUR PROJECTS SECTION ==== */
 /* ==== Lenis integration tweaks ==== */
-html { scroll-behavior: auto; }
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-body { overscroll-behavior: none; }
+html { 
+  scroll-behavior: auto; 
+  overflow-x: hidden;
+}
+html.lenis, html.lenis body { 
+  height: auto; 
+}
+.lenis.lenis-smooth { 
+  scroll-behavior: auto !important; 
+}
+body { 
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent Lenis blinking/flickering */
+.lenis {
+  overflow: hidden;
+}
+
+/* Optimize rendering performance */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Smooth transitions for elements that might cause blinking */
+img, video, canvas, svg {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
 
 /* ==== END Lenis integration tweaks ==== */
 
