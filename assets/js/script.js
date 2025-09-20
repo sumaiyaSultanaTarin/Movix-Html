@@ -1,3 +1,94 @@
+      // ==== Lenis Smooth Scroll ====
+      // Check if Lenis loaded
+      window.addEventListener("load", () => {
+        console.log("Page loaded, Lenis available:", !!window.Lenis);
+        if (!window.Lenis) {
+          console.error("Lenis failed to load from CDN, trying alternative...");
+          // Try alternative CDN
+          const script = document.createElement("script");
+          script.src = "https://cdn.skypack.dev/@studio-freight/lenis@1.0.42";
+          script.onload = () => {
+            console.log("Lenis loaded from alternative CDN:", !!window.Lenis);
+          };
+          script.onerror = () => {
+            console.error(
+              "All Lenis CDNs failed, using fallback smooth scroll"
+            );
+          };
+          document.head.appendChild(script);
+        }
+      });
+
+function initLenis() {
+  console.log("Initializing Lenis...");
+  console.log("Lenis available:", !!window.Lenis);
+  
+  if (window.Lenis && !window.__lenis) {
+    // compute sticky navbar height for offset
+    const nav = document.querySelector("nav");
+    const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
+
+    const lenis = new Lenis({
+      smoothWheel: true,
+      smoothTouch: true,
+      duration: 3.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.1,
+      wheelMultiplier: 0.8,
+      touchMultiplier: 1.2,
+      normalizeWheel: true,
+      syncTouch: true,
+      infinite: false,
+    });
+
+    console.log("Lenis initialized:", lenis);
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Pause Lenis when modals are open
+    const pauseLenis = () => {
+      if (lenis) {
+        lenis.stop();
+        console.log("Lenis paused");
+      }
+    };
+    
+    const resumeLenis = () => {
+      if (lenis) {
+        lenis.start();
+        console.log("Lenis resumed");
+      }
+    };
+
+    // Hook ALL in-page anchor links to use Lenis
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      const hash = a.getAttribute("href");
+      if (!hash || hash === "#") return;
+      a.addEventListener("click", (e) => {
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.6 });
+        }
+      });
+    });
+
+    // Expose for debugging and modal control
+    window.__lenis = lenis;
+    window.__pauseLenis = pauseLenis;
+    window.__resumeLenis = resumeLenis;
+    
+    console.log("Lenis setup complete");
+    return true;
+  } else {
+    console.error("Lenis not loaded!");
+    return false;
+  }
+}
 // ==== Team Modal Functions (Global) ====
 function openTeamModal(name, position, imageSrc) {
   const modal = document.getElementById("teamModal");
@@ -201,83 +292,10 @@ function closeBlogModal() {
     if (window.__resumeLenis) window.__resumeLenis();
   }, 300);
 }
-
-// ==== Lenis Smooth Scroll ====
-function initLenis() {
-  console.log("Initializing Lenis...");
-  console.log("Lenis available:", !!window.Lenis);
-  
-  if (window.Lenis && !window.__lenis) {
-    // compute sticky navbar height for offset
-    const nav = document.querySelector("nav");
-    const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
-
-    const lenis = new Lenis({
-      smoothWheel: true,
-      smoothTouch: true,
-      duration: 3.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.1,
-      wheelMultiplier: 0.8,
-      touchMultiplier: 1.2,
-      normalizeWheel: true,
-      syncTouch: true,
-      infinite: false,
-    });
-
-    console.log("Lenis initialized:", lenis);
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Pause Lenis when modals are open
-    const pauseLenis = () => {
-      if (lenis) {
-        lenis.stop();
-        console.log("Lenis paused");
-      }
-    };
-    
-    const resumeLenis = () => {
-      if (lenis) {
-        lenis.start();
-        console.log("Lenis resumed");
-      }
-    };
-
-    // Hook ALL in-page anchor links to use Lenis
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      const hash = a.getAttribute("href");
-      if (!hash || hash === "#") return;
-      a.addEventListener("click", (e) => {
-        const target = document.querySelector(hash);
-        if (target) {
-          e.preventDefault();
-          lenis.scrollTo(target, { offset: -getNavOffset(), duration: 1.6 });
-        }
-      });
-    });
-
-    // Expose for debugging and modal control
-    window.__lenis = lenis;
-    window.__pauseLenis = pauseLenis;
-    window.__resumeLenis = resumeLenis;
-    
-    console.log("Lenis setup complete");
-    return true;
-  } else {
-    console.error("Lenis not loaded!");
-    return false;
-  }
-}
+// ==== END Modal Functions (Global) ====
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Try to initialize Lenis immediately
   if (!initLenis()) {
-    // If Lenis is not available, try again after a short delay
     setTimeout(() => {
       console.log("Retrying Lenis initialization...");
       if (!initLenis()) {
@@ -286,7 +304,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
-  // Enhanced fallback smooth scroll if Lenis is not available
   if (!window.__lenis) {
     console.log("Using enhanced fallback smooth scroll");
     
@@ -400,6 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
   /** ========== HEADER ========== **/
   const menuBtn = document.getElementById("menuToggle");
   const mobileNav = document.querySelector(".mobile-nav");
@@ -413,10 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const openMenu = () => mobileNav.classList.add("active");
     menuBtn.addEventListener("mouseenter", openMenu);
     mobileNav.addEventListener("mouseenter", openMenu);
-    // Close when cursor leaves the drawer area
-    // mobileNav.addEventListener("mouseleave", () => {
-    //   closeMobileNav();
-    // });
+
 
     // Click outside to close
     document.addEventListener("click", (e) => {
@@ -541,7 +556,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Testimonials: simple next/prev
+  // ==== Testimonials ==== //
   const testimonials = [
     {
       text: "Consectetur adipiscing elit. Integer nunc viverra laoreet est the porta pretium metus aliquam eget maecenas porta nunc viverra Aenean adipiscing elit.",
@@ -626,6 +641,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTestimonial(tIdx);
   }
 
+
   // Counter Animation for a given container
   function animateCountersIn(container) {
     container.querySelectorAll(".counter").forEach((counter) => {
@@ -679,7 +695,7 @@ document.addEventListener("DOMContentLoaded", () => {
     counterObserver.observe(section);
   });
 
-  //  stars //
+  // ==== Stars ==== //
   document.querySelectorAll(".review-meta").forEach((el) => {
     const r = Math.max(0, Math.min(5, parseFloat(el.dataset.rating) || 0));
     const n = parseInt(el.dataset.feedbacks) || 0;
@@ -742,7 +758,7 @@ document.addEventListener("DOMContentLoaded", () => {
     indicators[3].addEventListener("click", goNext);
   }
 
-  // Card Slider with Next/Prev Buttons
+  // ==== What We Do Card Slider with Next/Prev Buttons ==== //
 
   const slider = document.getElementById("cardSlider");
   const nextBtn = document.getElementById("nextBtn");
@@ -777,7 +793,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Our Projects Stats
+  // ==== Our Projects Stats ==== //
   document
     .querySelectorAll(".bottom-section, #projects-stats")
     .forEach((el) => counterObserver.observe(el));
@@ -790,7 +806,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const distanceRange = document.getElementById("distanceRange");
   const sliderValue = document.getElementById("sliderValue");
 
-  // Update slider value dynamically
+  // ==== Update slider value dynamically ==== //
   if (distanceRange && sliderValue) {
     distanceRange.addEventListener("input", (e) => {
       const val = e.target.value;

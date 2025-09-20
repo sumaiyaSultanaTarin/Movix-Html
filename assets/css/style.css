@@ -153,7 +153,6 @@ body {
   margin-left: 0.5rem;
 }
 
-/* ==== Responsiveness Adjustments ==== */
 
 /* Tablet (768px–1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
@@ -260,6 +259,7 @@ body {
   }
 }
 
+/* ==== Stars ==== */
 .stars {
   --rating: 0;
   --star-size: 1rem;
@@ -442,6 +442,7 @@ body {
     margin-top: 1.5rem;
   }
 }
+/* ==== END HERO SECTION ==== */
 
 
 
@@ -500,6 +501,77 @@ html.lenis, html.lenis body { height: auto; }
 body { overscroll-behavior: none; }
 
 /* ==== END Lenis integration tweaks ==== */
+
+/* ==== Additional Styles for Modal and Smooth Scroll ==== */
+  #blogModalImage {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced smooth scrolling */
+  * {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container,
+  section,
+  div {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  img {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  * {
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  }
+
+  /* Prevent scroll jumping */
+  html,
+  body {
+    scroll-behavior: auto !important;
+  }
+
+  /* Smooth scroll container */
+  .smooth-scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent scroll chaining */
+  body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 
 
 /* ==== Air Transport ==== */

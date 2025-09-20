@@ -1330,7 +1330,6 @@
           </div>
         </div>
       </section>
-
       <!-- POPUP -->
       <div
         id="popup"
@@ -1363,7 +1362,6 @@
           </button>
         </div>
       </div>
-
       <!-- ==== END GET IN TOUCH SECTION ==== -->
 
       <!-- ==== WHY CHOOSE US SECTION ==== -->
@@ -2103,6 +2101,71 @@
           </div>
         </div>
       </section>
+      
+    <!-- ========== AUTHOR MODAL ========== -->
+    <div
+    id="authorModal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[999]"
+  >
+    <div
+      class="relative w-[90%] max-w-lg bg-white rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
+    >
+      <button
+        id="authorModalClose"
+        class="absolute -top-12 right-0 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl hover:text-red-400 transition-all duration-300 hover:scale-110"
+        aria-label="Close author modal"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="p-8 text-center">
+        <div
+          class="w-24 h-24 rounded-full overflow-hidden border-4 border-[var(--color-orange)] bg-white mx-auto mb-6 shadow-lg"
+        >
+          <img
+            id="authorModalImage"
+            src=""
+            alt="Author"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <h3
+          id="authorModalName"
+          class="text-2xl font-bold text-[#003B49] mb-2"
+        ></h3>
+        <p
+          id="authorModalPosition"
+          class="text-[var(--color-orange)] font-semibold mb-4"
+        ></p>
+        <p
+          id="authorModalBio"
+          class="text-gray-600 leading-relaxed text-sm"
+        ></p>
+        <div class="mt-6 flex justify-center gap-4">
+          <a
+            href="#"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-[var(--color-orange)] text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-200 hover:scale-110"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:bg-blue-600 transition-all duration-200 hover:scale-110"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-[#E4405F] text-white flex items-center justify-center hover:bg-pink-600 transition-all duration-200 hover:scale-110"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
       <!-- ==== END TESTIMONIAL SECTION ==== -->
 
       <!-- ==== BLOG SECTION ==== -->
@@ -2335,6 +2398,129 @@
           </div>
         </div>
       </section>
+          <!-- ========== BLOG MODAL ========== -->
+    <div
+    id="blogModal"
+    class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[999] overflow-y-auto p-4"
+  >
+    <!-- Fixed Close Button -->
+    <button
+      id="blogModalClose"
+      class="fixed top-6 right-6 w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xl hover:scale-110 transition-all duration-300 shadow-lg z-[1000]"
+      aria-label="Close blog modal"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div
+      class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto"
+    >
+      <!-- Blog Image -->
+      <div
+        class="relative h-48 sm:h-64 md:h-72 overflow-hidden rounded-t-2xl"
+      >
+        <img
+          id="blogModalImage"
+          src=""
+          alt="Blog"
+          class="w-full h-full object-cover object-center"
+          style="
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+          "
+          loading="eager"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+        ></div>
+        <div
+          class="absolute bottom-3 right-3 bg-gradient-to-r from-[var(--color-dark-blue)] to-[#002a35] text-white text-xs px-3 py-1 rounded-lg shadow-lg"
+        >
+          <span
+            class="font-bold text-[var(--color-orange)]"
+            id="blogModalDate"
+            >June 20</span
+          >
+        </div>
+      </div>
+
+      <!-- Blog Content -->
+      <div class="p-4 sm:p-6 md:p-8">
+        <div
+          class="flex flex-wrap items-center gap-3 sm:gap-4 text-gray-500 text-xs sm:text-sm mb-4"
+        >
+          <span class="flex items-center gap-1">
+            <i class="fas fa-user text-[var(--color-orange)]"></i>
+            <span id="blogModalAuthor">Alam Uddin</span>
+          </span>
+          <span class="flex items-center gap-1">
+            <i class="fas fa-comments text-[var(--color-orange)]"></i>
+            Comments (3)
+          </span>
+          <span class="flex items-center gap-1">
+            <i class="fas fa-clock text-[var(--color-orange)]"></i>
+            <span id="blogModalReadTime">5 min read</span>
+          </span>
+        </div>
+
+        <h1
+          id="blogModalTitle"
+          class="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B49] mb-4 sm:mb-6 leading-tight"
+        ></h1>
+
+        <div
+          id="blogModalContent"
+          class="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4"
+        >
+          <!-- Content will be inserted here -->
+        </div>
+
+        <!-- Action Buttons -->
+        <div
+          class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center"
+        >
+          <div class="flex flex-wrap gap-2 sm:gap-3">
+            <button
+              class="px-3 py-2 sm:px-4 sm:py-2 bg-[var(--color-orange)] text-white rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm"
+            >
+              <i class="fas fa-heart"></i>
+              Like
+            </button>
+            <button
+              class="px-3 py-2 sm:px-4 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm"
+            >
+              <i class="fas fa-share"></i>
+              Share
+            </button>
+          </div>
+          <div class="flex gap-2">
+            <a
+              href="#"
+              target="_blank"
+              class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[var(--color-orange)] text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-200 hover:scale-110 text-sm sm:text-base"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:bg-blue-600 transition-all duration-200 hover:scale-110 text-sm sm:text-base"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#E4405F] text-white flex items-center justify-center hover:bg-pink-600 transition-all duration-200 hover:scale-110 text-sm sm:text-base"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
       <!-- ==== END BLOG SECTION ==== -->
 
       <!-- ==== FOOTER SECTION ==== -->
@@ -2528,295 +2714,8 @@
       <!-- ==== END FOOTER SECTION ==== -->
     </main>
 
-    <!-- ========== AUTHOR MODAL ========== -->
-    <div
-      id="authorModal"
-      class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[999]"
-    >
-      <div
-        class="relative w-[90%] max-w-lg bg-white rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
-      >
-        <button
-          id="authorModalClose"
-          class="absolute -top-12 right-0 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl hover:text-red-400 transition-all duration-300 hover:scale-110"
-          aria-label="Close author modal"
-        >
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="p-8 text-center">
-          <div
-            class="w-24 h-24 rounded-full overflow-hidden border-4 border-[var(--color-orange)] bg-white mx-auto mb-6 shadow-lg"
-          >
-            <img
-              id="authorModalImage"
-              src=""
-              alt="Author"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <h3
-            id="authorModalName"
-            class="text-2xl font-bold text-[#003B49] mb-2"
-          ></h3>
-          <p
-            id="authorModalPosition"
-            class="text-[var(--color-orange)] font-semibold mb-4"
-          ></p>
-          <p
-            id="authorModalBio"
-            class="text-gray-600 leading-relaxed text-sm"
-          ></p>
-          <div class="mt-6 flex justify-center gap-4">
-            <a
-              href="#"
-              target="_blank"
-              class="w-10 h-10 rounded-full bg-[var(--color-orange)] text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-200 hover:scale-110"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a
-              href="#"
-              target="_blank"
-              class="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:bg-blue-600 transition-all duration-200 hover:scale-110"
-            >
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a
-              href="#"
-              target="_blank"
-              class="w-10 h-10 rounded-full bg-[#E4405F] text-white flex items-center justify-center hover:bg-pink-600 transition-all duration-200 hover:scale-110"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== BLOG MODAL ========== -->
-    <div
-      id="blogModal"
-      class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[999] overflow-y-auto p-4"
-    >
-      <!-- Fixed Close Button -->
-      <button
-        id="blogModalClose"
-        class="fixed top-6 right-6 w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xl hover:scale-110 transition-all duration-300 shadow-lg z-[1000]"
-        aria-label="Close blog modal"
-      >
-        <i class="fas fa-times"></i>
-      </button>
-
-      <div
-        class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto"
-      >
-        <!-- Blog Image -->
-        <div
-          class="relative h-48 sm:h-64 md:h-72 overflow-hidden rounded-t-2xl"
-        >
-          <img
-            id="blogModalImage"
-            src=""
-            alt="Blog"
-            class="w-full h-full object-cover object-center"
-            style="
-              image-rendering: -webkit-optimize-contrast;
-              image-rendering: crisp-edges;
-              image-rendering: pixelated;
-            "
-            loading="eager"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-          ></div>
-          <div
-            class="absolute bottom-3 right-3 bg-gradient-to-r from-[var(--color-dark-blue)] to-[#002a35] text-white text-xs px-3 py-1 rounded-lg shadow-lg"
-          >
-            <span
-              class="font-bold text-[var(--color-orange)]"
-              id="blogModalDate"
-              >June 20</span
-            >
-          </div>
-        </div>
-
-        <!-- Blog Content -->
-        <div class="p-4 sm:p-6 md:p-8">
-          <div
-            class="flex flex-wrap items-center gap-3 sm:gap-4 text-gray-500 text-xs sm:text-sm mb-4"
-          >
-            <span class="flex items-center gap-1">
-              <i class="fas fa-user text-[var(--color-orange)]"></i>
-              <span id="blogModalAuthor">Alam Uddin</span>
-            </span>
-            <span class="flex items-center gap-1">
-              <i class="fas fa-comments text-[var(--color-orange)]"></i>
-              Comments (3)
-            </span>
-            <span class="flex items-center gap-1">
-              <i class="fas fa-clock text-[var(--color-orange)]"></i>
-              <span id="blogModalReadTime">5 min read</span>
-            </span>
-          </div>
-
-          <h1
-            id="blogModalTitle"
-            class="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B49] mb-4 sm:mb-6 leading-tight"
-          ></h1>
-
-          <div
-            id="blogModalContent"
-            class="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4"
-          >
-            <!-- Content will be inserted here -->
-          </div>
-
-          <!-- Action Buttons -->
-          <div
-            class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center"
-          >
-            <div class="flex flex-wrap gap-2 sm:gap-3">
-              <button
-                class="px-3 py-2 sm:px-4 sm:py-2 bg-[var(--color-orange)] text-white rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm"
-              >
-                <i class="fas fa-heart"></i>
-                Like
-              </button>
-              <button
-                class="px-3 py-2 sm:px-4 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm"
-              >
-                <i class="fas fa-share"></i>
-                Share
-              </button>
-            </div>
-            <div class="flex gap-2">
-              <a
-                href="#"
-                target="_blank"
-                class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[var(--color-orange)] text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-200 hover:scale-110 text-sm sm:text-base"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:bg-blue-600 transition-all duration-200 hover:scale-110 text-sm sm:text-base"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#E4405F] text-white flex items-center justify-center hover:bg-pink-600 transition-all duration-200 hover:scale-110 text-sm sm:text-base"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Additional Styles for Modal and Smooth Scroll -->
-    <style>
-      #blogModalImage {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-        image-rendering: pixelated;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-      }
-
-      /* Ultra-smooth scrolling optimizations */
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-        overflow-x: hidden;
-      }
-
-      body {
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-      }
-
-      /* Enhanced smooth scrolling */
-      * {
-        scroll-behavior: smooth;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-      }
-
-      /* Hardware acceleration for smooth scrolling */
-      .container,
-      section,
-      div {
-        transform: translateZ(0);
-        -webkit-transform: translateZ(0);
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-      }
-
-      /* Optimize images for smooth scrolling */
-      img {
-        transform: translateZ(0);
-        -webkit-transform: translateZ(0);
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-
-      /* Smooth transitions for all elements */
-      * {
-        transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-      }
-
-      /* Prevent scroll jumping */
-      html,
-      body {
-        scroll-behavior: auto !important;
-      }
-
-      /* Smooth scroll container */
-      .smooth-scroll {
-        overflow-x: hidden;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      /* Prevent scroll chaining */
-      body.modal-open {
-        overflow: hidden;
-        position: fixed;
-        width: 100%;
-      }
-    </style>
-
     <!-- Scripts -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script>
-      // Check if Lenis loaded
-      window.addEventListener("load", () => {
-        console.log("Page loaded, Lenis available:", !!window.Lenis);
-        if (!window.Lenis) {
-          console.error("Lenis failed to load from CDN, trying alternative...");
-          // Try alternative CDN
-          const script = document.createElement("script");
-          script.src = "https://cdn.skypack.dev/@studio-freight/lenis@1.0.42";
-          script.onload = () => {
-            console.log("Lenis loaded from alternative CDN:", !!window.Lenis);
-          };
-          script.onerror = () => {
-            console.error(
-              "All Lenis CDNs failed, using fallback smooth scroll"
-            );
-          };
-          document.head.appendChild(script);
-        }
-      });
-    </script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
