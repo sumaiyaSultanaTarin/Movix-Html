@@ -5,71 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Error Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+      <!-- Google Fonts -->
+      <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
 
 </head>
-<body class="bg-white text-gray-700">
-
-      <!-- ==== HEADER ==== -->
-    <!-- Top Bar -->
-    <header
-      id="topbar"
-      class="bg-[var(--color-dark-blue)] text-white py-2 md:block hidden"
-    >
-      <div
-        class="container mx-auto px-4 flex justify-between items-center text-sm"
-      >
-        <!-- Left Info -->
-        <div class="flex items-center space-x-6">
-          <div
-            class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer"
-          >
-            <i class="fas fa-phone"></i><span>123-456-32-23</span>
-          </div>
-          <div
-            class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer"
-          >
-            <i class="fas fa-envelope"></i><span>movix@gmail.com</span>
-          </div>
-          <div
-            class="flex items-center space-x-2 hover:bg-white/5 px-2 py-1 rounded cursor-pointer"
-          >
-            <i class="fas fa-map-marker-alt"></i
-            ><span>371 7th Ave, New York, NY 10001</span>
-          </div>
-        </div>
-
-        <!-- Social Icons -->
-        <div class="flex space-x-3">
-          <a
-            href="#"
-            class="w-8 h-8 bg-[var(--color-orange)] rounded-full flex items-center justify-center hover:bg-orange-600"
-          >
-            <i class="fab fa-facebook-f text-sm"></i>
-          </a>
-          <a
-            href="#"
-            class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#1DA1F2] hover:border-[#1DA1F2]"
-          >
-            <i class="fab fa-twitter text-sm"></i>
-          </a>
-          <a
-            href="#"
-            class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#0A66C2] hover:border-[#0A66C2]"
-          >
-            <i class="fab fa-linkedin-in text-sm"></i>
-          </a>
-          <a
-            href="#"
-            class="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-[#E4405F] hover:border-[#E4405F]"
-          >
-            <i class="fab fa-instagram text-sm"></i>
-          </a>
-        </div>
-      </div>
-    </header>
-
+<body class="bg-gray-50 font-sora">
     <!-- Navbar -->
     <nav class="bg-white shadow fixed top-0 left-0 right-0 z-50">
       <div class="container mx-auto px-6">
@@ -154,11 +104,12 @@
               </div>
             </div>
 
-            <a href="#contact" class="nav-link">Contact Us</a>
+            <a href="/contactUs.html" class="nav-link">Contact Us</a>
           </div>
 
           <!-- Mobile Menu -->
-          <div class="mobile-nav md:hidden font-medium">
+           <!-- Mobile Menu -->
+           <div class="mobile-nav md:hidden font-medium">
             <div class="mobile-item">
               <a
                 href="#hero"
@@ -169,16 +120,16 @@
               <div
                 class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
               >
-                <a href="#home-1" class="hover:text-[var(--color-orange)]"
-                  >Home 1</a
+                <a href="/indexAirTransport.html class="hover:text-[var(--color-orange)]"
+                  >Air Transport</a
                 >
-                <a href="#home-2" class="hover:text-[var(--color-orange)]"
-                  >Home 2</a
+                <a href="/indexMaritimeTransfort.html" class="hover:text-[var(--color-orange)]"
+                  >Maritime Transport</a
                 >
               </div>
             </div>
 
-            <a href="#about" class="nav-link">About Us</a>
+            <a href="/aboutUs.html" class="nav-link">About Us</a>
 
             <div class="mobile-item">
               <a href="#services" class="nav-link flex items-center">
@@ -187,11 +138,11 @@
               <div
                 class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
               >
-                <a href="#services-1" class="hover:text-[var(--color-orange)]"
-                  >Service 1</a
+                <a href="/ourServices.html" class="hover:text-[var(--color-orange)]"
+                  >Our Services</a
                 >
-                <a href="#services-2" class="hover:text-[var(--color-orange)]"
-                  >Service 2</a
+                <a href="/serviceDetails.html" class="hover:text-[var(--color-orange)]"
+                  >Service Details</a
                 >
               </div>
             </div>
@@ -214,7 +165,7 @@
               </div>
             </div>
 
-            <a href="#contact" class="nav-link">Contact Us</a>
+            <a href="/contactUs.html" class="nav-link">Contact Us</a>
 
             <!-- Mobile Tracking Button at bottom -->
             <div
@@ -282,31 +233,59 @@
     </nav>
     <!-- ==== END HEADER ==== -->
 
-  <!-- ==== HERO SECTION ==== -->
-  <section class="relative h-[220px] md:h-[260px] flex items-center justify-center text-center overflow-hidden">
-    <img src="assets/images/page_bg.png" alt="Error Hero"
-         class="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-700">
-    <div class="absolute inset-0 bg-[#003B49]/70"></div>
-    <div class="relative z-10">
-      <h1 class="text-2xl md:text-4xl font-bold text-white tracking-wide">Error Page</h1>
-      <p class="mt-2 text-sm md:text-base text-white/80"> <span class="text-[var(--color-orange)]"> Home </span> / Error Page</p>
-    </div>
-  </section>
+<!-- ==== HERO SECTION ==== -->
+<section class="relative h-[260px] sm:h-[320px] md:h-[380px] lg:h-[400px] xl:h-[400px] 2xl:h-[400px] 
+                flex items-center justify-center text-center overflow-hidden rounded-b-2xl">
+  <!-- Background Image -->
+  <img src="assets/images/page_bg.png" alt="Error Hero"
+       class="absolute inset-0 w-full h-full object-cover">
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-[#003B49]/70"></div>
 
-  <!-- ==== ERROR BLOCK ==== -->
-  <section class="py-16 md:py-20 text-center">
-    <h1 class="text-[120px] sm:text-[160px] md:text-[200px] font-extrabold text-[var(--color-dark-blue)] leading-none transition-transform duration-500 hover:scale-105">
-      40<span class="rotate-90">4</span>
+  <!-- Content -->
+  <div class="relative z-10 px-4">
+    <h1 class="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow">
+      Error Page
     </h1>
-    <p class="mt-4 text-[var(--color-black-forest)] max-w-lg mx-auto">Sorry, the page you’re looking for doesn’t exist. If you think something is broken, report a problem.</p>
-    <a href="index.html" 
-       class="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-orange)] text-white font-semibold rounded-md shadow-lg hover:bg-orange-600 transition-all duration-300 hover:gap-3">
-      Back to Home <i class="fas fa-arrow-up-right-from-square"></i>
-    </a>
-  </section>
+    <div class="w-45 h-8 bg-gray-50/10 rounded-2xl">
+      <p class="mt-3 text-sm sm:text-base text-white/80 pt-1">
+        <span class="text-[var(--color-orange)] ">Home</span> / Error Page
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==== ERROR BLOCK ==== -->
+<section class="py-14 sm:py-16 md:py-20 text-center">
+  <!-- Big 404 -->
+  <h1
+    class="text-[90px] sm:text-[140px] md:text-[180px] lg:text-[200px] font-extrabold 
+           text-[var(--color-dark-blue)] leading-none select-none ">
+    40<span class="inline-block -rotate-[20deg] origin-bottom  ">4</span>
+  </h1>
+
+  <!-- Message -->
+  <p class="mt-4 text-[13px] sm:text-[15px] md:text-base text-[var(--color-black-forest)] max-w-md md:max-w-lg mx-auto leading-relaxed">
+    Sorry, the page you’re looking for doesn’t exist. If you think something is broken, please report a problem.
+  </p>
+
+  <!-- Button -->
+  <a href="index.html" 
+     class="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-orange)] 
+            text-white font-semibold rounded-md shadow-md hover:shadow-lg 
+            hover:bg-orange-600 transition-all duration-300 hover:gap-3">
+    Back to Home <i class="fas fa-arrow-up-right-from-square"></i>
+  </a>
+</section>
+
 
 <!-- ==== FOOTER SECTION ==== -->
-<footer class="relative bg-[var(--color-dark-blue)] text-white">
+<footer class="relative bg-[var(--color-dark-blue)] text-white"
+style="background-image: url('assets/images/footer-bg.png');"
+
+>
     <!-- Background pattern (subtle watermark) -->
     <!-- <div class="absolute inset-0 opacity-10">
       <img src="assets/icons/" alt="Pattern" class="w-full h-full object-cover">

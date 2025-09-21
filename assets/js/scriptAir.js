@@ -339,3 +339,25 @@
   });
 })();
  
+document.addEventListener("DOMContentLoaded", () => {
+
+// ==== Newsletter Form Logic ====
+    // const newsletter = document.getElementById("newsletter");
+
+    // if (newsletter) {
+    //   newsletter.addEventListener("submit", (e) => {
+    //     e.preventDefault();
+    //     const emailInput = newsletter.querySelector("input[name='email']");
+    //     const email = emailInput.value.trim();
+  
+    //     if (!email || !/\S+@\S+\.\S+/.test(email)) {
+    //       showPopup("⚠️ Please enter a valid email address.", false);
+    //       return;
+    //     }
+  
+    //     // Success
+    //     showPopup("✅ Thank you for subscribing to our newsletter!", true);
+    //     newsletter.reset();
+    //   });
+    // }
+});

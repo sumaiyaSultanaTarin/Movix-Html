@@ -903,6 +903,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+//=== Header Section logic ====
 (function(){
   const topbar = document.getElementById("topbar");
   const mainNav = document.getElementById("mainNav");

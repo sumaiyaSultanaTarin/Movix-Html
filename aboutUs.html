@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+      <!-- Google Fonts -->
+      <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+
+</head>
+<body class="bg-gray-50 font-sora">
+    <!-- Navbar -->
+    <nav class="bg-white shadow fixed top-0 left-0 right-0 z-50">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2 cursor-pointer">
+            <div class="logo-hover">
+              <img
+                src="assets/images/logo.png"
+                alt="Movix Logo"
+                class="w-8 h-8 object-contain"
+              />
+            </div>
+            <span class="text-2xl font-bold text-[var(--color-dark-blue)]">Movix</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div
+            class="hidden md:flex items-center space-x-8 font-medium relative"
+          >
+            <div class="group relative">
+              <a href="#hero" class="nav-link flex items-center">
+                Home <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="dropdown-menu absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
+              >
+                <a
+                  href="/indexAirTransport.html"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Air Transport</a
+                >
+                <a
+                  href="/indexMaritimeTransport.html"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Maritime Transport</a
+                >
+              </div>
+            </div>
+
+            <a href="/aboutUs.html" class="nav-link">About Us</a>
+
+            <div class="group relative">
+              <a href="#services" class="nav-link flex items-center">
+                Pages <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="dropdown-menu absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
+              >
+                <a
+                  href="/ourServices.html"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Our Services</a
+                >
+                <a
+                  href="/serviceDetails.html"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Service Details</a
+                >
+              </div>
+            </div>
+
+            <a href="#projects" class="nav-link">Projects</a>
+
+            <div class="group relative">
+              <a href="#blogs" class="nav-link flex items-center">
+                Blog <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="dropdown-menu absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
+              >
+                <a
+                  href="#blog-1"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Blog 1</a
+                >
+                <a
+                  href="#blog-2"
+                  class="block px-4 py-2 hover:text-[var(--color-orange)] rounded-md"
+                  >Blog 2</a
+                >
+              </div>
+            </div>
+
+            <a href="/contactUs.html" class="nav-link">Contact Us</a>
+          </div>
+
+          <!-- Mobile Menu -->
+           <!-- Mobile Menu -->
+           <div class="mobile-nav md:hidden font-medium">
+            <div class="mobile-item">
+              <a
+                href="#hero"
+                class="nav-link flex items-center hover:text-[var(--color-orange)]"
+              >
+                Home <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
+              >
+                <a href="/indexAirTransport.html class="hover:text-[var(--color-orange)]"
+                  >Air Transport</a
+                >
+                <a href="/indexMaritimeTransfort.html" class="hover:text-[var(--color-orange)]"
+                  >Maritime Transport</a
+                >
+              </div>
+            </div>
+
+            <a href="/aboutUs.html" class="nav-link">About Us</a>
+
+            <div class="mobile-item">
+              <a href="#services" class="nav-link flex items-center">
+                Pages <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
+              >
+                <a href="/ourServices.html" class="hover:text-[var(--color-orange)]"
+                  >Our Services</a
+                >
+                <a href="/serviceDetails.html" class="hover:text-[var(--color-orange)]"
+                  >Service Details</a
+                >
+              </div>
+            </div>
+
+            <a href="#projects" class="nav-link">Projects</a>
+
+            <div class="mobile-item">
+              <a href="#blogs" class="nav-link flex items-center">
+                Blog <i class="fas fa-caret-down ml-1 text-sm"></i>
+              </a>
+              <div
+                class="mobile-dropdown max-h-0 overflow-hidden transition-all duration-300 flex flex-col bg-gray-50"
+              >
+                <a href="#blog-1" class="hover:text-[var(--color-orange)]"
+                  >Blog 1</a
+                >
+                <a href="#blog-2" class="hover:text-[var(--color-orange)]"
+                  >Blog 2</a
+                >
+              </div>
+            </div>
+
+            <a href="/contactUs.html" class="nav-link">Contact Us</a>
+
+            <!-- Mobile Tracking Button at bottom -->
+            <div
+              class="mt-2 sticky bottom-0 bg-white/95 backdrop-blur p-4 border-t"
+            >
+              <button
+                class="w-full bg-[var(--color-orange)] hover:bg-orange-600 text-white px-4 py-3 rounded-md flex items-center justify-center gap-2 text-sm font-semibold relative overflow-hidden group"
+              >
+                <span
+                  class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+                >
+                  <span
+                    class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"
+                  ></span>
+                </span>
+                <span>Tracking Order</span>
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center space-x-4">
+            <!-- Search -->
+            <div class="flex items-center search-wrapper relative">
+              <button
+                id="searchToggle"
+                class="flex items-center justify-center w-9 h-9 border border-[#003B49] rounded-full text-[#003B49] hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300"
+              >
+                <i class="fas fa-search text-sm"></i>
+              </button>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search..."
+                class="h-9 w-0 opacity-0 px-3 border border-[#003B49] rounded-full text-sm text-gray-700 focus:outline-none transition-all duration-300"
+              />
+            </div>
+
+            <!-- Tracking -->
+            <button
+              class="tracking-btn bg-[var(--color-orange)] hover:bg-orange-600 text-white px-5 py-3 rounded-md flex items-center space-x-2 text-sm font-semibold hidden md:flex relative overflow-hidden group"
+            >
+              <span
+                class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+              >
+                <span
+                  class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"
+                ></span>
+              </span>
+              <span>Tracking Order</span>
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </button>
+
+            <!--  hamburger -->
+            <button
+              id="menuToggle"
+              class="flex items-center justify-center w-9 h-9 border border-[#003B49] rounded-full text-[#003B49] hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 md:hidden"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ==== END HEADER ==== -->
+
+<!-- ==== HERO SECTION ==== -->
+<section class="relative h-[260px] sm:h-[320px] md:h-[380px] lg:h-[400px] xl:h-[400px] 2xl:h-[400px] 
+                flex items-center justify-center text-center overflow-hidden rounded-b-2xl">
+  <!-- Background Image -->
+  <img src="assets/images/page_bg.png" alt="Error Hero"
+       class="absolute inset-0 w-full h-full object-cover">
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-[#003B49]/70"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 px-4">
+    <h1 class="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow">
+      About Us
+    </h1>
+    <div class="w-45 h-8 bg-gray-50/10 rounded-2xl">
+      <p class="mt-3 text-sm sm:text-base text-white/80 pt-1">
+        <span class="text-[var(--color-orange)] ">Home</span> / About us
+      </p>
+    </div>
+
+  </div>
+</section>
+
+      <!-- ==== ABOUT US SECTION ==== -->
+      <section
+        id="about"
+        class="relative py-20 bg-[var(--color-white)] overflow-hidden"
+      >
+        <div
+          class="container mx-auto px-6 lg:px-16 2xl:px-16 2xl:max-w-[1320px]"
+        >
+          <div class="flex flex-col lg:flex-row items-start gap-12">
+            <!-- LEFT block -->
+            <div class="w-full lg:w-[645px]">
+              <div class="grid grid-cols-2 gap-6">
+                <!-- Left image + counter below -->
+                <div class="flex flex-col justify-between">
+                  <img
+                    src="assets/images/aboutUs1.png"
+                    alt="Air & Road logistics"
+                    class="w-full h-auto lg:w-[308px] lg:h-[444px] object-cover rounded-xl shadow-lg transition-transform duration-500 hover:scale-[1.03]"
+                  />
+
+                  <!-- 25+ card -->
+                  <div
+                    class=" w-full h-[100px]  lg:h-[126px] bg-[var(--color-dark-blue)] text-white rounded-xl shadow-lg flex items-center justify-between px-3 sm:px-5 counter-section"
+                  >
+                    <div class="text-3xl lg:text-4xl font-bold">
+                      <span class="counter" data-target="25">0</span>+
+                    </div>
+                    <div class="text-sm lg:text-base font-semibold text-right">
+                      Year of<br/>experience
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right image + dotted above -->
+                <div class="flex flex-col">
+                  <!-- dotted background -->
+                  <div
+                    class="mt-4 lg:block w-[266px] h-[74px] bg-[url('assets/icons/Abstract.png')] bg-contain bg-no-repeat mb-4"
+                  ></div>
+
+                  <img
+                    src="assets/images/aboutUs2.png"
+                    alt="Container terminal"
+                    class="w-full h-auto lg:w-[307px] lg:h-[500px] object-cover rounded-xl shadow-lg transition-transform duration-500 hover:scale-[1.03]"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT text -->
+            <div class="w-full lg:flex-1 space-y-6 mt-8 lg:mt-0">
+              <span
+                class="uppercase font-semibold tracking-wide inline-flex items-center gap-2"
+              >
+                <i
+                  class="fas fa-truck-moving text-[var(--color-orange)] text-2xl"
+                ></i>
+                About Us
+              </span>
+
+              <h2
+                class="text-2xl lg:text-4xl font-bold text-[#003B49] leading-snug"
+              >
+                Provide Transportation <br />
+                Services Since 1996
+              </h2>
+
+              <p
+                class="text-[var(--color-black-forest)] leading-relaxed max-w-[562px] text-sm lg:text-base"
+              >
+                Mauris ut enim sit amet lacus ornare ullamcorper. Praesent
+                placerat neque eu purus rhoncus, vel tincidunt odio. theya are
+                tincidunt feugiat elis Curabitur.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[562px]">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                  >
+                    <i
+                      class="fas fa-globe text-[var(--color-orange)] text-3xl"
+                    ></i>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold text-lg text-[#003B49]">
+                      Global Logistic
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      In today's business, the demand for efficient.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                  >
+                    <i
+                      class="fas fa-shipping-fast text-[var(--color-orange)] text-3xl"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-lg text-[#003B49]">
+                      Delivering Monster
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      In today's business, the demand for efficient.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="mt-2 inline-flex items-center gap-3 bg-[var(--color-orange)] hover:bg-orange-600 text-white px-5 py-3 rounded-lg font-semibold transition shadow-lg hover:-translate-y-1 relative overflow-hidden group"
+              >
+                <span
+                  class="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+                >
+                  <span
+                    class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"
+                  ></span>
+                </span>
+                <span>More About Us</span>
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- plane path -->
+        <div
+          class="absolute left-0 top-1/3 hidden lg:block pointer-events-none 2xl:px-6"
+        >
+          <img
+            src="assets/images/shape.png"
+            alt=""
+            class="w-[60px] h-[140px] opacity-100"
+          />
+        </div>
+
+        <!-- hanging containers -->
+        <div
+          class="absolute right-8 xl:right-2 top-1/2 -translate-y-1/5 hidden lg:block xl:hidden pointer-events-none 2xl:px-6"
+        >
+          <img
+            src="assets/images/Line 370.png"
+            alt="Cable"
+            class="absolute -top-1 right-1/2-translate-x-1/2 rotate-[-10deg] origin-top h-1 select-none pointer-events-none"
+          />
+          <img
+            src="assets/images/aboutUs3.png"
+            alt="Hanging containers"
+            class="w-[200px] h-[200px]"
+          />
+        </div>
+
+        <!-- Partner Logos Marquee -->
+        <div class="marquee-wrap mt-16">
+          <div class="marquee-track">
+            <!-- Set A -->
+            <img
+              src="assets/icons/logisticsLogo.png"
+              class="h-7 mx-6 sm:mx-8"
+            />
+            <img src="assets/icons/duragasLogo.png" class="h-7 mx-6 sm:mx-8" />
+            <img src="assets/icons/mondiLogo.png" class="h-8 mx-6 sm:mx-8" />
+            <img src="assets/icons/travelLogo.png" class="h-8 mx-6 sm:mx-8" />
+            <img src="assets/icons/truckingLogo.png" class="h-6 mx-6 sm:mx-8" />
+
+            <!-- Set B -->
+            <img
+              src="assets/icons/logisticsLogo.png"
+              class="h-7 mx-6 sm:mx-8"
+            />
+            <img src="assets/icons/duragasLogo.png" class="h-7 mx-6 sm:mx-8" />
+            <img src="assets/icons/mondiLogo.png" class="h-8 mx-6 sm:mx-8" />
+            <img src="assets/icons/travelLogo.png" class="h-8 mx-6 sm:mx-8" />
+            <img src="assets/icons/truckingLogo.png" class="h-6 mx-6 sm:mx-8" />
+          </div>
+        </div>
+      </section>
+      <!-- ==== END ABOUT US SECTION ==== -->
+       <!-- ===== WHY CHOOSE US SECTION ===== -->
+<section class="relative ">
+    <!-- Top Half (Dark BG) -->
+    <div class="relative  h-[220px] sm:h-[240px] md:h-[260px] lg:h-[300px] xl:h-[320px] 2xl:h-[360px] overflow-hidden">
+      <!-- bg images -->
+      <img src="assets/images/airwhybg.png" alt=""
+           class="absolute inset-0 w-full h-full object-cover">
+      <img src="assets/images/airWhyChooseUs.png" alt=""
+           class="absolute left-0 bottom-0 h-28 sm:h-32 md:h-40 lg:h-48 xl:h-56 2xl:h-64 opacity-70">
+      <img src="assets/images/airPlane.png" alt=""
+           class="absolute right-6 sm:right-0 top-6 sm:top-1 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 2xl:h-40 opacity-70">
+  
+      <!-- heading -->
+      <div class="relative z-10 text-center pt-8 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-16">
+        <p class="inline-flex items-center gap-2 text-[var(--color-orange)] font-medium text-xs sm:text-sm">
+          <i class="fa-solid fa-award"></i> Why Choose Us
+        </p>
+        <h2 class="mt-2 text-white text-3xl sm:text-2xl md:text-4xl  font-semibold leading-snug">
+          Why Our Transcription <br class="hidden sm:block">
+          Services Stand Out
+        </h2>
+      </div>
+    </div>
+  
+    <!-- Bottom Half (White) -->
+    <div class="bg-white h-[220px] sm:h-[240px] md:h-[260px] lg:h-[300px] xl:h-[320px] 2xl:h-[360px]"></div>
+  
+    <!-- Overlapping  Card -->
+    <div class="absolute top-[160px] sm:top-[180px] md:top-[200px] lg:top-[220px] xl:top-[220px] 2xl:top-[260px] 
+                left-1/2 -translate-x-1/2 w-full max-w-[1180px] px-4 sm:px-6 md:px-8 lg:px-10 ">
+      <div class="relative bg-[var(--color-white)] rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 lg:p-6">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_220px_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 items-center">
+  
+          <!-- LEFT FEATURES -->
+          <div class="flex flex-col items-end gap-8 sm:gap-10 md:gap-12 lg:gap-16">
+            <!-- Feature 1 -->
+            <div class="group relative w-full max-w-[260px] text-left">
+              <span class="hidden md:block absolute -right-16 top-9 w-16 h-[2px] bg-[var(--color-orange)] group-hover:bg-[var(--color-orange)] rotate-[25deg] origin-left transition"></span>
+              <span class="hidden md:flex absolute -right-24 top-12 w-8 h-8 items-center justify-center border border-[var(--color-orange)] text-[var(--color-orange)] rounded-full font-bold text-[11px] bg-white group-hover:bg-[var(--color-orange)] group-hover:text-white transition">01</span>
+              <div class="bg-white rounded-lg p-3 sm:p-4 lg:p-5 group-hover:bg-white group-hover:shadow-md transition">
+                <h4 class="text-[var(--color-dark-blue)] font-semibold text-sm sm:text-base group-hover:text-[var(--color-orange)] transition">Global Reach</h4>
+                <p class="text-[var(--color-black-forest)] text-xs sm:text-sm mt-1 leading-relaxed">Mauris ut enim sit amet lacus ornare ullamcorper. Praesent placerat neque eu purus rhoncus, vel tincidunt.</p>
+              </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="group relative w-full max-w-[260px] text-left">
+              <span class="hidden md:block absolute -right-16 bottom-9 w-16 h-[2px] bg-[var(--color-orange)] group-hover:bg-[var(--color-orange)] -rotate-[25deg] origin-left transition"></span>
+              <span class="hidden md:flex absolute -right-24 bottom-12 w-8 h-8 items-center justify-center border border-[var(--color-orange)] text-[var(--color-orange)] rounded-full font-bold text-[11px] bg-white group-hover:bg-[var(--color-orange)] group-hover:text-white transition">03</span>
+              <div class=" bg-white rounded-lg p-3 sm:p-4 lg:p-5 group-hover:bg-white group-hover:shadow-md transition">
+                <h4 class="text-[var(--color-dark-blue)] font-semibold text-sm sm:text-base group-hover:text-[var(--color-orange)] transition">Real-Time Tracking</h4>
+                <p class="text-[var(--color-black-forest)]  text-xs sm:text-sm mt-1 leading-relaxed">Mauris ut enim sit amet lacus ornare ullamcorper. Praesent placerat neque eu purus rhoncus, vel tincidunt.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- CENTER IMAGE -->
+          <div class="flex justify-center items-center">
+            <div class="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px] lg:w-[180px] lg:h-[180px] xl:w-[200px] xl:h-[200px] 2xl:w-[220px] 2xl:h-[220px] 
+                        rounded-full overflow-hidden">
+              <img src="assets/images/airWhyChooseUs1.png" alt="Team" class="w-full h-full object-cover hover:scale-125">
+            </div>
+          </div>
+  
+          <!-- RIGHT FEATURES -->
+          <div class="flex flex-col items-start gap-8 sm:gap-10 md:gap-12 lg:gap-16">
+            <!-- Feature 2 -->
+            <div class="group relative w-full max-w-[260px]">
+              <span class="hidden md:block absolute -left-16 top-9 w-16 h-[2px] bg-[var(--color-orange)] group-hover:bg-[var(--color-orange)] -rotate-[25deg] origin-right transition"></span>
+              <span class="hidden md:flex absolute -left-24 top-12 w-8 h-8 items-center justify-center border border-[var(--color-orange)] text-[var(--color-orange)] rounded-full font-bold text-[11px] bg-white group-hover:bg-[var(--color-orange)] group-hover:text-white transition">02</span>
+              <div class="bg-white rounded-lg p-3 sm:p-4 lg:p-5 group-hover:bg-white group-hover:shadow-md transition">
+                <h4 class="text-[var(--color-dark-blue)] font-semibold text-sm sm:text-base group-hover:text-[var(--color-orange)] transition">On-Time Delivery</h4>
+                <p class="text-[var(--color-black-forest)] text-xs sm:text-sm mt-1 leading-relaxed">Mauris ut enim sit amet lacus ornare ullamcorper. Praesent placerat neque eu purus rhoncus, vel tincidunt.</p>
+              </div>
+            </div>
+            <!-- Feature 4 -->
+            <div class="group relative w-full max-w-[260px]">
+              <span class="hidden md:block absolute -left-16 bottom-9 w-16 h-[2px] bg-[var(--color-orange)] group-hover:bg-[var(--color-orange)] rotate-[25deg] origin-right transition"></span>
+              <span class="hidden md:flex absolute -left-24 bottom-12 w-8 h-8 items-center justify-center border border-[var(--color-orange)] text-[var(--color-orange)] rounded-full font-bold text-[11px] bg-white group-hover:bg-[var(--color-orange)] group-hover:text-white transition">04</span>
+              <div class="bg-white rounded-lg p-3 sm:p-4 lg:p-5 group-hover:bg-white group-hover:shadow-md transition">
+                <h4 class="text-[var(--color-dark-blue)] font-semibold text-sm sm:text-base group-hover:text-[var(--color-orange)] transition">24/7 Support</h4>
+                <p class="text-[var(--color-black-forest)] text-xs sm:text-sm mt-1 leading-relaxed">Mauris ut enim sit amet lacus ornare ullamcorper. Praesent placerat neque eu purus rhoncus, vel tincidunt.</p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==== VIDEO SECTION ==== -->
+<section class="relative h-[500px] flex items-center justify-center text-center overflow-hidden">
+    <!-- Background -->
+    <img src="assets/images/airTransBg.png" alt="Air Transport" 
+         class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-[#003B49]/70"></div>
+  
+    <!-- Play Button with pulse -->
+    <div class="relative z-10 flex items-center justify-center">
+      <!-- Pulse -->
+      <span class="absolute w-24 h-24 rounded-full bg-white/30 animate-ping"></span>
+      <!-- Button -->
+      <button
+        class="open-video relative w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-lg transition transform hover:scale-110 hover:bg-[var(--color-orange)] group z-10"
+        data-video="https://www.youtube.com/embed/ScMzIvxBSi4">
+        <i class="fas fa-play text-[var(--color-orange)] text-2xl ml-1 transition-colors group-hover:text-white"></i>
+      </button>
+    </div>
+  
+    <!-- Heading -->
+    <h2 class="absolute bottom-10 left-1/2 -translate-x-1/2 text-3xl md:text-7xl font-bold tracking-wide text-transparent whitespace-nowrap"
+        style="-webkit-text-stroke: 2px white;">
+      AIR TRANSPORT
+    </h2>
+  </section>
+        <!-- ========== VIDEO POPUP ========== -->
+        <div
+          id="vcModal"
+          class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[999]"
+        >
+          <div
+            class="relative w-[92%] max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
+          >
+            <iframe
+              id="vcFrame"
+              class="w-full h-full"
+              src=""
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+            <button
+              id="vcClose"
+              class="absolute top-4 right-4 w-12 h-12 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-all duration-300 shadow-lg z-10"
+              aria-label="Close video"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- ==== OUR TEAM SECTION ==== -->
+        <section class="py-20 bg-white">
+            <div
+              class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px] text-center"
+            >
+              <!-- Heading -->
+              <div class="mb-12">
+                <span
+                  class="text-[var(--color-orange)] uppercase font-medium tracking-wide inline-flex items-center gap-2"
+                >
+                  <i class="fas fa-users"></i> Our Team
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-[#003B49] mt-2">
+                  Meet Our Expert Members
+                </h2>
+              </div>
+    
+              <!-- Team Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card -->
+                <div class="relative flex flex-col items-center group">
+                  <div
+                    class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--color-orange)] bg-white z-10 group-hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onclick="openTeamModal('Darren Chandler', 'Transportation Specialist', 'assets/images/team_1_1.png')"
+                  >
+                    <img
+                      src="assets/images/team_1_1.png"
+                      alt="Darren Chandler"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div
+                    class="mt-[-2rem] w-full max-w-[260px] bg-[#F9FAFB] rounded-2xl shadow-md p-6 pt-12 group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <h4
+                      class="font-semibold text-lg text-[#003B49] group-hover:text-[var(--color-orange)] transition-colors duration-300"
+                    >
+                      Darren Chandler
+                    </h4>
+                    <p class="text-sm text-gray-600">Transportation Specialist</p>
+                    <div class="mt-4 flex justify-center gap-3">
+                      <a
+                        href="https://facebook.com/darren.chandler"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[var(--color-orange)] flex items-center justify-center hover:bg-[var(--color-orange)] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-facebook-f"></i
+                      ></a>
+                      <a
+                        href="https://twitter.com/darren_chandler"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#1DA1F2] flex items-center justify-center hover:bg-[#1DA1F2] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      <a
+                        href="https://linkedin.com/in/darren-chandler"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#0A66C2] flex items-center justify-center hover:bg-[#0A66C2] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-linkedin-in"></i
+                      ></a>
+                      <a
+                        href="https://instagram.com/darren_chandler"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-instagram"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+    
+                <!-- Highlighted Card -->
+                <div class="relative flex flex-col items-center group">
+                  <div
+                    class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--color-orange)] bg-white z-10 group-hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onclick="openTeamModal('Esther Howard', 'President of Sales', 'assets/images/team_1_2.png')"
+                  >
+                    <img
+                      src="assets/images/team_1_2.png"
+                      alt="Esther Howard"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div
+                    class="mt-[-2rem] w-full max-w-[260px] bg-[var(--color-orange)] text-white rounded-2xl shadow-lg p-6 pt-12 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <h4 class="font-semibold text-lg">Esther Howard</h4>
+                    <p class="text-sm opacity-90">President of Sales</p>
+                    <div class="mt-4 flex justify-center gap-3">
+                      <a
+                        href="https://facebook.com/esther.howard"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-white text-[var(--color-orange)] flex items-center justify-center hover:bg-orange-100 transition-all duration-200"
+                        ><i class="fab fa-facebook-f"></i
+                      ></a>
+                      <a
+                        href="https://twitter.com/esther_howard"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-white text-[var(--color-orange)] flex items-center justify-center hover:bg-orange-100 transition-all duration-200"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      <a
+                        href="https://linkedin.com/in/esther-howard"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-white text-[var(--color-orange)] flex items-center justify-center hover:bg-orange-100 transition-all duration-200"
+                        ><i class="fab fa-linkedin-in"></i
+                      ></a>
+                      <a
+                        href="https://instagram.com/esther_howard"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-white text-[var(--color-orange)] flex items-center justify-center hover:bg-orange-100 transition-all duration-200"
+                        ><i class="fab fa-instagram"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+    
+                <!-- Other Cards -->
+                <div class="relative flex flex-col items-center group">
+                  <div
+                    class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--color-orange)] bg-white z-10 group-hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onclick="openTeamModal('Korbin Brings', 'Project Manager', 'assets/images/team_1_3.png')"
+                  >
+                    <img
+                      src="assets/images/team_1_3.png"
+                      alt="Korbin Brings"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div
+                    class="mt-[-2rem] w-full max-w-[260px] bg-[#F9FAFB] rounded-2xl shadow-md p-6 pt-12 group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <h4
+                      class="font-semibold text-lg text-[#003B49] group-hover:text-[var(--color-orange)] transition-colors duration-300"
+                    >
+                      Korbin Brings
+                    </h4>
+                    <p class="text-sm text-gray-600">Project Manager</p>
+                    <div class="mt-4 flex justify-center gap-3">
+                      <a
+                        href="https://facebook.com/korbin.brings"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[var(--color-orange)] flex items-center justify-center hover:bg-[var(--color-orange)] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-facebook-f"></i
+                      ></a>
+                      <a
+                        href="https://twitter.com/korbin_brings"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#1DA1F2] flex items-center justify-center hover:bg-[#1DA1F2] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      <a
+                        href="https://linkedin.com/in/korbin-brings"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#0A66C2] flex items-center justify-center hover:bg-[#0A66C2] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-linkedin-in"></i
+                      ></a>
+                      <a
+                        href="https://instagram.com/korbin_brings"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-instagram"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="relative flex flex-col items-center group">
+                  <div
+                    class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--color-orange)] bg-white z-10 group-hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onclick="openTeamModal('Michael Johnson', 'Transportation Specialist', 'assets/images/team_1_4.png')"
+                  >
+                    <img
+                      src="assets/images/team_1_4.png"
+                      alt="Michael Johnson"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div
+                    class="mt-[-2rem] w-full max-w-[260px] bg-[#F9FAFB] rounded-2xl shadow-md p-6 pt-12 group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <h4
+                      class="font-semibold text-lg text-[#003B49] group-hover:text-[var(--color-orange)] transition-colors duration-300"
+                    >
+                      Michael Johnson
+                    </h4>
+                    <p class="text-sm text-gray-600">Transportation Specialist</p>
+                    <div class="mt-4 flex justify-center gap-3">
+                      <a
+                        href="https://facebook.com/michael.johnson"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[var(--color-orange)] flex items-center justify-center hover:bg-[var(--color-orange)] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-facebook-f"></i
+                      ></a>
+                      <a
+                        href="https://twitter.com/michael_johnson"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#1DA1F2] flex items-center justify-center hover:bg-[#1DA1F2] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      <a
+                        href="https://linkedin.com/in/michael-johnson"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#0A66C2] flex items-center justify-center hover:bg-[#0A66C2] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-linkedin-in"></i
+                      ></a>
+                      <a
+                        href="https://instagram.com/michael_johnson"
+                        target="_blank"
+                        class="w-8 h-8 rounded-full bg-orange-50 text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-200"
+                        ><i class="fab fa-instagram"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        <!-- ==== TESTIMONIAL SECTION ==== -->
+        <section
+        class="relative py-20 bg-white bg-cover bg-center"
+        style="background-image: url('assets/images/testimonial_bg.png')"
+      >
+        <div
+          class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px] grid lg:grid-cols-2 gap-12 items-center"
+        >
+          <!-- LEFT IMAGE -->
+          <div class="flex justify-center group">
+            <img
+              src="assets/images/testimonial.png"
+              alt="Client"
+              class="w-full max-w-md rounded-xl shadow-lg object-cover group-hover:scale-105 group-hover:shadow-2xl transition-all duration-500 ease-out"
+            />
+          </div>
+
+          <!-- RIGHT CONTENT -->
+          <div class="space-y-6 transition-all duration-500 ease-in-out">
+            <!-- Small Title -->
+            <span
+              class="uppercase text-sm font-semibold text-[var(--color-orange)] flex items-center gap-2"
+            >
+              <i class="fas fa-quote-left"></i> Testimonial
+            </span>
+
+            <!-- Main Heading -->
+            <h2
+              class="text-3xl md:text-4xl font-bold text-[#003B49] leading-snug"
+            >
+              Our Best Clients Reviews
+            </h2>
+
+            <!-- Trusted Row -->
+            <div class="flex items-center gap-3">
+              <div class="flex -space-x-4">
+                <img
+                  src="assets/images/avatar1.png"
+                  class="w-8 h-8 rounded-full border border-white hover:scale-125 hover:z-10 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  alt="user1"
+                  onclick="openAuthorModal('Sarah Johnson', 'Marketing Director', 'assets/images/avatar1.png', 'Sarah has been working with us for over 3 years and has been instrumental in our marketing success. She leads a team of 15 professionals and has helped us grow our client base by 200%.')"
+                />
+                <img
+                  src="assets/images/avater2.png"
+                  class="w-8 h-8 rounded-full border border-white hover:scale-125 hover:z-10 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  alt="user2"
+                  onclick="openAuthorModal('Michael Chen', 'Operations Manager', 'assets/images/avater2.png', 'Michael oversees our daily operations and ensures smooth logistics processes. With 8 years of experience in supply chain management, he has optimized our delivery times by 40%.')"
+                />
+                <img
+                  src="assets/images/avater3.png"
+                  class="w-8 h-8 rounded-full border border-white hover:scale-125 hover:z-10 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  alt="user3"
+                  onclick="openAuthorModal('Emily Rodriguez', 'Customer Success Lead', 'assets/images/avater3.png', 'Emily manages our customer relationships and ensures 100% satisfaction. She has a 98% customer retention rate and has received numerous awards for exceptional service.')"
+                />
+                <span
+                  class="w-8 h-8 rounded-full bg-[var(--color-orange)] text-white text-xs font-semibold flex items-center justify-center hover:scale-125 hover:z-10 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  onclick="openAuthorModal('Our Community', '10,000+ Happy Customers', 'assets/images/avatar1.png', 'Join our growing community of satisfied customers who trust us with their logistics needs. We have successfully delivered over 50,000 shipments worldwide with a 99.8% on-time delivery rate.')"
+                  >10K</span
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <p class="text-sm text-[#666666]">
+                  Trusted By <br /><span class="font-semibold text-[#003B49]"
+                    >World Leading Customer</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <!-- Review -->
+            <p
+              id="reviewText"
+              class="text-[var(--color-dark-blue)] leading-relaxed italic border-l-4 border-[var(--color-orange)] pl-4 transition-all duration-500 ease-in-out"
+            >
+              "Consectetur adipiscing elit. Integer nunc viverra laoreet est the
+              porta pretium metus aliquam eget maecenas porta nunc viverra
+              Aenean adipiscing elit."
+            </p>
+
+            <!-- Rating + Author -->
+            <div class="flex items-center justify-between border-t pt-4">
+              <div class="flex items-center gap-4">
+                <div
+                  id="reviewRating"
+                  class="text-2xl font-bold text-[#666666] transition-all duration-500 ease-in-out"
+                >
+                  4.8*
+                </div>
+                <div>
+                  <h4
+                    id="reviewName"
+                    class="font-semibold text-[#003B49] transition-all duration-500 ease-in-out"
+                  >
+                    Eleanor Pena
+                  </h4>
+                  <p
+                    id="reviewRole"
+                    class="text-sm text-[var(--color-orange)] transition-all duration-500 ease-in-out"
+                  >
+                    Senior Director
+                  </p>
+                </div>
+              </div>
+
+              <!-- Arrows -->
+              <div class="flex gap-2">
+                <button
+                  id="tPrev"
+                  class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-[var(--color-orange)] hover:text-white hover:scale-110 hover:shadow-lg transition-all duration-300 ease-out group"
+                >
+                  <i
+                    class="fas fa-arrow-left group-hover:scale-110 transition-transform duration-300"
+                  ></i>
+                </button>
+                <button
+                  id="tNext"
+                  class="w-10 h-10 rounded-full bg-[var(--color-orange)] text-white flex items-center justify-center hover:bg-orange-600 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-out group"
+                >
+                  <i
+                    class="fas fa-arrow-right group-hover:scale-110 transition-transform duration-300"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    <!-- ========== AUTHOR MODAL ========== -->
+    <div
+    id="authorModal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[999]"
+  >
+    <div
+      class="relative w-[90%] max-w-lg bg-white rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
+    >
+      <button
+        id="authorModalClose"
+        class="absolute -top-12 right-0 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl hover:text-red-400 transition-all duration-300 hover:scale-110"
+        aria-label="Close author modal"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="p-8 text-center">
+        <div
+          class="w-24 h-24 rounded-full overflow-hidden border-4 border-[var(--color-orange)] bg-white mx-auto mb-6 shadow-lg"
+        >
+          <img
+            id="authorModalImage"
+            src=""
+            alt="Author"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <h3
+          id="authorModalName"
+          class="text-2xl font-bold text-[#003B49] mb-2"
+        ></h3>
+        <p
+          id="authorModalPosition"
+          class="text-[var(--color-orange)] font-semibold mb-4"
+        ></p>
+        <p
+          id="authorModalBio"
+          class="text-gray-600 leading-relaxed text-sm"
+        ></p>
+        <div class="mt-6 flex justify-center gap-4">
+          <a
+            href="#"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-[var(--color-orange)] text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-200 hover:scale-110"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:bg-blue-600 transition-all duration-200 hover:scale-110"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-[#E4405F] text-white flex items-center justify-center hover:bg-pink-600 transition-all duration-200 hover:scale-110"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- ==== END TESTIMONIAL SECTION ==== -->  
+
+
+      <!-- ==== FOOTER SECTION ==== -->
+      <footer class="bg-[var(--color-dark-blue)] text-white relative"
+       style="background-image: url('assets/images/footer-bg.png');"
+      >
+        <div
+          class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px] py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10"
+        >
+          <!-- Left block -->
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <img
+                src="assets/images/logo.png"
+                alt="Movix Logo"
+                class="w-8 h-8 object-contain"
+              />
+              <span class="text-2xl font-bold">Movix</span>
+            </div>
+            <p class="text-sm text-gray-300 mb-6 text-justify">
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered in some.
+            </p>
+            <a
+              href="#quote"
+              class="inline-flex items-center gap-2 bg-[var(--color-orange)] hover:bg-orange-600 text-white px-5 py-3 rounded-md shadow transition"
+            >
+              Get A Quote <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h4
+              class="font-semibold text-lg mb-4 border-b-2 border-[var(--color-orange)] pb-1 inline-block"
+            >
+              Company
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-300 mt-1">
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Our Expertise</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Transporters</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Terms & Condition</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Case Studies</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Our Services -->
+          <div>
+            <h4
+              class="font-semibold text-lg mb-4 border-b-2 border-[var(--color-orange)] pb-1 inline-block"
+            >
+              Our Services
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-300 mt-1">
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Ship Freight Shipping</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Less Than Truckload</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Container Freight</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Rail Freight Shipping</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-[var(--color-orange)]"
+                  >Air Freight Trucking</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Office Address -->
+          <div>
+            <h4
+              class="font-semibold text-lg mb-4 border-b-[2px] border-[var(--color-orange)] pb-1 inline-block"
+            >
+              Office Address
+            </h4>
+            <p class="text-sm text-gray-300">
+              3891 Ranchview Dr. Richardson, California 62639
+            </p>
+            <p class="text-sm text-gray-300 mt-2">
+              Mon-Fri : 09.00 am - 05.00 pm
+            </p>
+            <p class="text-sm text-gray-300 mt-2">+1 (456) 568 68</p>
+            <p class="text-sm text-gray-300 mt-2">info.support@gmail.com</p>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px] mt-8">
+          <div
+            class="border border-white/30 rounded-md p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+          >
+            <h3 class="text-xl md:text-3xl font-semibold text-white">
+              Get the Edge with Weekly <br class="hidden md:block" />
+              Insight & Innovation
+            </h3>
+            <form
+              id="newsletterForm"
+              class="w-full md:w-auto flex items-center bg-white rounded-md overflow-hidden shadow"
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email address"
+                class="w-full md:w-72 p-3 text-sm text-gray-700 focus:outline-none"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-[var(--color-orange)] mr-0.5 px-4 py-2 rounded-md text-white hover:bg-orange-600 transition"
+              >
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-10 py-6">
+          <div
+            class="container mx-auto px-6 lg:px-16 2xl:max-w-[1320px] flex flex-col md:flex-row items-center justify-between gap-4"
+          >
+            <!-- Copyright -->
+            <p class="text-sm text-gray-400">
+              © 2025 <span class="font-semibold text-white">Nano_theme</span>.
+              All rights reserved.
+            </p>
+
+            <!-- Socials -->
+            <div class="flex gap-3">
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)] hover:text-white transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)] hover:text-white transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)] hover:text-white transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-[var(--color-orange)] hover:border-[var(--color-orange)] hover:text-white transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- ==== END FOOTER SECTION ==== -->
+  
+  <!-- FontAwesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  
+</body>
+</html>
